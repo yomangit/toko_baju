@@ -63,7 +63,7 @@ class Create extends ModalComponent
             $this->ukuran_array = UkuranPakaian::whereId($stok->ukuran_pakaian_id)->first()->ukuran_pakaian;
 
             $this->jumlah_stok = $this->filds[$this->ukuran_array][] = $stok->jumlah_stok;
-            $this->size_id = $stok->ukuran_pakaian_id;
+            $this->ukuran_id =  UkuranPakaian::whereId($stok->ukuran_pakaian_id)->pluck('id')->toArray();
 
             $this->kode_pakaian = $stok->kode_pakaian;
             $this->nama_pakaian = $stok->nama_pakaian;
@@ -82,7 +82,7 @@ class Create extends ModalComponent
             $this->nama_foto = $this->photo->getClientOriginalName();
             $this->fileUpload = pathinfo($this->nama_foto, PATHINFO_EXTENSION);
         }
-        $Ukuran_Pakaian = ($this->stok_id) ? UkuranPakaian::whereId($this->size_id)->get() : UkuranPakaian::whereIn('id', $this->ukuran_id)->get();
+        $Ukuran_Pakaian = UkuranPakaian::whereIn('id', $this->ukuran_id)->get();
         return view('livewire.administrator.stok.create', [
             'UkuranPakaian' =>  $Ukuran_Pakaian,
             'Kategori' => Kategori::get(),
