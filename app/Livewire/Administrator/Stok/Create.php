@@ -80,8 +80,7 @@ class Create extends ModalComponent
         if ($this->photo) {
             $this->nama_foto = $this->photo->getClientOriginalName();
             $ext = $this->photo->extension();
-            // $this->photo->storeAs('photo', ['disk' => 'public']);
-            $this->photo->storeAs('/contracts/', $this->nama_foto.'.' . $ext,['disk' => 'public']);
+            $this->photo->storeAs('/photos/', $this->nama_foto,['disk' => 'public']);
         }
 
         foreach ($this->ukuran_id as $key => $value) {
