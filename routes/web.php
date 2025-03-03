@@ -9,7 +9,10 @@ use App\Livewire\Administrator\Stok\Index as adminStok;
 Route::get('/', function () {
     return view('layouts.app');
 });
-
+Route::get('/storage-link',function(){
+    Artisan::call('storage:link');
+    return 'storage linked successfully';
+});
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
