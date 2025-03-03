@@ -61,7 +61,7 @@ class Create extends ModalComponent
         $this->Ukuran = ($this->stok_id) ? UkuranPakaian::whereId($stok->ukuran_pakaian_id)->get() : UkuranPakaian::get();
         if ($this->stok_id) {
             $this->ukuran_array = UkuranPakaian::whereId($stok->ukuran_pakaian_id)->first()->ukuran_pakaian;
-            $this->jumlah_stok = $this->filds[$this->ukuran_array][] = $stok->jumlah_stok;
+            $this->filds = StokPakaian::whereId($this->stok_id)->pluck('jumlah_stok')->toArray();
             $this->ukuran_id =  UkuranPakaian::whereId($stok->ukuran_pakaian_id)->pluck('id')->toArray();
             $this->kode_pakaian = $stok->kode_pakaian;
             $this->nama_pakaian = $stok->nama_pakaian;
