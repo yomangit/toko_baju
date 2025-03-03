@@ -17,8 +17,8 @@
 {{-- <x-text-input wire:model.live='phone_number' :error="$errors->get('phone_number')" type="number" placeholder="Phone Number" --}}
 <label
     {{ $attributes->class([
-        'block px-3 font-semibold border shadow-sm input  input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1',
-        'block px-3 font-semibold border shadow-sm input  input-xs placeholder-slate-400 outline-none border-rose-500 ring-rose-500 ring-1' => $error,
+        'block px-3 font-semibold border shadow-sm input  input-xs  focus:outline-none focus:border-accent focus:ring-accent focus:ring-1',
+        'block px-3 font-semibold border shadow-sm input  input-xs  outline-none border-rose-500 ring-rose-500 ring-1' => $error,
     ]) }}>
     <span class="label">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
