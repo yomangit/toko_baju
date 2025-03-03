@@ -15,7 +15,7 @@
                     </svg>
 
                 </span>
-                <x-text-input wire:model.live='phone_number' :error="$errors->get('phone_number')" type="text" placeholder="Phone Number"
+                <x-text-input wire:model.live='phone_number' :error="$errors->get('phone_number')" type="number" placeholder="Phone Number"
                     placeholder="No. Telepon" />
             </label>
             <x-input-error :messages="$errors->get('phone_number')" />
