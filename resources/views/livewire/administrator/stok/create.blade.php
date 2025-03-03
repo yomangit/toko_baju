@@ -108,14 +108,16 @@
 
         </div>
     </form>
-    <dialog id="my_modal_1" class="modal {{ $modalOpen }}">
+    <dialog class="modal {{ $modalOpen }}">
         <div class="modal-box">
-            <h3 class="text-lg font-bold">Hello!</h3>
-            <p class="py-4">Press ESC key or click the button below to close</p>
+            <p
+                class="bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-5xl font-extrabold text-transparent ...">
+                Menghapus data input sementara?
+            </p>
             <div class="modal-action">
                 <form method="dialog">
-                    <x-yes-btn wire:click='KeepData'>{{ __('Yes') }}</x-yes-btn>
-                    <x-no-btn wire:click='resetData'>{{ __('no') }}</x-no-btn>
+                    <x-yes-btn wire:click='KeepData'>{{ __('No') }}</x-yes-btn>
+                    <x-no-btn wire:click='resetData'>{{ __('Yes') }}</x-no-btn>
                 </form>
             </div>
         </div>
