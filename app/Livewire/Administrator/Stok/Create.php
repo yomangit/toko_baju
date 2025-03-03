@@ -74,9 +74,7 @@ class Create extends ModalComponent
 
     public function store()
     {
-        if (key($this->filds)) {
-            dd(reset($this->filds));
-        }
+
 
         $this->validate();
         if ($this->photo) {
@@ -97,8 +95,8 @@ class Create extends ModalComponent
             }
             $ukuran = UkuranPakaian::whereId($this->ukuran_id[$key])->first()->ukuran_pakaian;
             $this->kode_pakaian = 'MP-' . $newKode . '-' . $ukuran;
-            if (key($this->filds)) {
-                dd(reset($this->filds));
+            if ($this->filds[$key]) {
+                dd(key($this->filds));
             }
                 StokPakaian::create([
                     'kode_pakaian' => $this->kode_pakaian,
