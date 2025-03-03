@@ -91,7 +91,7 @@ class Create extends ModalComponent
 
     public function store()
     {
-        dd($this->size_id);
+
         $this->validate();
         if ($this->photo) {
             $this->nama_foto = $this->photo->getClientOriginalName();
@@ -108,9 +108,20 @@ class Create extends ModalComponent
                 'harga_jual' => $this->harga_jual,
                 'harga_pokok' => $this->harga_pokok,
                 'photo' =>  $this->nama_foto,
-                'ukuran_pakaian_id' => $this->ukuran_id,
-                'jumlah_stok' => $this->filds
+                'ukuran_pakaian_id' => $this->size_id,
+                'jumlah_stok' => $this->jumlah_stok
             ]);
+            $this->dispatch(
+                'alert',
+                [
+                    'text' => "Stok Pakaian telah diupdate!!",
+                    'duration' => 3000,
+                    'destination' => '/contact',
+                    'newWindow' => true,
+                    'close' => true,
+                    'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
+                ]
+            );
         } else {
             foreach ($this->ukuran_id as $key => $value) {
 
