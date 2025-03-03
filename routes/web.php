@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Livewire\Administrator\Stok\Index as adminStok;
-use App\Livewire\Customer\Index as CustomerController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\ProfileController;
+use App\Livewire\Customer\Index as CustomerController;
+use App\Livewire\Administrator\Stok\Index as adminStok;
 
 Route::get('/', function () {
     return view('layouts.app');
