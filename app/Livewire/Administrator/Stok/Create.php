@@ -39,14 +39,11 @@ class Create extends ModalComponent
     public $ukuran_array;
     public $nama_foto;
     public $fileUpload;
-    public $size_id;
     public $jumlah_stok;
-    public $size;
     public $ukuran_parameter = "ukuran_pakaian";
     public $kategori_parameter = "kategori_pakaian";
     public $warna_parameter = "nama_warna";
     public $modalOpen;
-
     protected $rules = [
         'ukuran_id' => 'required',
         'filds.*' => 'required'
