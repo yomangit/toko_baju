@@ -62,11 +62,12 @@ class Create extends ModalComponent
         $this->warna_id = $stok->warna_id;
         $this->harga_jual = $stok->harga_jual;
         $this->harga_pokok = $stok->harga_pokok;
-        $this->photo = $stok->photo;
+        $this->nama_foto = $stok->photo;
     }
     public function render()
     {
         $this->number =(int) sizeof($this->ukuran_id);
+
         if ($this->photo) {
             $this->nama_foto = $this->photo->getClientOriginalName();
             $this->fileUpload = pathinfo($this->nama_foto, PATHINFO_EXTENSION);
