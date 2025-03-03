@@ -59,6 +59,7 @@ class Create extends ModalComponent
         $ukuran = UkuranPakaian::whereId($stok->ukuran_pakaian_id)->first()->ukuran_pakaian;
         $this->filds[ $ukuran][] = $stok->jumlah_stok;
         $this->ukuran_id[ $ukuran][] = $stok->ukuran_pakaian_id;
+        dd($this->ukuran_id);
         $this->nama_pakaian= $stok->nama_pakaian;
         $this->kategori_pakaian = $stok->kategori_id;
         $this->warna_id = $stok->warna_id;
@@ -91,44 +92,59 @@ class Create extends ModalComponent
             $this->photo->storeAs('/img/', $this->nama_foto,['disk' => 'public']);
         }
 
-        foreach ($this->ukuran_id as $key => $value) {
+        if ($this->stok_id) {
+           StokPakaian::whereId($this->stok_id)->update([
+                        'kode_pakaian' => $this->kode_pakaian,
+                        'nama_pakaian' => $this->nama_pakaian,
+                        'kategori_id' => $this->kategori_pakaian,
+                        'warna_id' => $this->warna_id,
+                        'harga_jual' => $this->harga_jual,
+                        'harga_pokok' => $this->harga_pokok,
+                        'photo' =>  $this->nama_foto,
+                        'ukuran_pakaian_id' => $value,
+                        'jumlah_stok' => $this->filds[ $ukuran][]
+           ]);
+        } else {
+            foreach ($this->ukuran_id as $key => $value) {
 
-            $lastStok = StokPakaian::orderBy('id', 'desc')->first();
-            if ($lastStok) {
-                $lastKode = (int) substr($lastStok->kode_pakaian, -4);
-                $newKode = str_pad($lastKode + 1, 4, '0', STR_PAD_LEFT);
-            } else {
-                $newKode = '0001';
-            }
-            $ukuran = UkuranPakaian::whereId($this->ukuran_id[$key])->first()->ukuran_pakaian;
-            $this->kode_pakaian = 'MP-' . $newKode . '-' . $ukuran;
-            if(array_keys($this->filds,$ukuran === $ukuran)){
-                StokPakaian::updateOrCreate(['id'=>$this->stok_id],[
-                    'kode_pakaian' => $this->kode_pakaian,
-                    'nama_pakaian' => $this->nama_pakaian,
-                    'kategori_id' => $this->kategori_pakaian,
-                    'warna_id' => $this->warna_id,
-                    'harga_jual' => $this->harga_jual,
-                    'harga_pokok' => $this->harga_pokok,
-                    'photo' =>  $this->nama_foto,
-                    'ukuran_pakaian_id' => $value,
-                    'jumlah_stok' =>$this->filds[$ukuran]
-                ]);
-
+                $lastStok = StokPakaian::orderBy('id', 'desc')->first();
+                if ($lastStok) {
+                    $lastKode = (int) substr($lastStok->kode_pakaian, -4);
+                    $newKode = str_pad($lastKode + 1, 4, '0', STR_PAD_LEFT);
+                } else {
+                    $newKode = '0001';
                 }
+                $ukuran = UkuranPakaian::whereId($this->ukuran_id[$key])->first()->ukuran_pakaian;
+                $this->kode_pakaian = 'MP-' . $newKode . '-' . $ukuran;
+                if(array_keys($this->filds,$ukuran === $ukuran)){
+                    StokPakaian::create([
+                        'kode_pakaian' => $this->kode_pakaian,
+                        'nama_pakaian' => $this->nama_pakaian,
+                        'kategori_id' => $this->kategori_pakaian,
+                        'warna_id' => $this->warna_id,
+                        'harga_jual' => $this->harga_jual,
+                        'harga_pokok' => $this->harga_pokok,
+                        'photo' =>  $this->nama_foto,
+                        'ukuran_pakaian_id' => $value,
+                        'jumlah_stok' =>$this->filds[$ukuran]
+                    ]);
 
+                    }
+
+            }
+            $this->dispatch(
+                'alert',
+                [
+                    'text' => "Stok Pakaian telah ditambahkan!!",
+                    'duration' => 3000,
+                    'destination' => '/contact',
+                    'newWindow' => true,
+                    'close' => true,
+                    'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
+                ]
+            );
         }
-        $this->dispatch(
-            'alert',
-            [
-                'text' => "Stok Pakaian telah ditambahkan!!",
-                'duration' => 3000,
-                'destination' => '/contact',
-                'newWindow' => true,
-                'close' => true,
-                'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
-            ]
-        );
+
         $this->modalOpen ="modal-open";
         $this->dispatch('updateStok');
     }
