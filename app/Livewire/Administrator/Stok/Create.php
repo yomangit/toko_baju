@@ -170,7 +170,7 @@ class Create extends ModalComponent
     }
     public function resetData()
     {
-        $this->reset('filds', 'ukuran_id', 'nama_pakaian', 'kategori_pakaian', 'warna_id', 'harga_jual', 'harga_pokok', 'photo', 'nama_foto', 'fileUpload', 'jumlah_stok', 'kode_pakaian', 'ukuran_array');
+        $this->reset('filds', 'ukuran_id', 'nama_pakaian', 'kategori_pakaian', 'warna_id', 'harga_jual', 'harga_pokok', 'photo', 'nama_foto', 'fileUpload', 'jumlah_stok', 'kode_pakaian', 'ukuran_array', 'modalOpen');
     }
     public static function modalMaxWidth(): string
     {
