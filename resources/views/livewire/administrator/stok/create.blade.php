@@ -46,9 +46,9 @@
                     @foreach ($UkuranPakaian as $index => $size)
                         <fieldset class="pb-0.5 fieldset ">
                             <x-lable-req>{{ __('ukuran ') }}{{ $size->ukuran_pakaian }}</x-lable-req>
-                            <x-text-size wire:model.live="filds.{{ $index }}" :error="$errors->get('filds.' . $index)" type="number"
+                            <x-text-size wire:model.live="filds.{{ $size->id }}" :error="$errors->get('filds.' . $size->id)" type="number"
                                 placeholder="Stok" />
-                            <x-input-error :messages="$errors->get('filds.' . $index)" />
+                            <x-input-error :messages="$errors->get('filds.' . $size->id)" />
                         </fieldset>
                     @endforeach
                 </div>
