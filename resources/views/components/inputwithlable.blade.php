@@ -13,4 +13,5 @@
 
     </span>
     <input type="text" placeholder="URL" />
-    {{-- <x-text-input wire:model.live='phone_number' :error="$errors->get('phone_number')" type="number" placeholder="Phone Number" --}}
+</label>
+{{-- <x-text-input wire:model.live='phone_number' :error="$errors->get('phone_number')" type="number" placeholder="Phone Number" --}}
