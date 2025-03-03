@@ -75,7 +75,7 @@ class Create extends ModalComponent
     public function store()
     {
 
-        dd($this->photo->getPathName());
+        dd($this->photo->title());
         $this->validate();
         if ($this->photo) {
             $this->nama_foto = $this->photo->getClientOriginalName();
