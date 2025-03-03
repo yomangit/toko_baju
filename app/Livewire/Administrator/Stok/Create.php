@@ -57,8 +57,8 @@ class Create extends ModalComponent
     #[On('updateWarnaPakaian')]
     public function mount(StokPakaian $stok)
     {
-        $this->Ukuran = UkuranPakaian::get();
         $this->stok_id = $stok->id;
+        $this->Ukuran = ($this->stok_id) ? UkuranPakaian::whereId($stok->ukuran_pakaian_id)->get() : UkuranPakaian::get();
         if ($this->stok_id) {
             $this->ukuran_array = UkuranPakaian::whereId($stok->ukuran_pakaian_id)->first()->ukuran_pakaian;
             $this->jumlah_stok = $this->filds[$this->ukuran_array][] = $stok->jumlah_stok;
