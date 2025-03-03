@@ -104,7 +104,7 @@ class Create extends ModalComponent
                     'ukuran_pakaian_id' => $value,
                     'jumlah_stok' =>$this->filds[$ukuran]
                 ]);
-                $this->filds[$ukuran]=null;
+
                 }
 
         }
