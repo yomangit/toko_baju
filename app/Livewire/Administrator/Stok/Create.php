@@ -39,6 +39,8 @@ class Create extends ModalComponent
     public $ukuran_array;
     public $nama_foto;
     public $fileUpload;
+    public $size_id;
+    public $jumlah_stok;
 
     public $ukuran_parameter = "ukuran_pakaian";
     public $kategori_parameter = "kategori_pakaian";
@@ -59,9 +61,9 @@ class Create extends ModalComponent
         $this->stok_id = $stok->id;
         if ($this->stok_id) {
             $this->ukuran_array = UkuranPakaian::whereId($stok->ukuran_pakaian_id)->first()->ukuran_pakaian;
-            $this->filds[$this->ukuran_array][] = $stok->jumlah_stok;
-            $this->ukuran_id[$this->ukuran_array][] = $stok->ukuran_pakaian_id;
-
+            $this->jumlah_stok = $this->filds[$this->ukuran_array][] = $stok->jumlah_stok;
+            $this->size_id = $this->ukuran_id[$this->ukuran_array][] = $stok->ukuran_pakaian_id;
+            dd($this->size_id);
             $this->kode_pakaian = $stok->kode_pakaian;
             $this->nama_pakaian = $stok->nama_pakaian;
             $this->kategori_pakaian = $stok->kategori_id;
