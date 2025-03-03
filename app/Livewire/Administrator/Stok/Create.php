@@ -58,7 +58,7 @@ class Create extends ModalComponent
         $this->stok_id = $stok->id;
         $this->filds = $stok->jumlah_stok;
         $this->ukuran_id = $stok->ukuran_pakaian_id;
-        $this->nama_pakaian = $stok->nama_pakaian;
+        $this->nama_pakaian[] = $stok->nama_pakaian;
         $this->kategori_pakaian = $stok->kategori_id;
         $this->warna_id = $stok->warna_id;
         $this->harga_jual = $stok->harga_jual;
