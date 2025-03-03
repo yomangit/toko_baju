@@ -57,17 +57,19 @@ class Create extends ModalComponent
     {
         $this->Ukuran = UkuranPakaian::get();
         $this->stok_id = $stok->id;
-        $this->ukuran_array = UkuranPakaian::whereId($stok->ukuran_pakaian_id)->first()->ukuran_pakaian;
-        $this->filds[$this->ukuran_array][] = $stok->jumlah_stok;
-        $this->ukuran_id[$this->ukuran_array][] = $stok->ukuran_pakaian_id;
-        dd($this->ukuran_id);
-        $this->kode_pakaian = $stok->kode_pakaian;
-        $this->nama_pakaian = $stok->nama_pakaian;
-        $this->kategori_pakaian = $stok->kategori_id;
-        $this->warna_id = $stok->warna_id;
-        $this->harga_jual = $stok->harga_jual;
-        $this->harga_pokok = $stok->harga_pokok;
-        $this->nama_foto = $stok->photo;
+        if ($this->stok_id) {
+            $this->ukuran_array = UkuranPakaian::whereId($stok->ukuran_pakaian_id)->first()->ukuran_pakaian;
+            $this->filds[$this->ukuran_array][] = $stok->jumlah_stok;
+            $this->ukuran_id[$this->ukuran_array][] = $stok->ukuran_pakaian_id;
+            dd($this->ukuran_id);
+            $this->kode_pakaian = $stok->kode_pakaian;
+            $this->nama_pakaian = $stok->nama_pakaian;
+            $this->kategori_pakaian = $stok->kategori_id;
+            $this->warna_id = $stok->warna_id;
+            $this->harga_jual = $stok->harga_jual;
+            $this->harga_pokok = $stok->harga_pokok;
+            $this->nama_foto = $stok->photo;
+        }
     }
     public function render()
     {
