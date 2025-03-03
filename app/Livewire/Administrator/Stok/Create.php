@@ -74,7 +74,9 @@ class Create extends ModalComponent
 
     public function store()
     {
-
+        if (key($this->filds)) {
+            dd(reset($this->filds));
+        }
 
         $this->validate();
         if ($this->photo) {
