@@ -114,8 +114,8 @@
             <p class="py-4">Press ESC key or click the button below to close</p>
             <div class="modal-action">
                 <form method="dialog">
-                    <x-yes-btn></x-yes-btn>
-                    <x-no-btn></x-no-btn>
+                    <x-yes-btn wire:click='KeepData'>{{ __('Yes') }}</x-yes-btn>
+                    <x-no-btn wire:click='resetData'>{{ __('no') }}</x-no-btn>
                 </form>
             </div>
         </div>
