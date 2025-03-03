@@ -95,9 +95,7 @@ class Create extends ModalComponent
             }
             $ukuran = UkuranPakaian::whereId($this->ukuran_id[$key])->first()->ukuran_pakaian;
             $this->kode_pakaian = 'MP-' . $newKode . '-' . $ukuran;
-            if ($this->filds[$ukuran]) {
-                dd($this->filds[$ukuran]);
-             }
+            if(array_keys($this->filds,$ukuran === $ukuran)){
                 StokPakaian::create([
                     'kode_pakaian' => $this->kode_pakaian,
                     'nama_pakaian' => $this->nama_pakaian,
@@ -109,7 +107,7 @@ class Create extends ModalComponent
                     'ukuran_pakaian_id' => $value,
                     'jumlah_stok' =>$this->filds[$ukuran]
                 ]);
-
+                }
 
         }
         $this->dispatch(
