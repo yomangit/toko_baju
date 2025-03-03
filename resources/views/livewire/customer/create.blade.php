@@ -6,7 +6,7 @@
             <x-text-input wire:model.live='name' :error="$errors->get('name')" type="text" placeholder="Nama Pakaian" />
             <x-input-error :messages="$errors->get('name')" />
             <x-lable-req>{{ __('no. telepon') }}</x-lable-req>
-            <label for="" class="input">
+            <label for="" class="input input-xs">
                 <span class="label">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
                         <path fill-rule="evenodd"
