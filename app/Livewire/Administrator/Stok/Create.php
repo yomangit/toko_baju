@@ -67,7 +67,7 @@ class Create extends ModalComponent
     }
     public function render()
     {
-        $this->number =(int) sizeof($this->ukuran_id);
+
 
         if ($this->photo) {
             $this->nama_foto = $this->photo->getClientOriginalName();
