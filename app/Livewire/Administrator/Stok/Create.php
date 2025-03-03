@@ -108,7 +108,7 @@ class Create extends ModalComponent
                 'harga_pokok' => $this->harga_pokok,
                 'photo' =>  $this->nama_foto,
                 'ukuran_pakaian_id' => (int) $this->ukuran_id,
-                'jumlah_stok' => (int) $this->filds,
+                'jumlah_stok' => (int) $this->filds[$this->ukuran_array],
             ]);
             $this->dispatch(
                 'alert',
