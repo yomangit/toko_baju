@@ -16,16 +16,16 @@ class Index extends Component
     public function render()
     {
 
-        return view('livewire.administrator.stok.index',[
-            'Stoks'=> StokPakaian::with(['kategories','Ukuran','warna'])->paginate(20)
+        return view('livewire.administrator.stok.index', [
+            'Stoks' => StokPakaian::with(['kategories', 'Ukuran', 'warna'])->paginate(20)
         ])->extends('layouts.app', ['header' => 'Stok', 'title' => 'Stok Pakaian'])->section('content');
     }
     public function destroy($id)
     {
         $files = StokPakaian::whereId($id);
         $name = $files->first()->photo;
-        if(Storage::disk('public')->exists('/photos/'.$name)) {
-            unlink(storage_path('app/public/photos/' .$name));
+        if (Storage::disk('public')->exists('/img/' . $name)) {
+            unlink(storage_path('app/public/photos/' . $name));
         }
         $this->dispatch(
             'alert',
