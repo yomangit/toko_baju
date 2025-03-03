@@ -36,6 +36,7 @@ class Create extends ModalComponent
     public $number;
     public $stok_id;
     public $kode_pakaian;
+    public $ukuran_array;
     public $nama_foto;
     public $fileUpload;
 
@@ -56,11 +57,12 @@ class Create extends ModalComponent
     {
         $this->Ukuran = UkuranPakaian::get();
         $this->stok_id = $stok->id;
-        $ukuran = UkuranPakaian::whereId($stok->ukuran_pakaian_id)->first()->ukuran_pakaian;
-        $this->filds[ $ukuran][] = $stok->jumlah_stok;
-        $this->ukuran_id[ $ukuran][] = $stok->ukuran_pakaian_id;
+        $this->ukuran_array = UkuranPakaian::whereId($stok->ukuran_pakaian_id)->first()->ukuran_pakaian;
+        $this->filds[$this->ukuran_array][] = $stok->jumlah_stok;
+        $this->ukuran_id[$this->ukuran_array][] = $stok->ukuran_pakaian_id;
         dd($this->ukuran_id);
-        $this->nama_pakaian= $stok->nama_pakaian;
+        $this->kode_pakaian = $stok->kode_pakaian;
+        $this->nama_pakaian = $stok->nama_pakaian;
         $this->kategori_pakaian = $stok->kategori_id;
         $this->warna_id = $stok->warna_id;
         $this->harga_jual = $stok->harga_jual;
@@ -77,7 +79,7 @@ class Create extends ModalComponent
         }
 
         return view('livewire.administrator.stok.create', [
-            'UkuranPakaian'=> UkuranPakaian::whereIn('id',$this->ukuran_id)->get(),
+            'UkuranPakaian' => UkuranPakaian::whereIn('id', $this->ukuran_id)->get(),
             'Kategori' => Kategori::get(),
             'Warna' => Warna::get()
         ]);
@@ -89,21 +91,21 @@ class Create extends ModalComponent
         if ($this->photo) {
             $this->nama_foto = $this->photo->getClientOriginalName();
             $ext = $this->photo->extension();
-            $this->photo->storeAs('/img/', $this->nama_foto,['disk' => 'public']);
+            $this->photo->storeAs('/img/', $this->nama_foto, ['disk' => 'public']);
         }
 
         if ($this->stok_id) {
-           StokPakaian::whereId($this->stok_id)->update([
-                        'kode_pakaian' => $this->kode_pakaian,
-                        'nama_pakaian' => $this->nama_pakaian,
-                        'kategori_id' => $this->kategori_pakaian,
-                        'warna_id' => $this->warna_id,
-                        'harga_jual' => $this->harga_jual,
-                        'harga_pokok' => $this->harga_pokok,
-                        'photo' =>  $this->nama_foto,
-                        'ukuran_pakaian_id' => $value,
-                        'jumlah_stok' => $this->filds[ $ukuran][]
-           ]);
+            StokPakaian::whereId($this->stok_id)->update([
+                'kode_pakaian' => $this->kode_pakaian,
+                'nama_pakaian' => $this->nama_pakaian,
+                'kategori_id' => $this->kategori_pakaian,
+                'warna_id' => $this->warna_id,
+                'harga_jual' => $this->harga_jual,
+                'harga_pokok' => $this->harga_pokok,
+                'photo' =>  $this->nama_foto,
+                'ukuran_pakaian_id' => $this->ukuran_id,
+                'jumlah_stok' => $this->filds
+            ]);
         } else {
             foreach ($this->ukuran_id as $key => $value) {
 
@@ -116,7 +118,7 @@ class Create extends ModalComponent
                 }
                 $ukuran = UkuranPakaian::whereId($this->ukuran_id[$key])->first()->ukuran_pakaian;
                 $this->kode_pakaian = 'MP-' . $newKode . '-' . $ukuran;
-                if(array_keys($this->filds,$ukuran === $ukuran)){
+                if (array_keys($this->filds, $ukuran === $ukuran)) {
                     StokPakaian::create([
                         'kode_pakaian' => $this->kode_pakaian,
                         'nama_pakaian' => $this->nama_pakaian,
@@ -126,11 +128,9 @@ class Create extends ModalComponent
                         'harga_pokok' => $this->harga_pokok,
                         'photo' =>  $this->nama_foto,
                         'ukuran_pakaian_id' => $value,
-                        'jumlah_stok' =>$this->filds[$ukuran]
+                        'jumlah_stok' => $this->filds[$ukuran]
                     ]);
-
-                    }
-
+                }
             }
             $this->dispatch(
                 'alert',
@@ -145,7 +145,7 @@ class Create extends ModalComponent
             );
         }
 
-        $this->modalOpen ="modal-open";
+        $this->modalOpen = "modal-open";
         $this->dispatch('updateStok');
     }
 
