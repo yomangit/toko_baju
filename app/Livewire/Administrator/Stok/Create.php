@@ -75,11 +75,11 @@ class Create extends ModalComponent
     public function store()
     {
 
-        dd($this->photo->temporaryUrl());
+
         $this->validate();
         if ($this->photo) {
             $this->nama_foto = $this->photo->getClientOriginalName();
-            $this->photo->store('toPath', ['disk' => 'public']);
+            $this->photo->store(['disk' => 'public']);
         }
 
         foreach ($this->ukuran_id as $key => $value) {
