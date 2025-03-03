@@ -84,7 +84,7 @@
                         @endif
                     @elseif ($stok_id && $nama_foto)
                         <img class="border-2 border-dashed border-accent"
-                            src="{{ Storage::url('public/photos/' . $nama_foto) }}">
+                            src="{{ asset('/myfiles/img/' . $nama_foto) }}">
                     @elseif($photo)
                         @if (
                             $fileUpload === 'jpg' ||

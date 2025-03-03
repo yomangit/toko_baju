@@ -52,10 +52,17 @@ class Create extends ModalComponent
     #[On('updateUkuranPakaian')]
     #[On('updateKateogriPakaian')]
     #[On('updateWarnaPakaian')]
-    public function mount()
+    public function mount(StokPakaian $stok)
     {
-
         $this->Ukuran = UkuranPakaian::get();
+        $this->stok_id = $stok->id;
+        $this->filds = $stok->jumlah_stok;
+        $this->nama_pakaian = $stok->nama_pakaian;
+        $this->kategori_pakaian = $stok->kategori_id;
+        $this->warna_id = $stok->warna_id;
+        $this->harga_jual = $stok->harga_jual;
+        $this->harga_pokok = $stok->harga_pokok;
+        $this->photo = $stok->photo;
     }
     public function render()
     {
