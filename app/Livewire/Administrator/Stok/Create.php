@@ -94,7 +94,6 @@ class Create extends ModalComponent
             $ext = $this->photo->extension();
             $this->photo->storeAs('/img/', $this->nama_foto, ['disk' => 'public']);
         }
-
         if ($this->stok_id) {
             StokPakaian::whereId($this->stok_id)->update([
                 'kode_pakaian' => $this->kode_pakaian,
@@ -118,6 +117,7 @@ class Create extends ModalComponent
                     'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
                 ]
             );
+            $this->closeModal();
         } else {
             foreach ($this->ukuran_id as $key => $value) {
 
@@ -155,9 +155,8 @@ class Create extends ModalComponent
                     'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
                 ]
             );
+            $this->modalOpen = "modal-open";
         }
-
-        $this->modalOpen = "modal-open";
         $this->dispatch('updateStok');
     }
 
