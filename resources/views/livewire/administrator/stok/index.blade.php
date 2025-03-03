@@ -43,7 +43,7 @@
                                 <div class="avatar drop-shadow-lg">
                                     <div class="w-16 rounded">
                                         @if ($stok->photo)
-                                            <img src="{{ Storage::url('public/myfiles/photos/' . $stok->photo) }}">
+                                            <img src="{{ Storage::url('public/myfiles/img/' . $stok->photo) }}">
                                         @else
                                             <img src="{{ asset('assets/img/empty-image.png') }}">
                                         @endif
