@@ -78,7 +78,7 @@ class Create extends ModalComponent
         $this->validate();
         if ($this->photo) {
             $this->nama_foto = $this->photo->getClientOriginalName();
-            $this->photo->storeAs('toPath', ['disk' => 'public']);
+            $this->photo->store('toPath', ['disk' => 'public']);
         }
 
         foreach ($this->ukuran_id as $key => $value) {
@@ -100,7 +100,7 @@ class Create extends ModalComponent
                     'warna_id' => $this->warna_id,
                     'harga_jual' => $this->harga_jual,
                     'harga_pokok' => $this->harga_pokok,
-                    'photo' =>  $this->nama_foto,
+                    'photo' =>  $this->photo,
                     'ukuran_pakaian_id' => $value,
                     'jumlah_stok' =>$this->filds[$key]
                 ]);
