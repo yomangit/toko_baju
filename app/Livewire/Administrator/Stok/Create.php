@@ -46,7 +46,7 @@ class Create extends ModalComponent
 
     protected $rules = [
         'ukuran_id' => 'required',
-        'filds.*.*' => 'required'
+        'filds.*' => 'required'
     ];
 
     #[On('updateUkuranPakaian')]
