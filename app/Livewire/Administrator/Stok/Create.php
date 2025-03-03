@@ -63,7 +63,7 @@ class Create extends ModalComponent
             $this->ukuran_array = UkuranPakaian::whereId($stok->ukuran_pakaian_id)->first()->ukuran_pakaian;
             $this->jumlah_stok = $this->filds[$this->ukuran_array][] = $stok->jumlah_stok;
             $this->size_id = $this->ukuran_id[$this->ukuran_array][] = $stok->ukuran_pakaian_id;
-            dd($this->size_id);
+
             $this->kode_pakaian = $stok->kode_pakaian;
             $this->nama_pakaian = $stok->nama_pakaian;
             $this->kategori_pakaian = $stok->kategori_id;
@@ -91,6 +91,7 @@ class Create extends ModalComponent
 
     public function store()
     {
+        dd($this->size_id);
         $this->validate();
         if ($this->photo) {
             $this->nama_foto = $this->photo->getClientOriginalName();
