@@ -24,8 +24,8 @@ class Index extends Component
     {
         $files = StokPakaian::whereId($id);
         $name = $files->first()->photo;
-        if (Storage::disk('public')->exists('/img/' . $name)) {
-            unlink(storage_path('app/public/photos/' . $name));
+        if (file_exists(public_path('myfiles/img/' . $name))) {
+            unlink(public_path('myfiles/img/' . $name));
         }
         $this->dispatch(
             'alert',
