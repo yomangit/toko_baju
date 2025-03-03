@@ -74,8 +74,6 @@ class Create extends ModalComponent
 
     public function store()
     {
-
-
         $this->validate();
         if ($this->photo) {
             $this->nama_foto = $this->photo->getClientOriginalName();
@@ -84,7 +82,6 @@ class Create extends ModalComponent
         }
 
         foreach ($this->ukuran_id as $key => $value) {
-            // for ($i = 0; $i <  sizeof($this->ukuran_id); $i++){
 
             $lastStok = StokPakaian::orderBy('id', 'desc')->first();
             if ($lastStok) {
