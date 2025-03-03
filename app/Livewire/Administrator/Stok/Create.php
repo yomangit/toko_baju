@@ -103,7 +103,7 @@ class Create extends ModalComponent
             $ukuran = UkuranPakaian::whereId($this->ukuran_id[$key])->first()->ukuran_pakaian;
             $this->kode_pakaian = 'MP-' . $newKode . '-' . $ukuran;
             if(array_keys($this->filds,$ukuran === $ukuran)){
-                StokPakaian::create([
+                StokPakaian::updateOrCreate(['id'=>$this->stok_id],[
                     'kode_pakaian' => $this->kode_pakaian,
                     'nama_pakaian' => $this->nama_pakaian,
                     'kategori_id' => $this->kategori_pakaian,
