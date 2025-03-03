@@ -1,4 +1,4 @@
-<button {{ $attributes->merge(['type' => 'submit', 'class' => 'btn btn-dash btn-success btn-xs']) }}>
+<label {{ $attributes->merge(['type' => 'submit', 'class' => 'btn btn-dash btn-success btn-xs']) }}>
 
     <svg viewBox="0 0 20 20" fill="none" class="size-4" xmlns="http://www.w3.org/2000/svg">
         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -9,4 +9,4 @@
         </g>
     </svg>
     {{ $slot }}
-</button>
+</label>

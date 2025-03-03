@@ -107,8 +107,19 @@
             <x-close-btn wire:click="$dispatch('closeModal')">{{ __('Close') }}</x-close-btn>
 
         </div>
-
     </form>
+    <dialog id="my_modal_1" class="modal {{ $modalOpen }}">
+        <div class="modal-box">
+            <h3 class="text-lg font-bold">Hello!</h3>
+            <p class="py-4">Press ESC key or click the button below to close</p>
+            <div class="modal-action">
+                <form method="dialog">
+                    <x-yes-btn></x-yes-btn>
+                    <x-no-btn></x-no-btn>
+                </form>
+            </div>
+        </div>
+    </dialog>
     <livewire:administrator.ukuran.create>
         <livewire:administrator.warna.create>
             <livewire:administrator.kategori.create>
