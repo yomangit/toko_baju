@@ -24,6 +24,5 @@
                 clip-rule="evenodd" />
         </svg>
     </span>
-    <input class="border focus:outline-none focus:border-accent focus:ring-accent focus:ring-1" type="text"
-        placeholder="URL" />
+    <input type="text" placeholder="URL" />
 </label>

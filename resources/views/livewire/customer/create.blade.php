@@ -6,7 +6,7 @@
             <x-text-input wire:model.live='name' :error="$errors->get('name')" type="text" placeholder="Nama Pakaian" />
             <x-input-error :messages="$errors->get('name')" />
             <x-lable-req>{{ __('no. telepon') }}</x-lable-req>
-            <x-inputwithlable wire:model.live='phone_number' :error="$errors->get('phone_number')" type="number" />
+            <x-text-input wire:model.live='phone_number' :error="$errors->get('phone_number')" type="number" placeholder="Phone Number" />
             <x-input-error :messages="$errors->get('phone_number')" />
             <x-lable-req>{{ __('alamat') }}</x-lable-req>
             <x-text-input wire:model.live='address' :error="$errors->get('address')" type="text" placeholder="alamat" />
