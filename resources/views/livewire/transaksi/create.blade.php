@@ -26,7 +26,7 @@
                         </svg>
 
                     </button>
-                    <input type="text"
+                    <input type="text" wire:model='count'
                         class="input input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1">
                     <button class="join-item btn btn-xs btn-secondary">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
