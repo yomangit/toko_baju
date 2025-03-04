@@ -6,15 +6,16 @@
             <x-inputwithlable type="text" placeholder="Nama Pakaian" />
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('nama pakaian') }}</x-lable-req>
-                <x-text-input wire:model.live='nama_pakaian' :error="$errors->get('nama_pakaian')" type="text" placeholder="Nama Pakaian" />
+                <x-text-input wire:model.live='nama_pakaian' :error="$errors->get('nama_pakaian')" type="text"
+                    placeholder="cari kode pakaian" />
                 <x-input-error :messages="$errors->get('nama_pakaian')" />
             </fieldset>
+            <fieldset class="pb-0.5 fieldset ">
+                <x-lable-req>{{ __('Harga Satuan') }}</x-lable-req>
+                <x-text-input wire:model.live='harga_jual' :error="$errors->get('harga_jual')" type="number" placeholder="Harga Jual" />
+                <x-input-error :messages="$errors->get('harga_jual')" />
+            </fieldset>
 
-            <label class="fieldset-label">Slug</label>
-            <input type="text" class="input" placeholder="my-awesome-page" />
-
-            <label class="fieldset-label">Author</label>
-            <input type="text" class="input" placeholder="Name" />
         </fieldset>
         <div class="bg-orange-500">02</div>
 
