@@ -5,7 +5,8 @@
             <legend class="fieldset-legend">Page details</legend>
             <div class="relative flex items-center">
                 <input id="11" type="text"
-                    class="relative block pl-8 pr-4 font-semibold border shadow-sm input input-bordered input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1" />
+                    class="relative block pl-8 pr-4 font-semibold border shadow-sm input input-bordered input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1"
+                    placeholder="cari kode pakaian" />
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
                     class="absolute ml-3 size-4">
