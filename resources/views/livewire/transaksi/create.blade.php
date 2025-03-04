@@ -11,7 +11,8 @@
                             clip-rule="evenodd" />
                     </svg>
                 </span>
-                <input type="text" class="focus:outline-none focus:outline-hidden" placeholder="cari kode pakaian" />
+                <input type="text" class="focus:outline-none outline-offset-0 focus:outline-hidden"
+                    placeholder="cari kode pakaian" />
             </label>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('nama pakaian') }}</x-lable-req>
