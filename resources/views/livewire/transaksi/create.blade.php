@@ -3,7 +3,7 @@
     <div class="flex justify-between ...">
         <fieldset class="p-4 border shadow-md fieldset w-xs bg-base-200 border-base-300 rounded-box">
             <legend class="fieldset-legend">Page details</legend>
-            <label class="input input-xs ">
+            <label class="input input-xs focus:outline-none outline-offset-0 focus:outline-hidden">
                 <span class="label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
                         class="size-4">
                         <path fill-rule="evenodd"
@@ -11,8 +11,7 @@
                             clip-rule="evenodd" />
                     </svg>
                 </span>
-                <input type="text" class="focus:outline-none outline-offset-0 focus:outline-hidden"
-                    placeholder="cari kode pakaian" />
+                <input type="text" class="" placeholder="cari kode pakaian" />
             </label>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('nama pakaian') }}</x-lable-req>
