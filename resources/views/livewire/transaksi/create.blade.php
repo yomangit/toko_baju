@@ -1,5 +1,5 @@
 <div>
-    <div class="py-6 mx-auto max-w-7xl sm:px-6 lg:px-8"></div>
+    <div class=""></div>
     <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
         <div class="px-4 py-5 sm:p-6">
             <h2 class="text-2xl font-semibold leading-tight text-gray-800">Clothing Sales Transaction</h2>
