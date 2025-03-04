@@ -44,7 +44,7 @@
                     </div>
                     <x-input-error :messages="$errors->get('harga_jual')" />
                 </fieldset>
-                <div class="-mb-1 join">
+                <div class="-mt-1 join">
                     <span class="rounded-r-full btn join-item btn-xs"><svg fill="currentColor" class="size-4"
                             viewBox="0 0 24 24" id="rupiah-2" data-name="Flat Line" xmlns="http://www.w3.org/2000/svg"
                             class="icon flat-line">
