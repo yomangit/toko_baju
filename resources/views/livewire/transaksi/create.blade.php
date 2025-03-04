@@ -15,6 +15,16 @@
                 <x-text-input wire:model.live='harga_jual' :error="$errors->get('harga_jual')" type="number" placeholder="Harga Jual" />
                 <x-input-error :messages="$errors->get('harga_jual')" />
             </fieldset>
+            <fieldset class="pb-0.5 fieldset ">
+                <x-lable-req>{{ __('Jumlah') }}</x-lable-req>
+                <div class="join">
+                    <button class="join-item btn">«</button>
+                    <x-text-input wire:model.live='harga_jual' class="join-item" :error="$errors->get('harga_jual')" type="number"
+                        placeholder="Harga Jual" />
+                    <button class="join-item btn">»</button>
+                </div>
+                <x-input-error :messages="$errors->get('harga_jual')" />
+            </fieldset>
 
         </fieldset>
         <div class="bg-orange-500">02</div>
