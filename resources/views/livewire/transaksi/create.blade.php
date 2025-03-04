@@ -44,7 +44,7 @@
                     </div>
                     <x-input-error :messages="$errors->get('harga_jual')" />
                 </fieldset>
-                <div class="flex flex-row">
+                <div class="flex flex-row items-end">
                     Total : Rp {{ $total }}
                 </div>
             </div>
