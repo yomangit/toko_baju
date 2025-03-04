@@ -6,8 +6,14 @@
             <div class="relative flex items-center">
                 <input id="11" type="text"
                     class="relative w-full h-10 pl-20 pr-4 font-thin transition-all duration-200 ease-in-out rounded-md outline-none peer bg-gray-50 drop-shadow-sm focus:bg-white focus:drop-shadow-lg" />
-                <button
-                    class="absolute w-16 text-xs font-semibold text-white transition-all duration-200 ease-in-out bg-blue-200 rounded-md left-2 h-7 group-focus-within:bg-blue-400 group-focus-within:hover:bg-blue-600">Send</button>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                    class="absolute w-16 size-4">
+                    <path fill-rule="evenodd"
+                        d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                        clip-rule="evenodd" />
+                </svg>
+
             </div>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('nama pakaian') }}</x-lable-req>
