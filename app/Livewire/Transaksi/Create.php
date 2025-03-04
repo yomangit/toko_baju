@@ -8,6 +8,6 @@ class Create extends Component
 {
     public function render()
     {
-        return view('livewire.transaksi.create');
+        return view('livewire.transaksi.create')->extends('layouts.app', ['header' => 'Transaksi Baru', 'title' => 'Transaksi Baru'])->section('content');
     }
 }
