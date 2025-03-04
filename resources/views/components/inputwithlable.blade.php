@@ -24,5 +24,5 @@
                 clip-rule="evenodd" />
         </svg>
     </span>
-    <input type="text" placeholder="URL" />
+    <input class="border" type="text" placeholder="URL" />
 </label>
