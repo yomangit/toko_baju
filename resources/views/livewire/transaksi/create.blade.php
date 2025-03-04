@@ -3,7 +3,7 @@
     <div class="flex justify-between ...">
         <fieldset class="p-4 border shadow-md fieldset w-xs bg-base-200 border-base-300 rounded-box">
             <legend class="fieldset-legend">Page details</legend>
-            <label class="input input-xs">
+            <label class="input input-xs focus:outline-none">
                 <span class="label"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
                         class="size-4">
                         <path fill-rule="evenodd"
