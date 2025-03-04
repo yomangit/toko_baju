@@ -5,7 +5,7 @@
             <legend class="fieldset-legend">Page details</legend>
             <div class="relative flex items-center">
                 <input id="11" type="text"
-                    class="relative w-full h-10 pl-20 pr-4 font-thin transition-all duration-200 ease-in-out rounded-md outline-none peer bg-gray-50 drop-shadow-sm focus:bg-white focus:drop-shadow-lg" />
+                    class="relative w-full h-10 pl-4 pr-2 input-bordered input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1" />
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
                     class="absolute w-16 size-4">
