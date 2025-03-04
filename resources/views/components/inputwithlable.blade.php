@@ -16,7 +16,7 @@
 </label> --}}
 {{-- <x-text-input wire:model.live='phone_number' :error="$errors->get('phone_number')" type="number" placeholder="Phone Number" --}}
 <label
-    class="border  input input-bordered input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1">
+    class=" input input-bordered input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1">
     <span class="label">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
             <path fill-rule="evenodd"
