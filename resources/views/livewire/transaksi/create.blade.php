@@ -17,7 +17,7 @@
                 <x-input-error :messages="$errors->get('harga_satuan')" />
             </fieldset>
             <div class="flex items-end ">
-                <fieldset class="pb-0.5 fieldset ">
+                <fieldset class=" fieldset">
                     <x-lable-req>{{ __('Jumlah') }}</x-lable-req>
                     <div class="join">
                         <label {{ $count == 0 ? 'disabled = "disabled"' : '' }} wire:click="decrement"
