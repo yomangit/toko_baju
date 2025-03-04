@@ -2,7 +2,8 @@
     <x-notif />
     <div class="flex items-center justify-between">
         <div class="py-2">
-            <x-icon-btn-add data-tip="Tambah Kustomer" class="tooltip-right" wire:click="$dispatch('openModal', { component: 'customer.create' })" />
+            <x-icon-btn-add data-tip="Tambah Kustomer" class="tooltip-right"
+                wire:click="$dispatch('openModal', { component: 'customer.create' })" />
         </div>
         <label class=" floating-label">
             <x-text-cari wire:model.live='searching' type="text" placeholder="Pencarian" />
@@ -22,39 +23,42 @@
                             Alamat
                         </th>
                         <th>
-                            Phone
+                            No. Telepon
                         </th>
                         <th>
-                            gender
+                            Jenis Kelamin
                         </th>
                         <th>
-                            Actions
+
                         </th>
                     </tr>
                 </thead>
                 <tbody class="capitalize">
-                    @foreach($Customers as $index => $customer)
-                    <tr class="text-center">
-                        <th>
-                            {{ $Customers->firstItem() + $index }}
-                        </th>
-                        <td>
-                            {{ $customer->name }}
-                        </td>
-                        <td>
-                            {{ $customer->address }}
-                        </td>
-                        <td>
-                            {{ $customer->phone_number }}
-                        </td>
-                        <td>
-                            {{ $customer->gender }}
-                        </td>
-                        <td>
-                            <x-icon-btn-delete data-tip="Hapus" data-tip="delete" wire:click='destroy({{$customer->id}})' wire:confirm.prompt="Are you sure delete {{ $customer->name }}?\n\nType DELETE to confirm|DELETE" />
-                            <x-icon-btn-edit data-tip="edit" wire:click="$dispatch('openModal', { component: 'customer.create', arguments: { customer: {{ $customer->id }} }})" />
-                        </td>
-                    </tr>
+                    @foreach ($Customers as $index => $customer)
+                        <tr class="text-center">
+                            <th>
+                                {{ $Customers->firstItem() + $index }}
+                            </th>
+                            <td>
+                                {{ $customer->name }}
+                            </td>
+                            <td>
+                                {{ $customer->address }}
+                            </td>
+                            <td>
+                                {{ $customer->phone_number }}
+                            </td>
+                            <td>
+                                {{ $customer->gender }}
+                            </td>
+                            <td>
+                                <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
+                                    wire:click='destroy({{ $customer->id }})'
+                                    wire:confirm.prompt="Are you sure delete {{ $customer->name }}?\n\nType DELETE to confirm|DELETE" />
+                                <x-icon-btn-edit data-tip="edit"
+                                    wire:click="$dispatch('openModal', { component: 'customer.create', arguments: { customer: {{ $customer->id }} }})" />
+                            </td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
