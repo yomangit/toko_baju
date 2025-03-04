@@ -31,7 +31,7 @@
 
                         </label>
                         <input type="text" wire:model='count'
-                            class="input input-xs w-28 placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1">
+                            class="w-16 input input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1">
                         <label wire:click="increment" class="join-item btn btn-xs btn-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
                                 class="size-4">
