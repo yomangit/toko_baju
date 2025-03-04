@@ -18,7 +18,7 @@
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Jumlah') }}</x-lable-req>
                 <div class="join">
-                    <label {{ $stok == 0 ? (disabled = 'disabled') : '' }} wire:click="decrement"
+                    <label {{ $stok == 0 ? 'disabled = "disabled"' : '' }} wire:click="decrement"
                         class="join-item btn btn-xs btn-secondary">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
                             <path fill-rule="evenodd"
