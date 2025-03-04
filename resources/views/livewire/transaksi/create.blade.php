@@ -11,7 +11,9 @@
                         clip-rule="evenodd" />
                 </svg>
 
-                <input type="search" class="grow" placeholder="Search" />
+                <input
+                    class="input input-bordered input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1"
+                    type="search" class="grow" placeholder="Search" />
 
             </label>
             <fieldset class="pb-0.5 fieldset ">
