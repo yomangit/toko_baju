@@ -20,7 +20,7 @@ class Create extends Component
     }
     public function render()
     {
-        $this->total = $this->count + $this->harga_satuan;
+        $this->total = $this->count * $this->harga_satuan;
         return view('livewire.transaksi.create')->extends('layouts.app', ['header' => 'Transaksi Baru', 'title' => 'Transaksi Baru'])->section('content');
     }
 }
