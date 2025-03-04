@@ -3,10 +3,10 @@
         <fieldset class="px-2 border fieldset bg-base-200 border-base-300 ">
             <legend class="fieldset-legend">Tambah Kostumer</legend>
             <x-lable-req>{{ __('nama') }}</x-lable-req>
-            <x-text-input wire:model.live='name' :error="$errors->get('name')" type="text" placeholder="Nama Pakaian" />
+            <x-text-input wire:model.live='name' :error="$errors->get('name')" type="text" placeholder="Nama " />
             <x-input-error :messages="$errors->get('name')" />
             <x-lable-req>{{ __('no. telepon') }}</x-lable-req>
-            <x-text-input wire:model.live='phone_number' :error="$errors->get('phone_number')" type="number" placeholder="Phone Number" />
+            <x-text-input wire:model.live='phone_number' :error="$errors->get('phone_number')" type="number" placeholder="Nomor Telepon" />
             <x-input-error :messages="$errors->get('phone_number')" />
             <x-lable-req>{{ __('alamat') }}</x-lable-req>
             <x-text-input wire:model.live='address' :error="$errors->get('address')" type="text" placeholder="alamat" />
