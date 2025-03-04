@@ -16,7 +16,7 @@
                     placeholder="Harga Satuan" />
                 <x-input-error :messages="$errors->get('harga_satuan')" />
             </fieldset>
-            <div class="flex items-center ">
+            <div class="flex items-end ">
                 <fieldset class="pb-0.5 fieldset ">
                     <x-lable-req>{{ __('Jumlah') }}</x-lable-req>
                     <div class="join">
