@@ -11,7 +11,8 @@
                             clip-rule="evenodd" />
                     </svg>
                 </span>
-                <input type="text" class="" placeholder="cari kode pakaian" />
+                <x-text-input wire:model.live='nama_pakaian' :error="$errors->get('nama_pakaian')" type="text"
+                    placeholder="Nama Pakaian" />
             </label>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('nama pakaian') }}</x-lable-req>
