@@ -12,8 +12,9 @@
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Harga Satuan') }}</x-lable-req>
-                <x-text-input wire:model.live='harga_jual' :error="$errors->get('harga_jual')" type="number" placeholder="Harga Jual" />
-                <x-input-error :messages="$errors->get('harga_jual')" />
+                <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" type="number"
+                    placeholder="Harga Satuan" />
+                <x-input-error :messages="$errors->get('harga_satuan')" />
             </fieldset>
             <div class="flex items-center justify-between">
                 <fieldset class="pb-0.5 fieldset ">
@@ -44,7 +45,7 @@
                     <x-input-error :messages="$errors->get('harga_jual')" />
                 </fieldset>
                 <div>
-                    Total :
+                    Total : Rp {{ $total }}
                 </div>
             </div>
 
