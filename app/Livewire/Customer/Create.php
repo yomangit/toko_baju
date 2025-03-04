@@ -34,44 +34,44 @@ class Create extends ModalComponent
     public function store()
     {
         $this->validate();
-    //     Customer::updateOrCreate(
-    //         ['id' => $this->customer_id],
-    //         [
-    //             'name' => $this->name,
-    //             'gender' => $this->gender,
-    //             'address' => $this->address,
-    //             'phone_number' => $this->phone_number,
-    //         ]
-    //     );
-    //    if ($this->customer_id) {
-    //     $this->dispatch(
-    //         'alert',
-    //         [
-    //             'text' => "Kostumer telah diupdate!!",
-    //             'duration' => 3000,
-    //             'destination' => '/contact',
-    //             'newWindow' => true,
-    //             'close' => true,
-    //             'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
-    //         ]
-    //     );
-    //    } else {
-    //     $this->dispatch(
-    //         'alert',
-    //         [
-    //             'text' => "Kostumer telah ditambahkan!!",
-    //             'duration' => 3000,
-    //             'destination' => '/contact',
-    //             'newWindow' => true,
-    //             'close' => true,
-    //             'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
-    //         ]
-    //     );
-    //    }
+        Customer::updateOrCreate(
+            ['id' => $this->customer_id],
+            [
+                'name' => $this->name,
+                'gender' => $this->gender,
+                'address' => $this->address,
+                'phone_number' => $this->phone_number,
+            ]
+        );
+        if ($this->customer_id) {
+            $this->dispatch(
+                'alert',
+                [
+                    'text' => "Kostumer telah diupdate!!",
+                    'duration' => 3000,
+                    'destination' => '/contact',
+                    'newWindow' => true,
+                    'close' => true,
+                    'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
+                ]
+            );
+        } else {
+            $this->dispatch(
+                'alert',
+                [
+                    'text' => "Kostumer telah ditambahkan!!",
+                    'duration' => 3000,
+                    'destination' => '/contact',
+                    'newWindow' => true,
+                    'close' => true,
+                    'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
+                ]
+            );
+        }
 
-    //     $this->dispatch('customerAdd');
-    //     $this->reset(['name','gender','address','phone_number']);
-    //     $this->closeModal();
+        $this->dispatch('customerAdd');
+        $this->reset(['name', 'gender', 'address', 'phone_number']);
+        $this->closeModal();
     }
     /**
      * Supported: 'sm', 'md', 'lg', 'xl', '2xl', '3xl', '4xl', '5xl', '6xl', '7xl'
