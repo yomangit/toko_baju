@@ -60,7 +60,9 @@
                                         </path>
                                     </g>
                                 </svg></span>
-                            <input class="input join-item input-xs" placeholder="Email" />
+                            <input wire:model='total' readonly
+                                class="input join-item input-xs focus:outline-none focus:border-accent focus:ring-accent focus:ring-1"
+                                placeholder="total harga" />
                         </div>
                     </div>
                     <x-input-error :messages="$errors->get('harga_jual')" />
