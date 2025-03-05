@@ -30,7 +30,7 @@
                                 </svg>
 
                             </label>
-                            <input type="text" wire:model.live='count'
+                            <input type="text" wire:model='count'
                                 class="w-16 input input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1">
                             <label wire:click="increment" class="join-item btn btn-xs btn-secondary">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
@@ -72,44 +72,7 @@
 
             </div>
         </fieldset>
-        <div class="bg-orange-500">
-
-            <div class="overflow-x-auto">
-                <table class="table table-xs">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>company</th>
-                            <th>location</th>
-                            <th>Last Login</th>
-                            <th>Favorite Color</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Littel, Schaden and Vandervort</td>
-                            <td>Canada</td>
-                            <td>12/16/2020</td>
-                            <td>Blue</td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td>Desktop Support Technician</td>
-                            <td>Zemlak, Daniel and Leannon</td>
-                            <td>United States</td>
-                            <td>12/5/2020</td>
-                            <td>Purple</td>
-                        </tr>
-
-                </table>
-            </div>
-        </div>
+        <div class="bg-orange-500">02</div>
 
     </div>
 </div>
