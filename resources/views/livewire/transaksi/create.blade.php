@@ -66,7 +66,7 @@
                                 </g>
                             </svg></span>
                         <input wire:model='total' readonly
-                            class="input join-item input-xs input-ghost focus:outline-none focus:border-accent focus:ring-accent focus:ring-1"
+                            class="input join-item input-xs input-ghost focus:outline-none "
                             placeholder="total harga" />
                     </div>
                 </fieldset>
