@@ -3,11 +3,10 @@
     <div class="flex justify-between ...">
         <fieldset class="p-4 border shadow-md fieldset w-xs bg-base-200 border-base-300 rounded-box">
             <legend class="fieldset-legend">Page details</legend>
-            <x-inputwithlable type="text" placeholder="Nama Pakaian" />
+            <x-inputwithlable type="text"placeholder="cari kode pakaian" />
             <fieldset class="pb-0.5 fieldset ">
-                <x-lable-req>{{ __('nama pakaian') }}</x-lable-req>
-                <x-text-input wire:model.live='nama_pakaian' :error="$errors->get('nama_pakaian')" type="text"
-                    placeholder="cari kode pakaian" />
+                <x-lable-req>{{ __('nama pakaian') }} </x-lable-req>
+                <x-text-input wire:model.live='nama_pakaian' :error="$errors->get('nama_pakaian')" type="text" placeholder="Nama Pakaian" />
                 <x-input-error :messages="$errors->get('nama_pakaian')" />
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
@@ -16,7 +15,7 @@
                     placeholder="Harga Satuan" />
                 <x-input-error :messages="$errors->get('harga_satuan')" />
             </fieldset>
-            <div class="flex">
+            <div class="flex gap-4">
                 <fieldset class=" fieldset">
                     <x-lable-req>{{ __('Jumlah') }}</x-lable-req>
                     <div class="flex gap-1">
