@@ -49,9 +49,9 @@
                 <fieldset class=" fieldset">
                     <x-lable-req>{{ __('Total') }}</x-lable-req>
                     <div class=" join">
-                        <span class="rounded-l-full btn btn-xs join-item btn-ghost"><svg fill="currentColor"
-                                class="size-4" viewBox="0 0 24 24" id="rupiah-2" data-name="Flat Line"
-                                xmlns="http://www.w3.org/2000/svg" class="icon flat-line">
+                        <span class="rounded-l-full btn btn-xs join-item btn-ghost bg-transparent"><svg
+                                fill="currentColor" class="size-4" viewBox="0 0 24 24" id="rupiah-2"
+                                data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                 <g id="SVGRepo_iconCarrier">
@@ -66,7 +66,7 @@
                                 </g>
                             </svg></span>
                         <input wire:model='total' readonly
-                            class="input join-item input-xs input-ghost focus:outline-none ring-none"
+                            class="input join-item input-xs input-ghost focus:outline-none ring-none bg-transparent"
                             placeholder="total harga" />
                     </div>
                 </fieldset>
