@@ -16,7 +16,7 @@
                     placeholder="Harga Satuan" />
                 <x-input-error :messages="$errors->get('harga_satuan')" />
             </fieldset>
-            <div class="flex items-end ">
+            <div class="flex">
                 <fieldset class=" fieldset">
                     <x-lable-req>{{ __('Jumlah') }}</x-lable-req>
                     <div class="flex gap-1">
@@ -43,29 +43,32 @@
 
                             </label>
                         </div>
-                        <div class=" join">
-                            <span class="rounded-l-full join-item"><svg fill="currentColor" class="size-4"
-                                    viewBox="0 0 24 24" id="rupiah-2" data-name="Flat Line"
-                                    xmlns="http://www.w3.org/2000/svg" class="icon flat-line">
-                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                                    <g id="SVGRepo_iconCarrier">
-                                        <path id="primary"
-                                            d="M21,13.5h0A2.5,2.5,0,0,0,18.5,11H16v5h2.5A2.5,2.5,0,0,0,21,13.5ZM16,16v4"
-                                            style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
-                                        </path>
-                                        <path id="primary-2" data-name="primary"
-                                            d="M8,12H3V4H8a4,4,0,0,1,4,4h0A4,4,0,0,1,8,12ZM3,10v8m8,0L8,12"
-                                            style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
-                                        </path>
-                                    </g>
-                                </svg></span>
-                            <input wire:model='total' readonly
-                                class="input join-item input-xs focus:outline-none focus:border-accent focus:ring-accent focus:ring-1"
-                                placeholder="total harga" />
-                        </div>
                     </div>
                     <x-input-error :messages="$errors->get('harga_jual')" />
+                </fieldset>
+                <fieldset class=" fieldset">
+                    <x-lable-req>{{ __('Total') }}</x-lable-req>
+                    <div class=" join">
+                        <span class="rounded-l-full join-item"><svg fill="currentColor" class="size-4"
+                                viewBox="0 0 24 24" id="rupiah-2" data-name="Flat Line"
+                                xmlns="http://www.w3.org/2000/svg" class="icon flat-line">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path id="primary"
+                                        d="M21,13.5h0A2.5,2.5,0,0,0,18.5,11H16v5h2.5A2.5,2.5,0,0,0,21,13.5ZM16,16v4"
+                                        style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
+                                    </path>
+                                    <path id="primary-2" data-name="primary"
+                                        d="M8,12H3V4H8a4,4,0,0,1,4,4h0A4,4,0,0,1,8,12ZM3,10v8m8,0L8,12"
+                                        style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
+                                    </path>
+                                </g>
+                            </svg></span>
+                        <input wire:model='total' readonly
+                            class="input join-item input-xs focus:outline-none focus:border-accent focus:ring-accent focus:ring-1"
+                            placeholder="total harga" />
+                    </div>
                 </fieldset>
 
             </div>
