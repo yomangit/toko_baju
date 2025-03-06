@@ -11,13 +11,13 @@
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Harga Satuan') }}</x-lable-req>
-                <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" @readonly(true) type="number"
+                <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" readonly type="number"
                     placeholder="Harga Satuan" />
                 <x-input-error :messages="$errors->get('harga_satuan')" />
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Stok') }}</x-lable-req>
-                <x-text-input wire:model.live='stok' :error="$errors->get('stok')" @readonly(true) type="number"
+                <x-text-input wire:model.live='stok' :error="$errors->get('stok')" readonly type="number"
                     placeholder="Harga Satuan" />
                 <x-input-error :messages="$errors->get('stok')" />
             </fieldset>
