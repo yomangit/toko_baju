@@ -77,9 +77,9 @@
 
             </div>
         </fieldset>
-        <div class="bg-orange-500 grow ">
+        <div class=" grow">
 
-            <div class="overflow-x-auto">
+            <div class="overflow-x-auto bg-base-200">
                 <table class="table table-xs">
                     <thead>
                         <tr>
