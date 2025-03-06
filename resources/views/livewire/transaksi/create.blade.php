@@ -1,6 +1,6 @@
 <div>
 
-    <div class="flex justify-between ...">
+    <div class="flex ">
         <fieldset class="flex-none p-4 border shadow-md fieldset w-xs bg-base-200 border-base-300 rounded-box">
             <legend class="fieldset-legend">Page details</legend>
             <x-inputwithlable type="text"placeholder="cari kode pakaian" />
