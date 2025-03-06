@@ -11,9 +11,15 @@
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Harga Satuan') }}</x-lable-req>
-                <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" type="number"
+                <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" @readonly(true) type="number"
                     placeholder="Harga Satuan" />
                 <x-input-error :messages="$errors->get('harga_satuan')" />
+            </fieldset>
+            <fieldset class="pb-0.5 fieldset ">
+                <x-lable-req>{{ __('Stok') }}</x-lable-req>
+                <x-text-input wire:model.live='stok' :error="$errors->get('stok')" @readonly(true) type="number"
+                    placeholder="Harga Satuan" />
+                <x-input-error :messages="$errors->get('stok')" />
             </fieldset>
             <div class="flex gap-4">
                 <fieldset class=" fieldset">
@@ -71,7 +77,45 @@
 
             </div>
         </fieldset>
-        <div class="bg-orange-500">02</div>
+        <div class="bg-orange-500">
+            <fieldset class="p-4 border fieldset w-xs bg-base-200 border-base-300 rounded-box">
+                <legend class="fieldset-legend">Page details</legend>
+                <div class="overflow-x-auto">
+                    <table class="table table-xs">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Job</th>
+                                <th>company</th>
+                                <th>location</th>
+                                <th>Last Login</th>
+                                <th>Favorite Color</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <td>Cy Ganderton</td>
+                                <td>Quality Control Specialist</td>
+                                <td>Littel, Schaden and Vandervort</td>
+                                <td>Canada</td>
+                                <td>12/16/2020</td>
+                                <td>Blue</td>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <td>Hart Hagerty</td>
+                                <td>Desktop Support Technician</td>
+                                <td>Zemlak, Daniel and Leannon</td>
+                                <td>United States</td>
+                                <td>12/5/2020</td>
+                                <td>Purple</td>
+                            </tr>
+                    </table>
+                </div>
+            </fieldset>
+        </div>
 
     </div>
 </div>
