@@ -31,4 +31,9 @@ class StokPakaian extends Model
     {
         return $this->belongsTo(UkuranPakaian::class, 'ukuran_pakaian_id');
     }
+
+    public function scopeSearch($query, $term)
+    {
+        return $query->where('kode_pakaian', 'LIKE', '%' . $term . '%');
+    }
 }
