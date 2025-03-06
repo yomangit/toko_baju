@@ -10,16 +10,16 @@
                 <x-input-error :messages="$errors->get('nama_pakaian')" />
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
-                <x-lable-req>{{ __('Harga Satuan') }}</x-lable-req>
-                <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" readonly type="number"
-                    placeholder="Harga Satuan" />
-                <x-input-error :messages="$errors->get('harga_satuan')" />
-            </fieldset>
-            <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Stok') }}</x-lable-req>
                 <x-text-input wire:model.live='stok' :error="$errors->get('stok')" readonly type="number"
                     placeholder="Harga Satuan" />
                 <x-input-error :messages="$errors->get('stok')" />
+            </fieldset>
+            <fieldset class="pb-0.5 fieldset ">
+                <x-lable-req>{{ __('Harga Satuan') }}</x-lable-req>
+                <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" readonly type="number"
+                    placeholder="Harga Satuan" />
+                <x-input-error :messages="$errors->get('harga_satuan')" />
             </fieldset>
             <div class="flex gap-4">
                 <fieldset class=" fieldset">

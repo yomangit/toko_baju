@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Create extends Component
 {
-    public $harga_satuan = 30;
+    public $harga_satuan, $stok;
     public $count = 0, $total;
 
     public function increment()
