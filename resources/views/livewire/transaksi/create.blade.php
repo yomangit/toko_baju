@@ -79,7 +79,7 @@
         </fieldset>
         <div class="card grow">
 
-            <div class="m-4 overflow-x-auto card-body bg-base-200">
+            <div class="m-4 overflow-x-auto card-body bg-base-200 rounded-box">
                 <table class="table table-xs">
                     <thead>
                         <tr>
