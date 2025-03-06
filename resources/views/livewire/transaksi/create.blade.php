@@ -74,7 +74,6 @@
                             placeholder="total harga" />
                     </div>
                 </fieldset>
-
             </div>
         </fieldset>
         <div class="card grow">
