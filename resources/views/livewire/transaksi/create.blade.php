@@ -79,7 +79,7 @@
         </fieldset>
         <div class=" grow">
 
-            <div class="p-4 overflow-x-auto bg-base-200">
+            <div class="m-4 overflow-x-auto bg-base-200">
                 <table class="table table-xs">
                     <thead>
                         <tr>
