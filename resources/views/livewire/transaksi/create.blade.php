@@ -77,9 +77,9 @@
 
             </div>
         </fieldset>
-        <div class=" grow">
+        <div class="card grow">
 
-            <div class="m-4 overflow-x-auto bg-base-200">
+            <div class="m-4 overflow-x-auto card-body bg-base-200">
                 <table class="table table-xs">
                     <thead>
                         <tr>
