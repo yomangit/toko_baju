@@ -7,7 +7,7 @@ use Livewire\Component;
 
 class Create extends Component
 {
-    public $harga_satuan, $stok;
+    public $harga_satuan, $stok, $nama_pakaian;
     public $count = 0, $total, $search = '';
 
     public function increment()
@@ -24,6 +24,7 @@ class Create extends Component
         if ($this->search) {
             $stok = StokPakaian::search(trim($this->search))->first();
             $this->harga_satuan = $stok->harga;
+            $this->nama_pakaian = $stok->nama_pakaian;
             $this->stok = $stok->stok;
             $this->total = $this->count * $this->harga_satuan;
         }
