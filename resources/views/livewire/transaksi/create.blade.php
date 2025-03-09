@@ -3,7 +3,9 @@
     <div class="flex gap-4">
         <fieldset class="flex-none p-4 border shadow-md fieldset w-xs bg-base-200 border-base-300 rounded-box">
             <legend class="fieldset-legend">Page details</legend>
-            <x-inputwithlable wire:model.live='search' type="text"placeholder="cari kode pakaian" />
+            <fieldset class="pb-0.5 fieldset ">
+                <x-inputwithlable wire:model.live='search' type="text"placeholder="cari kode pakaian" />
+            </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('nama pakaian') }} </x-lable-req>
                 <x-text-input wire:model.live='nama_pakaian' :error="$errors->get('nama_pakaian')" type="text" placeholder="Nama Pakaian" />
