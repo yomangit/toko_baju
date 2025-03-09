@@ -21,10 +21,12 @@ class Create extends Component
     }
     public function render()
     {
-        $stok = StokPakaian::search(trim($this->search))->first();
-        $this->harga_satuan = $stok->harga;
-        $this->stok = $stok->stok;
-        $this->total = $this->count * $this->harga_satuan;
+        if ($this->search) {
+            $stok = StokPakaian::search(trim($this->search))->first();
+            $this->harga_satuan = $stok->harga;
+            $this->stok = $stok->stok;
+            $this->total = $this->count * $this->harga_satuan;
+        }
         return view('livewire.transaksi.create')->extends('layouts.app', ['header' => 'Transaksi Baru', 'title' => 'Transaksi Baru'])->section('content');
     }
 }
