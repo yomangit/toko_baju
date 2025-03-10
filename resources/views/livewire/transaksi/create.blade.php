@@ -1,6 +1,6 @@
 <div>
 
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-cols-3 gap-4">
         <fieldset class="flex items-stretch p-4 border shadow-md card w-xs bg-base-200 border-base-300 rounded-box">
             <legend class="fieldset-legend">Page details</legend>
             <fieldset class="pb-0.5 fieldset ">
