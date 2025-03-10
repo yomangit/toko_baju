@@ -109,24 +109,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th>1</th>
-                                <td>Cy Ganderton</td>
-                                <td>Quality Control Specialist</td>
-                                <td>
-                                    <x-icon-btn-delete data-tip="Hapus" data-tip="delete" wire:click=''
-                                        wire:confirm.prompt="Are you sure delete ?\n\nType DELETE to confirm|DELETE" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>2</th>
-                                <td>Hart Hagerty</td>
-                                <td>Desktop Support Technician</td>
-                                <td>
-                                    <x-icon-btn-delete data-tip="Hapus" data-tip="delete" wire:click=''
-                                        wire:confirm.prompt="Are you sure delete ?\n\nType DELETE to confirm|DELETE" />
-                                </td>
-                            </tr>
+                            @foreach ($source as $index => $item)
+                                <tr>
+                                    <th>{{ $source->firstItem() + $index }}</th>
+                                    <td>{{ $item->new_data['nama_pakaian'] }}</td>
+                                    <td>{{ $item->new_data['harga_satuan'] }}</td>
+                                    <td>{{ $item->new_data['harga_satuan'] }}</td>
+                                    <td>{{ $item->new_data['jumlah'] }}</td>
+                                    <td>{{ $item->new_data['total_harga'] }}</td>
+                                    <td>
+                                        <x-icon-btn-delete data-tip="Hapus" data-tip="delete" wire:click=''
+                                            wire:confirm.prompt="Are you sure delete ?\n\nType DELETE to confirm|DELETE" />
+                                    </td>
+                                </tr>
+                            @endforeach
                     </table>
                 </div>
                 <div class="h-32">

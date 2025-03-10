@@ -5,8 +5,9 @@ namespace App\Livewire\Transaksi;
 use Livewire\Component;
 use App\Models\Transaksi;
 use App\Models\StokPakaian;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Cjmellor\Approval\Models\Approval;
 
 class Create extends Component
 {
@@ -25,7 +26,7 @@ class Create extends Component
     public function render()
     {
         $a = $this->generateUniqueCode();
-
+        $source = Approval::where('new_data->reference', 'like', $this->reference)->whereNotNull('new_data->action')->paginate(10);
         if (StokPakaian::search(trim($this->search))->exists()) {
             if ($this->search) {
                 $stok = StokPakaian::search(trim($this->search))->first();
@@ -40,7 +41,10 @@ class Create extends Component
                 $this->total_harga = 0;
             }
         }
-        return view('livewire.transaksi.create')->extends('layouts.app', ['header' => 'Transaksi Baru', 'title' => 'Transaksi Baru'])->section('content');
+        return view('livewire.transaksi.create', [
+            'source' => $source,
+
+        ])->extends('layouts.app', ['header' => 'Transaksi Baru', 'title' => 'Transaksi Baru'])->section('content');
     }
 
     public function generateUniqueCode()
@@ -57,7 +61,7 @@ class Create extends Component
             $transaksi = new Transaksi();
             $transaksi->nama_pakaian = $this->nama_pakaian;
             $transaksi->harga_satuan = $this->harga_satuan;
-            $transaksi->jumlah = $this->count;
+            $transaksi->jumlah_stok = $this->count;
             $transaksi->total_harga = $this->total_harga;
             $transaksi->user_id = Auth::user()->id;
             $transaksi->save();
