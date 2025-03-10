@@ -85,6 +85,10 @@
                     </div>
                 </fieldset>
             </div>
+            <div class="p-2 modal-action">
+                <x-submit-btn>{{ __('Save') }}</x-submit-btn>
+                <x-close-btn wire:click="$dispatch('closeModal')">{{ __('Close') }}</x-close-btn>
+            </div>
         </fieldset>
         <div class="card grow">
 
