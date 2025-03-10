@@ -94,7 +94,7 @@
         <fieldset class="p-4 border shadow-md fieldset rounded-box card grow bg-base-200 border-base-300">
             <legend class="fieldset-legend">Keranjang</legend>
             <div class="overflow-x-auto card-body">
-                <table class="table table-xs">
+                <table class="table text-center table-xs">
                     <thead>
                         <tr>
                             <th>No.</th>
