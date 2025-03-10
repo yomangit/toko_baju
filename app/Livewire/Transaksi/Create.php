@@ -24,7 +24,7 @@ class Create extends Component
     public function render()
     {
         $a = $this->generateUniqueCode();
-        dd($a);
+
         if (StokPakaian::search(trim($this->search))->exists()) {
             if ($this->search) {
                 $stok = StokPakaian::search(trim($this->search))->first();
@@ -51,7 +51,6 @@ class Create extends Component
     public function store()
     {
         DB::beginTransaction();
-
         try {
             // Assuming you have a Transaksi model to save the transaction
             $transaksi = new Transaksi();
