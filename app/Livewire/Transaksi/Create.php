@@ -12,7 +12,7 @@ use Cjmellor\Approval\Models\Approval;
 
 class Create extends Component
 {
-    public $harga_satuan, $stok, $nama_pakaian;
+    public $harga_satuan, $stok, $nama_pakaian, $idPakaian;
     public $count = 1, $total_harga, $search = '';
     use WithPagination;
     public function increment()
@@ -31,6 +31,7 @@ class Create extends Component
         if (StokPakaian::search(trim($this->search))->exists()) {
             if ($this->search) {
                 $stok = StokPakaian::search(trim($this->search))->first();
+                $this->idPakaian = $stok->id;
                 $this->harga_satuan = $stok->harga_jual;
                 $this->nama_pakaian = $stok->nama_pakaian;
                 $this->stok = $stok->jumlah_stok;
@@ -83,7 +84,7 @@ class Create extends Component
                 $transaksi->save();
 
                 // Update the stock
-                $stok = StokPakaian::where('nama_pakaian', $this->nama_pakaian)->first();
+                $stok = StokPakaian::whereId($this->idPakaian)->first();
                 $stok->jumlah_stok -= $this->count;
                 $stok->save();
 
