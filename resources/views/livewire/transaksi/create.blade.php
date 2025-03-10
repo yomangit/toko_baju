@@ -126,7 +126,7 @@
                         </tr>
                 </table>
             </div>
-            <fieldset class="pb-0.5 fieldset ">
+            <fieldset class="pb-0.5 fieldset h-32 bg-emerald-300">
                 <x-label>{{ __('Total Belanja') }} </x-label>
                 <x-text-input wire:model.live='nama_pakaian' readonly :error="$errors->get('nama_pakaian')" type="number"
                     placeholder="Nama Pakaian" />
