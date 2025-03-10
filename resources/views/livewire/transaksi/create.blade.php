@@ -3,7 +3,7 @@
     <div class="grid grid-cols-3 gap-4">
         <div class="h-[75vh] ">
             <fieldset class="items-stretch p-4 border shadow-md card w-xs bg-base-200 border-base-300 rounded-box">
-                <legend class="fieldset-legend">Page details</legend>
+                <legend class="fieldset-legend">Data Barang</legend>
                 <fieldset class="pb-0.5 fieldset ">
                     <div class="relative flex items-center">
                         <input id="11" wire:model.live='search' type="text" placeholder="cari kode pakaian"
@@ -94,7 +94,7 @@
         </div>
 
         <div class="col-span-2">
-            <fieldset class="p-4 border shadow-md  fieldset rounded-box card grow bg-base-200 border-base-300">
+            <fieldset class="p-4 border shadow-md fieldset rounded-box card grow bg-base-200 border-base-300">
                 <legend class="fieldset-legend">Keranjang</legend>
                 <div class="overflow-x-auto bg-amber-200">
                     <table class="table text-center table-xs">
@@ -130,12 +130,12 @@
                 <div class="h-32">
                     <fieldset class="pb-0.5 fieldset h-32 bg-emerald-300">
                         <x-label>{{ __('Total Belanja') }} </x-label>
-                        <x-text-input wire:model.live='nama_pakaian' readonly :error="$errors->get('nama_pakaian')" type="number" />
+                        <x-text-input-ghost wire:model.live='nama_pakaian' readonly :error="$errors->get('nama_pakaian')" type="number" />
                         <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
-                        <x-text-input wire:model.live='stok' :error="$errors->get('stok')" type="number"
+                        <x-text-input-ghost wire:model.live='stok' :error="$errors->get('stok')" type="number"
                             placeholder="Harga Satuan" />
                         <x-label>{{ __('Uang kembali') }}</x-label>
-                        <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" readonly type="number"
+                        <x-text-input-ghost wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" readonly type="number"
                             placeholder="Harga Satuan" />
                     </fieldset>
                 </div>
