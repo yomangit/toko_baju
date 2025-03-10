@@ -1,5 +1,5 @@
 <div>
-
+    <x-notif />
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-[75vh]">
         <div class="justify-self-center md:justify-self-start">
             <fieldset class="items-stretch px-4 border shadow-md card w-xs bg-base-200 border-base-300 rounded-box">
