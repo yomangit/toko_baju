@@ -86,7 +86,7 @@
                         </div>
                     </fieldset>
                 </div>
-                <div class="modal-action">
+                <div class="py-2 modal-action">
                     <x-btn-tambah>{{ __('Tambah') }}</x-btn-tambah>
 
                 </div>
