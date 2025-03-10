@@ -1,7 +1,7 @@
 <div>
 
     <div class="flex gap-4">
-        <div class="border shadow-md card w-xs bg-base-200 border-base-300 rounded-box ">
+        <div class="relative border shadow-md card w-xs bg-base-200 border-base-300 rounded-box">
             <fieldset class="flex-none p-4 fieldset ">
                 <legend class="fieldset-legend">Page details</legend>
                 <fieldset class="pb-0.5 fieldset ">
@@ -87,7 +87,7 @@
                     </fieldset>
                 </div>
             </fieldset>
-            <div class="p-2 modal-action">
+            <div class="absolute bottom-0 right-0 p-4">
                 <x-submit-btn>{{ __('Save') }}</x-submit-btn>
                 <x-close-btn wire:click="$dispatch('closeModal')">{{ __('Close') }}</x-close-btn>
             </div>
