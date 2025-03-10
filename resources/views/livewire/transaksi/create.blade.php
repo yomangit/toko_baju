@@ -94,6 +94,7 @@
                 </form>
             </fieldset>
         </div>
+
         <div class="col-span-2">
             <fieldset class="p-4 border shadow-md fieldset rounded-box card grow bg-base-200 border-base-300">
                 <legend class="fieldset-legend">Keranjang</legend>
@@ -119,7 +120,7 @@
                                     <td>{{ $item->new_data['total_harga'] }}</td>
                                     <td>
                                         <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
-                                            wire:click='destroy({{ $item->new_data['id_pakaian'] }})'
+                                            wire:click='destroy({{ $item->id }})'
                                             wire:confirm.prompt="Are you sure delete {{ $item->new_data['nama_pakaian'] }}?\n\nType DELETE to confirm|DELETE" />
                                     </td>
                                 </tr>
