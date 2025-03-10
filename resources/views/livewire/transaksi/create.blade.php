@@ -126,17 +126,16 @@
                         </tr>
                 </table>
             </div>
-            <fieldset class="p-4 border fieldset w-xs bg-base-200 border-base-300 rounded-box">
-                <legend class="fieldset-legend">Page details</legend>
-
-                <label class="fieldset-label">Title</label>
-                <input type="text" class="input" placeholder="My awesome page" />
-
-                <label class="fieldset-label">Slug</label>
-                <input type="text" class="input" placeholder="my-awesome-page" />
-
-                <label class="fieldset-label">Author</label>
-                <input type="text" class="input" placeholder="Name" />
+            <fieldset class="pb-0.5 fieldset ">
+                <x-lable-req>{{ __('Total Belanja') }} </x-lable-req>
+                <x-text-input wire:model.live='nama_pakaian' :error="$errors->get('nama_pakaian')" type="text"
+                    placeholder="Nama Pakaian" />
+                <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
+                <x-text-input wire:model.live='stok' :error="$errors->get('stok')" readonly type="number"
+                    placeholder="Harga Satuan" />
+                <x-lable-req>{{ __('Uang kembali') }}</x-lable-req>
+                <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" readonly type="number"
+                    placeholder="Harga Satuan" />
             </fieldset>
         </fieldset>
     </div>
