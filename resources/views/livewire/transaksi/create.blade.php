@@ -130,12 +130,12 @@
                 <div class="h-32">
                     <fieldset class="pb-0.5 fieldset h-32">
                         <x-label>{{ __('Total Belanja') }} </x-label>
-                        <x-text-input-ghost wire:model.live='nama_pakaian' readonly :error="$errors->get('nama_pakaian')" type="number" />
+                        <x-text-input-ghost wire:model.live='total_belanja' readonly :error="$errors->get('nama_pakaian')" type="number" />
                         <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
-                        <x-text-input-ghost wire:model.live='stok' :error="$errors->get('stok')" type="number"
+                        <x-text-input-ghost wire:model.live='dibayar' :error="$errors->get('stok')" type="number"
                             placeholder="Harga Satuan" />
                         <x-label>{{ __('Uang kembali') }}</x-label>
-                        <x-text-input-ghost wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" readonly type="number"
+                        <x-text-input-ghost wire:model.live='kembalian' :error="$errors->get('harga_satuan')" readonly type="number"
                             placeholder="Harga Satuan" />
                     </fieldset>
                 </div>
