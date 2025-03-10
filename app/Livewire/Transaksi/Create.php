@@ -80,6 +80,7 @@ class Create extends Component
                 $transaksi->harga_satuan = $this->harga_satuan;
                 $transaksi->jumlah = $this->count;
                 $transaksi->total_harga = $this->total_harga;
+                $transaksi->id_pakaian = $this->idPakaian;
                 $transaksi->user_id = Auth::user()->id;
                 $transaksi->save();
 
@@ -119,8 +120,7 @@ class Create extends Component
 
     public function destroy($id)
     {
-        Approval::whereId($id)->first();
-
+        Approval::where('new_data->id_pakaian', 'like', $this->reference)->first();
         $this->dispatch(
             'alert',
             [
