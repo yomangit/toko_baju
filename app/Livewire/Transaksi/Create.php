@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class Create extends Component
 {
     public $harga_satuan, $stok, $nama_pakaian;
-    public $count = 1, $total, $search = '';
+    public $count = 1, $total_harga, $search = '';
 
     public function increment()
     {
@@ -31,12 +31,12 @@ class Create extends Component
                 $this->harga_satuan = $stok->harga_jual;
                 $this->nama_pakaian = $stok->nama_pakaian;
                 $this->stok = $stok->jumlah_stok;
-                $this->total = $this->count * $this->harga_satuan;
+                $this->total_harga = $this->count * $this->harga_satuan;
             } else {
                 $this->harga_satuan = 0;
                 $this->nama_pakaian = '';
                 $this->stok = 0;
-                $this->total = 0;
+                $this->total_harga = 0;
             }
         }
         return view('livewire.transaksi.create')->extends('layouts.app', ['header' => 'Transaksi Baru', 'title' => 'Transaksi Baru'])->section('content');
@@ -56,8 +56,9 @@ class Create extends Component
             $transaksi = new Transaksi();
             $transaksi->nama_pakaian = $this->nama_pakaian;
             $transaksi->harga_satuan = $this->harga_satuan;
-            $transaksi->jumlah = $this->count;
-            $transaksi->total = $this->total;
+            $transaksi->jumlah_stok = $this->count;
+            $transaksi->total_harga = $this->total_harga;
+            $transaksi->admin_kasir = $this->total_harga;
             $transaksi->save();
 
             // Update the stock

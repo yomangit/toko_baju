@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
-            $table->string('column1');
-            $table->string('column1');
-            $table->string('column1');
-            $table->string('column1');
+            $table->string('nama_pakaian');
+            $table->string('harga_satuan');
+            $table->string('jumlah_stok');
+            $table->string('total_harga');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
