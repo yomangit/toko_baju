@@ -1,7 +1,7 @@
 <div>
 
     <div class="flex gap-4">
-        <fieldset class="flex items-stretch border shadow-md card w-xs bg-base-200 border-base-300 rounded-box">
+        <fieldset class="flex items-stretch p-4 border shadow-md card w-xs bg-base-200 border-base-300 rounded-box">
             <legend class="fieldset-legend">Page details</legend>
             <fieldset class="pb-0.5 fieldset ">
                 <div class="relative flex items-center">
