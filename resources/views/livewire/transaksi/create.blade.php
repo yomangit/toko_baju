@@ -93,50 +93,53 @@
             </fieldset>
         </div>
 
-        <fieldset class="col-span-2 p-4 border shadow-md fieldset rounded-box card grow bg-base-200 border-base-300">
-            <legend class="fieldset-legend">Keranjang</legend>
-            <div class="overflow-x-auto bg-amber-200">
-                <table class="table text-center table-xs">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>Name Pakaian</th>
-                            <th>Jumlah</th>
-                            <th>#</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>
-                                <x-icon-btn-delete data-tip="Hapus" data-tip="delete" wire:click=''
-                                    wire:confirm.prompt="Are you sure delete ?\n\nType DELETE to confirm|DELETE" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td>Desktop Support Technician</td>
-                            <td>
-                                <x-icon-btn-delete data-tip="Hapus" data-tip="delete" wire:click=''
-                                    wire:confirm.prompt="Are you sure delete ?\n\nType DELETE to confirm|DELETE" />
-                            </td>
-                        </tr>
-                </table>
-            </div>
-            <div class="h-32">
-                <fieldset class="pb-0.5 fieldset h-32 bg-emerald-300">
-                    <x-label>{{ __('Total Belanja') }} </x-label>
-                    <x-text-input wire:model.live='nama_pakaian' readonly :error="$errors->get('nama_pakaian')" type="number" />
-                    <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
-                    <x-text-input wire:model.live='stok' :error="$errors->get('stok')" type="number" placeholder="Harga Satuan" />
-                    <x-label>{{ __('Uang kembali') }}</x-label>
-                    <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" readonly type="number"
-                        placeholder="Harga Satuan" />
-                </fieldset>
-            </div>
-        </fieldset>
+        <div class="col-span-2">
+            <fieldset class="p-4 border shadow-md  fieldset rounded-box card grow bg-base-200 border-base-300">
+                <legend class="fieldset-legend">Keranjang</legend>
+                <div class="overflow-x-auto bg-amber-200">
+                    <table class="table text-center table-xs">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Name Pakaian</th>
+                                <th>Jumlah</th>
+                                <th>#</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <td>Cy Ganderton</td>
+                                <td>Quality Control Specialist</td>
+                                <td>
+                                    <x-icon-btn-delete data-tip="Hapus" data-tip="delete" wire:click=''
+                                        wire:confirm.prompt="Are you sure delete ?\n\nType DELETE to confirm|DELETE" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <td>Hart Hagerty</td>
+                                <td>Desktop Support Technician</td>
+                                <td>
+                                    <x-icon-btn-delete data-tip="Hapus" data-tip="delete" wire:click=''
+                                        wire:confirm.prompt="Are you sure delete ?\n\nType DELETE to confirm|DELETE" />
+                                </td>
+                            </tr>
+                    </table>
+                </div>
+                <div class="h-32">
+                    <fieldset class="pb-0.5 fieldset h-32 bg-emerald-300">
+                        <x-label>{{ __('Total Belanja') }} </x-label>
+                        <x-text-input wire:model.live='nama_pakaian' readonly :error="$errors->get('nama_pakaian')" type="number" />
+                        <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
+                        <x-text-input wire:model.live='stok' :error="$errors->get('stok')" type="number"
+                            placeholder="Harga Satuan" />
+                        <x-label>{{ __('Uang kembali') }}</x-label>
+                        <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" readonly type="number"
+                            placeholder="Harga Satuan" />
+                    </fieldset>
+                </div>
+            </fieldset>
+        </div>
     </div>
 </div>
