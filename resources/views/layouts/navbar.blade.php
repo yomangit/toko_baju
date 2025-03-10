@@ -55,10 +55,10 @@
         <a class="text-xl btn btn-ghost">daisyUI</a>
     </div>
     <div class="navbar-end">
-        {{ isset(auth()->user()->name) ? auth()->user()->name : 'guest' }}
         @auth
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline dark:text-gray-500">Log in</a>
+            {{ isset(auth()->user()->name) ? auth()->user()->name : 'guest' }}
         @else
+            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline dark:text-gray-500">Log in</a>
             @if (Route::has('register'))
                 <a href="{{ route('register') }}"
                     class="ml-4 text-sm text-gray-700 underline dark:text-gray-500">Register</a>
