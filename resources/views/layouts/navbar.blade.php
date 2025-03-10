@@ -56,7 +56,20 @@
     </div>
     <div class="navbar-end">
         @auth
-            {{ isset(auth()->user()->name) ? auth()->user()->name : 'guest' }}
+            <details class="dropdown">
+                <summary class="btn btn-xs btn-ghost"> {{ isset(auth()->user()->name) ? auth()->user()->name : 'guest' }}
+                </summary>
+                <ul class="p-2 shadow-sm menu dropdown-content bg-base-100 rounded-box z-1 w-52">
+                    <li>
+                        <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                            class="btn btn-ghost">Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                            @csrf
+                        </form>
+                    </li>
+                </ul>
+            </details>
         @else
             <a href="{{ route('login') }}" class="text-sm text-gray-700 underline dark:text-gray-500">Log in</a>
             @if (Route::has('register'))
