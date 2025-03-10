@@ -102,7 +102,7 @@ class Create extends Component
 
     public function destroy($id)
     {
-        Approval::whereId($id)->rollback();
+        Approval::whereId($id)->first()->rollback();
 
         $this->dispatch(
             'alert',
