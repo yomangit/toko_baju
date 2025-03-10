@@ -98,4 +98,21 @@ class Create extends Component
             );
         }
     }
+
+    public function destroy($id)
+    {
+        Approval::whereId($id)->rollback();
+
+        $this->dispatch(
+            'alert',
+            [
+                'text' => "Kostumer deleted!!",
+                'duration' => 3000,
+                'destination' => '/contact',
+                'newWindow' => true,
+                'close' => true,
+                'backgroundColor' => "linear-gradient(to right, #ff3333, #ff6666)",
+            ]
+        );
+    }
 }
