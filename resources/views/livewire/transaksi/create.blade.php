@@ -93,7 +93,7 @@
 
         <fieldset class="p-4 border shadow-md fieldset rounded-box card grow bg-base-200 border-base-300">
             <legend class="fieldset-legend">Keranjang</legend>
-            <div class="overflow-x-auto card-body">
+            <div class="overflow-x-auto card-body bg-amber-200">
                 <table class="table text-center table-xs">
                     <thead>
                         <tr>
@@ -101,7 +101,6 @@
                             <th>Name Pakaian</th>
                             <th>Jumlah</th>
                             <th>#</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -113,7 +112,6 @@
                                 <x-icon-btn-delete data-tip="Hapus" data-tip="delete" wire:click=''
                                     wire:confirm.prompt="Are you sure delete ?\n\nType DELETE to confirm|DELETE" />
                             </td>
-
                         </tr>
                         <tr>
                             <th>2</th>
@@ -123,7 +121,6 @@
                                 <x-icon-btn-delete data-tip="Hapus" data-tip="delete" wire:click=''
                                     wire:confirm.prompt="Are you sure delete ?\n\nType DELETE to confirm|DELETE" />
                             </td>
-
                         </tr>
                 </table>
             </div>
