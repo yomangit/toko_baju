@@ -56,7 +56,7 @@
     </div>
     <div class="navbar-end">
         @auth
-            <details class="dropdown">
+            <details class="dropdown dropdown-end">
                 <summary class="btn btn-xs btn-ghost"> {{ isset(auth()->user()->name) ? auth()->user()->name : 'guest' }}
                 </summary>
                 <ul class="p-2 shadow-sm menu dropdown-content bg-base-100 rounded-box z-1 w-52">
