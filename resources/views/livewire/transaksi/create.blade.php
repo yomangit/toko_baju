@@ -136,8 +136,8 @@
                         <x-text-input-ghost wire:model.live='dibayar' :error="$errors->get('stok')" type="number"
                             placeholder="Jumlah pembayaran" />
                         <x-label>{{ __('Uang kembali') }}</x-label>
-                        <x-text-input-ghost wire:model.live='kembalian' :error="$errors->get('harga_satuan')" readonly type="number"
-                            placeholder="0" />
+                        <x-text-input-ghost wire:model.live='kembalian' disabled :error="$errors->get('harga_satuan')" readonly
+                            type="number" placeholder="0" />
                     </fieldset>
                 </div>
             </fieldset>
