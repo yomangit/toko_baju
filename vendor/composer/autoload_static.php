@@ -169,6 +169,7 @@ class ComposerStaticInit626b9e7ddd47fb7eff9aaa53cce0c9ad
         'C' => 
         array (
             'Cron\\' => 5,
+            'Cjmellor\\Approval\\' => 18,
             'Carbon\\Doctrine\\' => 16,
             'Carbon\\' => 7,
         ),
@@ -517,6 +518,10 @@ class ComposerStaticInit626b9e7ddd47fb7eff9aaa53cce0c9ad
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
+        'Cjmellor\\Approval\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cjmellor/approval/src',
+        ),
         'Carbon\\Doctrine\\' => 
         array (
             0 => __DIR__ . '/..' . '/carbonphp/carbon-doctrine-types/src/Carbon/Doctrine',
@@ -550,9 +555,20 @@ class ComposerStaticInit626b9e7ddd47fb7eff9aaa53cce0c9ad
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
+        'App\\Livewire\\Administrator\\Kategori\\Create' => __DIR__ . '/../..' . '/app/Livewire/Administrator/Kategori/Create.php',
         'App\\Livewire\\Administrator\\Stok\\Create' => __DIR__ . '/../..' . '/app/Livewire/Administrator/Stok/Create.php',
         'App\\Livewire\\Administrator\\Stok\\Index' => __DIR__ . '/../..' . '/app/Livewire/Administrator/Stok/Index.php',
+        'App\\Livewire\\Administrator\\Ukuran\\Create' => __DIR__ . '/../..' . '/app/Livewire/Administrator/Ukuran/Create.php',
+        'App\\Livewire\\Administrator\\Warna\\Create' => __DIR__ . '/../..' . '/app/Livewire/Administrator/Warna/Create.php',
+        'App\\Livewire\\Customer\\Create' => __DIR__ . '/../..' . '/app/Livewire/Customer/Create.php',
+        'App\\Livewire\\Customer\\Index' => __DIR__ . '/../..' . '/app/Livewire/Customer/Index.php',
+        'App\\Livewire\\Transaksi\\Create' => __DIR__ . '/../..' . '/app/Livewire/Transaksi/Create.php',
+        'App\\Models\\Customer' => __DIR__ . '/../..' . '/app/Models/Customer.php',
+        'App\\Models\\Kategori' => __DIR__ . '/../..' . '/app/Models/Kategori.php',
+        'App\\Models\\StokPakaian' => __DIR__ . '/../..' . '/app/Models/StokPakaian.php',
+        'App\\Models\\UkuranPakaian' => __DIR__ . '/../..' . '/app/Models/UkuranPakaian.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\Warna' => __DIR__ . '/../..' . '/app/Models/Warna.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\View\\Components\\AppLayout' => __DIR__ . '/../..' . '/app/View/Components/AppLayout.php',
         'App\\View\\Components\\GuestLayout' => __DIR__ . '/../..' . '/app/View/Components/GuestLayout.php',
@@ -662,6 +678,18 @@ class ComposerStaticInit626b9e7ddd47fb7eff9aaa53cce0c9ad
         'Carbon\\Unit' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Unit.php',
         'Carbon\\WeekDay' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/WeekDay.php',
         'Carbon\\WrapperClock' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/WrapperClock.php',
+        'Cjmellor\\Approval\\ApprovalServiceProvider' => __DIR__ . '/..' . '/cjmellor/approval/src/ApprovalServiceProvider.php',
+        'Cjmellor\\Approval\\Concerns\\MustBeApproved' => __DIR__ . '/..' . '/cjmellor/approval/src/Concerns/MustBeApproved.php',
+        'Cjmellor\\Approval\\Concerns\\MustBeApprovedFactory' => __DIR__ . '/..' . '/cjmellor/approval/src/Concerns/MustBeApprovedFactory.php',
+        'Cjmellor\\Approval\\Enums\\ApprovalStatus' => __DIR__ . '/..' . '/cjmellor/approval/src/Enums/ApprovalStatus.php',
+        'Cjmellor\\Approval\\Events\\ApprovalCreated' => __DIR__ . '/..' . '/cjmellor/approval/src/Events/ApprovalCreated.php',
+        'Cjmellor\\Approval\\Events\\ModelApproved' => __DIR__ . '/..' . '/cjmellor/approval/src/Events/ModelApproved.php',
+        'Cjmellor\\Approval\\Events\\ModelRejected' => __DIR__ . '/..' . '/cjmellor/approval/src/Events/ModelRejected.php',
+        'Cjmellor\\Approval\\Events\\ModelRolledBackEvent' => __DIR__ . '/..' . '/cjmellor/approval/src/Events/ModelRolledBackEvent.php',
+        'Cjmellor\\Approval\\Events\\ModelSetPending' => __DIR__ . '/..' . '/cjmellor/approval/src/Events/ModelSetPending.php',
+        'Cjmellor\\Approval\\Facades\\Approval' => __DIR__ . '/..' . '/cjmellor/approval/src/Facades/Approval.php',
+        'Cjmellor\\Approval\\Models\\Approval' => __DIR__ . '/..' . '/cjmellor/approval/src/Models/Approval.php',
+        'Cjmellor\\Approval\\Scopes\\ApprovalStateScope' => __DIR__ . '/..' . '/cjmellor/approval/src/Scopes/ApprovalStateScope.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',

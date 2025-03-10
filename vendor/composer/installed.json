@@ -136,6 +136,77 @@
             "install-path": "../carbonphp/carbon-doctrine-types"
         },
         {
+            "name": "cjmellor/approval",
+            "version": "v1.6.6",
+            "version_normalized": "1.6.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cjmellor/approval.git",
+                "reference": "1d9bb4247cfa4b346a721a4355b244b6a9120655"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cjmellor/approval/zipball/1d9bb4247cfa4b346a721a4355b244b6a9120655",
+                "reference": "1d9bb4247cfa4b346a721a4355b244b6a9120655",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^10.0|^11.0|^12.0",
+                "php": "^8.2",
+                "spatie/laravel-package-tools": "^1.18"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.0|^8.0",
+                "orchestra/testbench": "^7.0|^8.0|^9.0|^10.0",
+                "pestphp/pest": "^2.0|^3.7",
+                "pestphp/pest-plugin-arch": "^2.0|^3.0",
+                "pestphp/pest-plugin-laravel": "^2.0|^3.1",
+                "pestphp/pest-plugin-type-coverage": "^2.0|^3.3"
+            },
+            "time": "2025-02-26T07:46:06+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "aliases": {
+                        "Approval": "Cjmellor\\Approval\\Facades\\Approval"
+                    },
+                    "providers": [
+                        "Cjmellor\\Approval\\ApprovalServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Cjmellor\\Approval\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Mellor",
+                    "email": "cmellor@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Approve or Deny new Model data before it is persisted",
+            "homepage": "https://github.com/cjmellor/approval",
+            "keywords": [
+                "approval",
+                "cjmellor",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/cjmellor/approval/issues",
+                "source": "https://github.com/cjmellor/approval/tree/v1.6.6"
+            },
+            "install-path": "../cjmellor/approval"
+        },
+        {
             "name": "dflydev/dot-access-data",
             "version": "v3.0.3",
             "version_normalized": "3.0.3.0",
