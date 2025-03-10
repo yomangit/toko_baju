@@ -26,9 +26,9 @@
         </label>
     </div>
     <div class="block lg:hidden navbar-start">
-        <label for="my-drawer"  class=" btn btn-sm btn-square swap swap-rotate bg-base-100">
+        <label for="my-drawer" class=" btn btn-sm btn-square swap swap-rotate bg-base-100">
             <!-- this hidden checkbox controls the state -->
-            <input  type="checkbox" />
+            <input type="checkbox" />
 
             <!-- hamburger icon -->
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
@@ -55,6 +55,7 @@
         <a class="text-xl btn btn-ghost">daisyUI</a>
     </div>
     <div class="navbar-end">
+        {{ isset(auth()->user()->name) ? auth()->user()->name : 'guest' }}
         <a href="{{ route('login') }}" class="text-sm text-gray-700 underline dark:text-gray-500">Log in</a>
         @if (Route::has('register'))
             <a href="{{ route('register') }}"
