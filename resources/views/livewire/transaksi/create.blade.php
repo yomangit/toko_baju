@@ -1,7 +1,7 @@
 <div>
 
-    <div class="grid grid-cols-1 justify-items-center md:grid-cols-3 gap-4 h-[75vh]">
-        <div class="">
+    <div class="grid grid-cols-1  md:grid-cols-3 gap-4 h-[75vh]">
+        <div class="justify-self-center">
             <fieldset class="items-stretch px-4 border shadow-md card w-xs bg-base-200 border-base-300 rounded-box">
                 <legend class="fieldset-legend">Data Barang</legend>
                 <fieldset class="pb-0.5 fieldset ">
