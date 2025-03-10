@@ -5,6 +5,7 @@ namespace App\Livewire\Transaksi;
 use Livewire\Component;
 use App\Models\Transaksi;
 use App\Models\StokPakaian;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class Create extends Component
@@ -58,7 +59,7 @@ class Create extends Component
             $transaksi->harga_satuan = $this->harga_satuan;
             $transaksi->jumlah_stok = $this->count;
             $transaksi->total_harga = $this->total_harga;
-            $transaksi->admin_kasir = $this->total_harga;
+            $transaksi->admin_kasir = Auth::user()->name;
             $transaksi->save();
 
             // Update the stock
