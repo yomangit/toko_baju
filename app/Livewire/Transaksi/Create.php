@@ -57,46 +57,62 @@ class Create extends Component
     public function store()
     {
         DB::beginTransaction();
-        try {
-            // Assuming you have a Transaksi model to save the transaction
-            $transaksi = new Transaksi();
-            $transaksi->nama_pakaian = $this->nama_pakaian;
-            $transaksi->harga_satuan = $this->harga_satuan;
-            $transaksi->jumlah_stok = $this->count;
-            $transaksi->total_harga = $this->total_harga;
-            $transaksi->user_id = Auth::user()->id;
-            $transaksi->save();
-
-            // Update the stock
-            $stok = StokPakaian::where('nama_pakaian', $this->nama_pakaian)->first();
-            $stok->jumlah_stok -= $this->count;
-            $stok->save();
-
-            DB::commit();
+        if ($this->stok <= $this->count) {
             $this->dispatch(
                 'alert',
                 [
-                    'text' => "Transaksi berhasil disimpan!!",
+                    'text' => 'Stok tidak mencukupi untuk transaksi ini.',
                     'duration' => 3000,
                     'destination' => '/contact',
                     'newWindow' => true,
                     'close' => true,
-                    'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
+                    'backgroundColor' => "linear-gradient(to right, #ff3333, #ff6666)",
                 ]
             );
-        } catch (\Exception $e) {
-            DB::rollBack();
-            $this->dispatch(
-                'alert',
-                [
-                    'text' => 'Terjadi kesalahan saat menyimpan transaksi: ' . $e->getMessage(),
-                    'duration' => 3000,
-                    'destination' => '/contact',
-                    'newWindow' => true,
-                    'close' => true,
-                    'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
-                ]
-            );
+            return;
+        } else {
+
+            try {
+                // Assuming you have a Transaksi model to save the transaction
+                $transaksi = new Transaksi();
+                $transaksi->nama_pakaian = $this->nama_pakaian;
+                $transaksi->harga_satuan = $this->harga_satuan;
+                $transaksi->jumlah_stok = $this->count;
+                $transaksi->total_harga = $this->total_harga;
+                $transaksi->user_id = Auth::user()->id;
+                $transaksi->save();
+
+                // Update the stock
+                $stok = StokPakaian::where('nama_pakaian', $this->nama_pakaian)->first();
+                $stok->jumlah_stok -= $this->count;
+                $stok->save();
+
+                DB::commit();
+                $this->dispatch(
+                    'alert',
+                    [
+                        'text' => "Transaksi berhasil disimpan!!",
+                        'duration' => 3000,
+                        'destination' => '/contact',
+                        'newWindow' => true,
+                        'close' => true,
+                        'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
+                    ]
+                );
+            } catch (\Exception $e) {
+                DB::rollBack();
+                $this->dispatch(
+                    'alert',
+                    [
+                        'text' => 'Terjadi kesalahan saat menyimpan transaksi: ' . $e->getMessage(),
+                        'duration' => 3000,
+                        'destination' => '/contact',
+                        'newWindow' => true,
+                        'close' => true,
+                        'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
+                    ]
+                );
+            }
         }
     }
 
