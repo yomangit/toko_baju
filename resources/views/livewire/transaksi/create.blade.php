@@ -91,9 +91,9 @@
             </div>
         </fieldset>
 
-        <fieldset class="fieldset rounded-box card grow">
+        <fieldset class="m-4 shadow-md fieldset rounded-box card grow bg-base-200">
             <legend class="fieldset-legend">Keranjang</legend>
-            <div class="m-4 overflow-x-auto shadow-md card-body bg-base-200 rounded-box">
+            <div class="overflow-x-auto  card-body">
                 <table class="table table-xs">
                     <thead>
                         <tr>
