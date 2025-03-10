@@ -104,7 +104,9 @@
                             <tr>
                                 <th>No.</th>
                                 <th>Name Pakaian</th>
-                                <th>Jumlah</th>
+                                <th>Harga Satuan</th>
+                                <th>Quantity</th>
+                                <th>Total Harga</th>
                                 <th>#</th>
                             </tr>
                         </thead>
@@ -113,7 +115,6 @@
                                 <tr>
                                     <th>{{ $source->firstItem() + $index }}</th>
                                     <td>{{ $item->new_data['nama_pakaian'] }}</td>
-                                    <td>{{ $item->new_data['harga_satuan'] }}</td>
                                     <td>{{ $item->new_data['harga_satuan'] }}</td>
                                     <td>{{ $item->new_data['jumlah'] }}</td>
                                     <td>{{ $item->new_data['total_harga'] }}</td>
