@@ -87,7 +87,7 @@
             </div>
             <div class="modal-action">
                 <x-btn-tambah>{{ __('Tambah') }}</x-btn-tambah>
-                <x-close-btn wire:click="$dispatch('closeModal')">{{ __('Close') }}</x-close-btn>
+
             </div>
         </fieldset>
         <div class="card grow">
