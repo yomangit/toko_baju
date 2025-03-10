@@ -86,7 +86,7 @@
                 </fieldset>
             </div>
             <div class="modal-action">
-                <x-submit-btn>{{ __('Save') }}</x-submit-btn>
+                <x-btn-tambah>{{ __('Tambah') }}</x-btn-tambah>
                 <x-close-btn wire:click="$dispatch('closeModal')">{{ __('Close') }}</x-close-btn>
             </div>
         </fieldset>
