@@ -87,7 +87,7 @@
                     </fieldset>
                 </div>
             </fieldset>
-            <div class="self-end p-4">
+            <div class="self-end ">
                 <x-submit-btn>{{ __('Save') }}</x-submit-btn>
                 <x-close-btn wire:click="$dispatch('closeModal')">{{ __('Close') }}</x-close-btn>
             </div>
