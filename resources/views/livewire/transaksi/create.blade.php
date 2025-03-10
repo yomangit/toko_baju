@@ -1,7 +1,8 @@
 <div>
 
-    <div class="grid grid-cols-3 gap-4">
-        <fieldset class="flex items-stretch p-4 border shadow-md card w-xs bg-base-200 border-base-300 rounded-box">
+    <div class="grid grid-flow-col grid-rows-3 gap-4">
+        <fieldset
+            class="flex items-stretch row-span-3 p-4 border shadow-md card w-xs bg-base-200 border-base-300 rounded-box">
             <legend class="fieldset-legend">Page details</legend>
             <fieldset class="pb-0.5 fieldset ">
                 <div class="relative flex items-center">
@@ -91,7 +92,7 @@
             </div>
         </fieldset>
 
-        <fieldset class="col-span-2 p-4 border shadow-md fieldset rounded-box card grow bg-base-200 border-base-300">
+        <fieldset class="row-span-2 p-4 border shadow-md fieldset rounded-box card grow bg-base-200 border-base-300">
             <legend class="fieldset-legend">Keranjang</legend>
             <div class="overflow-x-auto card-body bg-amber-200">
                 <table class="table text-center table-xs">
