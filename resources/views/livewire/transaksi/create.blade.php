@@ -1,6 +1,6 @@
 <div>
 
-    <div class="flex gap-4">
+    <div class="grid grid-cols-3 gap-4">
         <fieldset class="flex items-stretch p-4 border shadow-md card w-xs bg-base-200 border-base-300 rounded-box">
             <legend class="fieldset-legend">Page details</legend>
             <fieldset class="pb-0.5 fieldset ">
@@ -91,7 +91,7 @@
             </div>
         </fieldset>
 
-        <fieldset class="p-4 border shadow-md fieldset rounded-box card grow bg-base-200 border-base-300">
+        <fieldset class="col-span-2 p-4 border shadow-md fieldset rounded-box card grow bg-base-200 border-base-300">
             <legend class="fieldset-legend">Keranjang</legend>
             <div class="overflow-x-auto card-body bg-amber-200">
                 <table class="table text-center table-xs">
@@ -137,7 +137,5 @@
                 <input type="text" class="input" placeholder="Name" />
             </fieldset>
         </fieldset>
-
-
     </div>
 </div>
