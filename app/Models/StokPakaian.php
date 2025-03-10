@@ -34,6 +34,6 @@ class StokPakaian extends Model
 
     public function scopeSearch($query, $term)
     {
-        return $query->where('kode_pakaian', 'LIKE', '%' . $term . '%');
+        return $query->where('kode_pakaian', 'LIKE',  $term);
     }
 }
