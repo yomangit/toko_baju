@@ -5,6 +5,7 @@ namespace App\Livewire\Transaksi;
 use Livewire\Component;
 use App\Models\Transaksi;
 use App\Models\StokPakaian;
+use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Cjmellor\Approval\Models\Approval;
@@ -13,7 +14,7 @@ class Create extends Component
 {
     public $harga_satuan, $stok, $nama_pakaian;
     public $count = 1, $total_harga, $search = '';
-
+    use WithPagination;
     public function increment()
     {
         $this->count++;
