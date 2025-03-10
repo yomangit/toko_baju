@@ -119,7 +119,7 @@ class Create extends Component
 
     public function destroy($id)
     {
-        Approval::whereId($id)->reject();
+        Approval::whereId($id)->first();
 
         $this->dispatch(
             'alert',
