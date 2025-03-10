@@ -120,7 +120,7 @@
                                     <td>{{ $item->new_data['total_harga'] }}</td>
                                     <td>
                                         <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
-                                            wire:click='destroy({{ $source->id }})'
+                                            wire:click='destroy({{ $item->id }})'
                                             wire:confirm.prompt="Are you sure delete {{ $item->new_data['nama_pakaian'] }}?\n\nType DELETE to confirm|DELETE" />
                                     </td>
                                 </tr>
