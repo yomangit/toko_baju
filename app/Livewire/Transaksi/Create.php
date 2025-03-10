@@ -8,7 +8,7 @@ use Livewire\Component;
 class Create extends Component
 {
     public $harga_satuan, $stok, $nama_pakaian;
-    public $count = 0, $total, $search = '';
+    public $count = 1, $total, $search = '';
 
     public function increment()
     {
