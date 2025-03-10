@@ -2,8 +2,10 @@
 
 namespace App\Livewire\Transaksi;
 
-use App\Models\StokPakaian;
 use Livewire\Component;
+use App\Models\Transaksi;
+use App\Models\StokPakaian;
+use Illuminate\Support\Facades\DB;
 
 class Create extends Component
 {
@@ -21,6 +23,8 @@ class Create extends Component
     }
     public function render()
     {
+        $a = $this->generateUniqueCode();
+        dd($a);
         if (StokPakaian::search(trim($this->search))->exists()) {
             if ($this->search) {
                 $stok = StokPakaian::search(trim($this->search))->first();
@@ -36,5 +40,57 @@ class Create extends Component
             }
         }
         return view('livewire.transaksi.create')->extends('layouts.app', ['header' => 'Transaksi Baru', 'title' => 'Transaksi Baru'])->section('content');
+    }
+
+    public function generateUniqueCode()
+    {
+        $code = random_int(100000, 999999);
+        return $code;
+    }
+
+    public function store()
+    {
+        DB::beginTransaction();
+
+        try {
+            // Assuming you have a Transaksi model to save the transaction
+            $transaksi = new Transaksi();
+            $transaksi->nama_pakaian = $this->nama_pakaian;
+            $transaksi->harga_satuan = $this->harga_satuan;
+            $transaksi->jumlah = $this->count;
+            $transaksi->total = $this->total;
+            $transaksi->save();
+
+            // Update the stock
+            $stok = StokPakaian::where('nama_pakaian', $this->nama_pakaian)->first();
+            $stok->jumlah_stok -= $this->count;
+            $stok->save();
+
+            DB::commit();
+            $this->dispatch(
+                'alert',
+                [
+                    'text' => "Transaksi berhasil disimpan!!",
+                    'duration' => 3000,
+                    'destination' => '/contact',
+                    'newWindow' => true,
+                    'close' => true,
+                    'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
+                ]
+            );
+        } catch (\Exception $e) {
+            DB::rollBack();
+            $this->dispatch(
+                'alert',
+                [
+                    'text' => 'Terjadi kesalahan saat menyimpan transaksi: ' . $e->getMessage(),
+                    'duration' => 3000,
+                    'destination' => '/contact',
+                    'newWindow' => true,
+                    'close' => true,
+                    'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
+                ]
+            );
+        }
     }
 }
