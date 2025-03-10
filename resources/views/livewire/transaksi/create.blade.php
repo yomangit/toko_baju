@@ -1,8 +1,8 @@
 <div>
 
     <div class="flex gap-4">
-        <div class="card">
-            <fieldset class="flex-none p-4 border shadow-md fieldset w-xs bg-base-200 border-base-300 rounded-box">
+        <div class="border shadow-md card w-xs bg-base-200 border-base-300 rounded-box ">
+            <fieldset class="flex-none p-4 fieldset ">
                 <legend class="fieldset-legend">Page details</legend>
                 <fieldset class="pb-0.5 fieldset ">
                     <div class="relative flex items-center">
