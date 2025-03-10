@@ -127,12 +127,12 @@
                 </table>
             </div>
             <fieldset class="pb-0.5 fieldset ">
-                <x-lable-req>{{ __('Total Belanja') }} </x-lable-req>
+                <x-label>{{ __('Total Belanja') }} </x-label>
                 <x-text-input wire:model.live='nama_pakaian' readonly :error="$errors->get('nama_pakaian')" type="number"
                     placeholder="Nama Pakaian" />
                 <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
                 <x-text-input wire:model.live='stok' :error="$errors->get('stok')" type="number" placeholder="Harga Satuan" />
-                <x-lable-req>{{ __('Uang kembali') }}</x-lable-req>
+                <x-label>{{ __('Uang kembali') }}</x-label>
                 <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" readonly type="number"
                     placeholder="Harga Satuan" />
             </fieldset>
