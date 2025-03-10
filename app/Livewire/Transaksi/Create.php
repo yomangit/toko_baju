@@ -26,7 +26,7 @@ class Create extends Component
     public function render()
     {
         $a = $this->generateUniqueCode();
-        $source = Approval::where('new_data->reference', 'like', $this->reference)->whereNotNull('new_data->action')->paginate(10);
+        $source = Approval::paginate(10);
         if (StokPakaian::search(trim($this->search))->exists()) {
             if ($this->search) {
                 $stok = StokPakaian::search(trim($this->search))->first();
