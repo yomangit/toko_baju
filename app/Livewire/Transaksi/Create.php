@@ -58,7 +58,7 @@ class Create extends Component
     public function store()
     {
         DB::beginTransaction();
-        if ($this->stok <= $this->count) {
+        if ($this->stok < $this->count) {
             $this->dispatch(
                 'alert',
                 [
