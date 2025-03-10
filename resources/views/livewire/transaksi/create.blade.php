@@ -96,7 +96,7 @@
         <div class="col-span-2">
             <fieldset class="p-4 border shadow-md fieldset rounded-box card grow bg-base-200 border-base-300">
                 <legend class="fieldset-legend">Keranjang</legend>
-                <div class="overflow-x-auto bg-amber-200">
+                <div class="overflow-x-auto border border-base-content/5">
                     <table class="table text-center table-xs">
                         <thead>
                             <tr>
@@ -128,7 +128,7 @@
                     </table>
                 </div>
                 <div class="h-32">
-                    <fieldset class="pb-0.5 fieldset h-32 bg-emerald-300">
+                    <fieldset class="pb-0.5 fieldset h-32">
                         <x-label>{{ __('Total Belanja') }} </x-label>
                         <x-text-input-ghost wire:model.live='nama_pakaian' readonly :error="$errors->get('nama_pakaian')" type="number" />
                         <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
