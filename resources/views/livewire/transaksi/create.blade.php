@@ -110,8 +110,7 @@
                             <td>Cy Ganderton</td>
                             <td>Quality Control Specialist</td>
                             <td>
-                                <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
-                                    wire:click='destroy({{ $customer->id }})'
+                                <x-icon-btn-delete data-tip="Hapus" data-tip="delete" wire:click=''
                                     wire:confirm.prompt="Are you sure delete {{ $customer->name }}?\n\nType DELETE to confirm|DELETE" />
                             </td>
 
@@ -121,8 +120,7 @@
                             <td>Hart Hagerty</td>
                             <td>Desktop Support Technician</td>
                             <td>
-                                <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
-                                    wire:click='destroy({{ $customer->id }})'
+                                <x-icon-btn-delete data-tip="Hapus" data-tip="delete" wire:click=''
                                     wire:confirm.prompt="Are you sure delete {{ $customer->name }}?\n\nType DELETE to confirm|DELETE" />
                             </td>
 
