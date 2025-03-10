@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('harga_satuan');
             $table->string('jumlah_stok');
             $table->string('total_harga');
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
