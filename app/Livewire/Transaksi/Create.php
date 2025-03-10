@@ -44,7 +44,7 @@ class Create extends Component
 
     public function generateUniqueCode()
     {
-        $code = random_int(100000, 999999);
+        $code = 'current_id_transaction .' . random_int(100000, 999999);
         return $code;
     }
 
