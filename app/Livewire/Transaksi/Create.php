@@ -123,12 +123,12 @@ class Create extends Component
         $approve =   Approval::where('new_data->id_pakaian', 'like', $id)->first();
         $jumlah = $approve->new_data['jumlah'];
         $id_stok = $approve->new_data['id_pakaian'];
-        dd($jumlah);
         $stok = StokPakaian::whereId($id_stok)->first();
         if ($stok) {
             $stok->jumlah_stok += $jumlah;
             $stok->save();
         }
+        $approve->delete();
         $this->dispatch(
             'alert',
             [
