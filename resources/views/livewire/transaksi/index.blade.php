@@ -35,7 +35,7 @@
                 </thead>
                 <tbody class="capitalize">
 
-                    @endforeach
+
                 </tbody>
             </table>
         </div>
