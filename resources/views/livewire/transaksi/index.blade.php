@@ -17,16 +17,16 @@
                     <tr>
                         <th>#</th>
                         <th>
-                            <x-lable-req>{{ __('nama pakaian') }}</x-lable-req>
+                            <x-label>{{ __('nama pakaian') }}</x-label>
                         </th>
                         <th>
-                            <x-lable-req>{{ __('harga satuan') }}</x-lable-req>
+                            <x-label>{{ __('harga satuan') }}</x-label>
                         </th>
                         <th>
-                            <x-lable-req>{{ __('quantity') }}</x-lable-req>
+                            <x-label>{{ __('quantity') }}</x-label>
                         </th>
                         <th>
-                            <x-lable-req>{{ __('total harga') }}</x-lable-req>
+                            <x-label>{{ __('total harga') }}</x-label>
                         </th>
                         <th>
 
