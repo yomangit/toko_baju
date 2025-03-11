@@ -39,6 +39,6 @@
                 </tbody>
             </table>
         </div>
-        <div class="bg-base-200 ">{{ $Customers->links() }}</div>
+        <div class="bg-base-200 "></div>
     </div>
 </div>
