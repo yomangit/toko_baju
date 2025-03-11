@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Transaksi;
 use App\Models\StokPakaian;
+use App\Models\TransaksiDetail;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -13,8 +14,9 @@ use Cjmellor\Approval\Models\Approval;
 
 class Create extends Component
 {
-    public $harga_satuan, $stok, $nama_pakaian, $idPakaian;
+    public $harga_satuan, $stok, $nama_pakaian, $product_id;
     public $count = 1, $total_harga, $search = '';
+    public $transaksi_id;
     use WithPagination;
     public function increment()
     {
@@ -27,12 +29,17 @@ class Create extends Component
     }
     public function render()
     {
-
-        $source = Approval::where('new_data->unique_code', 'like', $this->generateUniqueCode())->paginate(10);
+        $transaksi = Transaksi::exists();
+        if ($transaksi) {
+            $this->transaksi_id = Transaksi::latest()->first()->id + 1;
+        } else {
+            $this->transaksi_id = 1;
+        }
+        $source = TransaksiDetail::where('transaksi_id', $this->transaksi_id)->paginate(10);
         if (StokPakaian::search(trim($this->search))->exists()) {
             if ($this->search) {
                 $stok = StokPakaian::search(trim($this->search))->first();
-                $this->idPakaian = $stok->id;
+                $this->product_id = $stok->id;
                 $this->harga_satuan = $stok->harga_jual;
                 $this->nama_pakaian = $stok->nama_pakaian;
                 $this->stok = $stok->jumlah_stok;
@@ -49,7 +56,6 @@ class Create extends Component
 
         ])->extends('layouts.app', ['header' => 'Transaksi Baru', 'title' => 'Transaksi Baru'])->section('content');
     }
-
     public function generateUniqueCode()
     {
         $code = 'current_id_transaction-' . random_int(100000, 999999);
@@ -75,20 +81,24 @@ class Create extends Component
         } else {
 
             try {
+                // Save the transaction
+                $Transaksi = new Transaksi();
+                $Transaksi->nama_kostumer = 'Kostumer Baru';
+                $Transaksi->total_price = $this->total_price;
+                $Transaksi->quantity = $this->quantity;
+                $Transaksi->status = 'pending';
+                $Transaksi->user_id = Auth::user()->id;
+                $Transaksi->save();
                 // Assuming you have a Transaksi model to save the transaction
-                $transaksi = new Transaksi();
-                $transaksi->nama_pakaian = $this->nama_pakaian;
-                $transaksi->harga_satuan = $this->harga_satuan;
-                $transaksi->jumlah = $this->count;
-                $transaksi->total_harga = $this->total_harga;
-                $transaksi->id_pakaian = $this->idPakaian;
-                $transaksi->date = Carbon::now()->format('d-m-Y');
-                $transaksi->unique_code = $this->generateUniqueCode();
-                $transaksi->user_id = Auth::user()->id;
-                $transaksi->save();
+                $TransaksiDetail = new TransaksiDetail();
+                $TransaksiDetail->transaksi_id = $this->transaksi_id;
+                $TransaksiDetail->product_id = $this->product_id;
+                $TransaksiDetail->quantity = $this->count;
+                $TransaksiDetail->price = $this->price;
+                $TransaksiDetail->save();
 
                 // Update the stock
-                $stok = StokPakaian::whereId($this->idPakaian)->first();
+                $stok = StokPakaian::whereId($this->product_id)->first();
                 $stok->jumlah_stok -= $this->count;
                 $stok->save();
                 DB::commit();
@@ -122,9 +132,9 @@ class Create extends Component
 
     public function destroy($id)
     {
-        $approve =   Approval::where('new_data->id_pakaian', 'like', $id)->first();
-        $jumlah = $approve->new_data['jumlah'];
-        $id_stok = $approve->new_data['id_pakaian'];
+        $approve =   TransaksiDetail::where('product_id', 'like', $id)->first();
+        $jumlah = $approve->quantity;
+        $id_stok = $approve->product_id;
         $stok = StokPakaian::whereId($id_stok)->first();
         if ($stok) {
             $stok->jumlah_stok += $jumlah;

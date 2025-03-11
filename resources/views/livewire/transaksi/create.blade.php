@@ -114,14 +114,14 @@
                             @foreach ($source as $index => $item)
                                 <tr>
                                     <th>{{ $source->firstItem() + $index }}</th>
-                                    <td>{{ $item->new_data['nama_pakaian'] }}</td>
-                                    <td>{{ $item->new_data['harga_satuan'] }}</td>
-                                    <td>{{ $item->new_data['jumlah'] }}</td>
-                                    <td>{{ $item->new_data['total_harga'] }}</td>
+                                    <td>{{ $item->stokPakaian->nama_pakaian }}</td>
+                                    <td>{{ $item->stokPakaian->harga_satuan }}</td>
+                                    <td>{{ $item->quantity }}</td>
+                                    <td>{{ $item->price }}</td>
                                     <td>
                                         <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
-                                            wire:click="destroy('{{ $item->new_data['id_pakaian'] }}')"
-                                            wire:confirm.prompt="Are you sure delete {{ $item->new_data['nama_pakaian'] }}?\n\nType DELETE to confirm|DELETE" />
+                                            wire:click="destroy('{{ $item->product_id }}')"
+                                            wire:confirm.prompt="Are you sure delete {{ $item->stokPakaian->nama_pakaian }}?\n\nType DELETE to confirm|DELETE" />
                                     </td>
                                 </tr>
                             @endforeach
@@ -130,13 +130,13 @@
                 <div class="h-32">
                     <fieldset class="pb-0.5 fieldset h-32">
                         <x-label>{{ __('Total Belanja') }} </x-label>
-                        <x-text-input-ghost wire:model.live='total_belanja' readonly :error="$errors->get('nama_pakaian')" type="number"
+                        <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')" type="number"
                             placeholder="0" />
                         <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
-                        <x-text-input-ghost wire:model.live='dibayar' :error="$errors->get('stok')" type="number"
+                        <x-text-input-ghost wire:model.live='payment' :error="$errors->get('stok')" type="number"
                             placeholder="Jumlah pembayaran" />
                         <x-label>{{ __('Uang kembali') }}</x-label>
-                        <x-text-input-ghost wire:model.live='kembalian' disabled :error="$errors->get('harga_satuan')" readonly
+                        <x-text-input-ghost wire:model.live='cashback' disabled :error="$errors->get('harga_satuan')" readonly
                             type="number" placeholder="0" />
                     </fieldset>
                 </div>
