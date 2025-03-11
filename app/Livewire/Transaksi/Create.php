@@ -65,12 +65,6 @@ class Create extends Component
 
     public function store()
     {
-        $TransaksiDetail = new TransaksiDetail();
-        $TransaksiDetail->transaksi_id = $this->transaksi_id;
-        $TransaksiDetail->product_id = $this->product_id;
-        $TransaksiDetail->quantity = $this->count;
-        $TransaksiDetail->price = $this->total_harga;
-        $TransaksiDetail->save();
         DB::beginTransaction();
         if ($this->stok < $this->count) {
             $this->dispatch(
@@ -88,16 +82,21 @@ class Create extends Component
         } else {
 
             try {
-
-                // Assuming you have a Transaksi model to save the transaction
-
-                // Save the transaction
                 $Transaksi = new Transaksi();
                 $Transaksi->total_price = $this->total_price;
                 $Transaksi->transaction_date = Carbon::now()->format('d-m-Y');
                 $Transaksi->quantity = $this->quantity;
                 $Transaksi->user_id = Auth::user()->id;
                 $Transaksi->save();
+                // Assuming you have a Transaksi model to save the transaction
+                $TransaksiDetail = new TransaksiDetail();
+                $TransaksiDetail->transaksi_id = $this->transaksi_id;
+                $TransaksiDetail->product_id = $this->product_id;
+                $TransaksiDetail->quantity = $this->count;
+                $TransaksiDetail->price = $this->total_harga;
+                $TransaksiDetail->save();
+                // Save the transaction
+
 
                 // Update the stock
                 $stok = StokPakaian::whereId($this->product_id)->first();
