@@ -88,7 +88,7 @@ class Create extends Component
                 $TransaksiDetail->transaksi_id = $this->transaksi_id;
                 $TransaksiDetail->product_id = $this->product_id;
                 $TransaksiDetail->quantity = $this->count;
-                $TransaksiDetail->price = $this->price;
+                $TransaksiDetail->price = $this->total_harga;
                 $TransaksiDetail->save();
                 // Save the transaction
                 $Transaksi = new Transaksi();
