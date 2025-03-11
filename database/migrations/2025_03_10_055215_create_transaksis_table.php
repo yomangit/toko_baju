@@ -17,6 +17,9 @@ return new class extends Migration
             $table->string('harga_satuan');
             $table->string('jumlah_stok');
             $table->string('total_harga');
+            $table->string('unique_code');
+            $table->string('id_pakaian')->nullable();
+            $table->string('date')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

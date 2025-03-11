@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Transaksi;
 
+use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Transaksi;
 use App\Models\StokPakaian;
@@ -81,6 +82,7 @@ class Create extends Component
                 $transaksi->jumlah = $this->count;
                 $transaksi->total_harga = $this->total_harga;
                 $transaksi->id_pakaian = $this->idPakaian;
+                $transaksi->date = Carbon::now()->format('d-m-Y');
                 $transaksi->unique_code = $this->generateUniqueCode();
                 $transaksi->user_id = Auth::user()->id;
                 $transaksi->save();
