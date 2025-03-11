@@ -120,7 +120,7 @@ class Create extends Component
 
     public function destroy($id)
     {
-        $approve =   Approval::where('new_data->id_pakaian', 'like', $this->idPakaian)->first();
+        $approve =   Approval::where('new_data->id_pakaian', $this->idPakaian)->first();
         $jumlah = $approve->new_data['jumlah'];
         dd($jumlah);
         $stok = StokPakaian::whereId($id)->first();
