@@ -2,8 +2,7 @@
     <x-notif />
     <div class="flex items-center justify-between">
         <div class="py-2">
-            <x-icon-btn-add data-tip="Tambah Kustomer" class="tooltip-right"
-                wire:click="$dispatch('openModal', { component: 'customer.create' })" />
+            <x-btn-ref href="{{ route('transaksi.detail') }}" data-tip="Add Data" />
         </div>
         <label class=" floating-label">
             <x-text-cari wire:model.live='searching' type="text" placeholder="Pencarian" />
