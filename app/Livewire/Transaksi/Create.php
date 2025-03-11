@@ -65,6 +65,12 @@ class Create extends Component
 
     public function store()
     {
+        $TransaksiDetail = new TransaksiDetail();
+        $TransaksiDetail->transaksi_id = $this->transaksi_id;
+        $TransaksiDetail->product_id = $this->product_id;
+        $TransaksiDetail->quantity = $this->count;
+        $TransaksiDetail->price = $this->total_harga;
+        $TransaksiDetail->save();
         DB::beginTransaction();
         if ($this->stok < $this->count) {
             $this->dispatch(
@@ -84,12 +90,7 @@ class Create extends Component
             try {
 
                 // Assuming you have a Transaksi model to save the transaction
-                $TransaksiDetail = new TransaksiDetail();
-                $TransaksiDetail->transaksi_id = $this->transaksi_id;
-                $TransaksiDetail->product_id = $this->product_id;
-                $TransaksiDetail->quantity = $this->count;
-                $TransaksiDetail->price = $this->total_harga;
-                $TransaksiDetail->save();
+
                 // Save the transaction
                 $Transaksi = new Transaksi();
                 $Transaksi->total_price = $this->total_price;
