@@ -22,7 +22,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('admin/stok', adminStok::class)->name('stok');
     Route::get('admin/CustomerController', CustomerController::class)->name('CustomerController');
-    Route::get('admin/transaksi/new', newTransaksi::class)->name('transaksi.new');
+    Route::get('admin/transaksi/new/{code?}', newTransaksi::class)->name('transaksi.new');
 });
 
 require __DIR__ . '/auth.php';

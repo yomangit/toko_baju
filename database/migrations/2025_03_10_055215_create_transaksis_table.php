@@ -13,14 +13,10 @@ return new class extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pakaian');
-            $table->string('harga_satuan');
-            $table->string('jumlah_stok');
-            $table->string('total_harga');
-            $table->string('unique_code');
-            $table->string('id_pakaian')->nullable();
-            $table->string('date')->nullable();
             $table->unsignedBigInteger('user_id');
+            $table->integer('quantity');
+            $table->decimal('total_price', 10, 2);
+            $table->timestamp('transaction_date');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
