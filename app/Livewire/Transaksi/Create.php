@@ -15,7 +15,7 @@ use Cjmellor\Approval\Models\Approval;
 class Create extends Component
 {
     public $harga_satuan, $stok, $nama_pakaian, $product_id;
-    public $count = 1, $total_harga, $total_price, $quantity, $search = '';
+    public $count = 1, $total_harga, $total_price, $price, $quantity, $search = '';
     public $transaksi_id;
     use WithPagination;
     public function increment()
