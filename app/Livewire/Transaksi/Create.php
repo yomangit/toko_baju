@@ -26,8 +26,8 @@ class Create extends Component
     }
     public function render()
     {
-        $a = $this->generateUniqueCode();
-        $source = Approval::paginate(10);
+
+        $source = Approval::where('new_data->unique_code', 'like', $this->generateUniqueCode())->paginate(10);
         if (StokPakaian::search(trim($this->search))->exists()) {
             if ($this->search) {
                 $stok = StokPakaian::search(trim($this->search))->first();
@@ -81,6 +81,7 @@ class Create extends Component
                 $transaksi->jumlah = $this->count;
                 $transaksi->total_harga = $this->total_harga;
                 $transaksi->id_pakaian = $this->idPakaian;
+                $transaksi->unique_code = $this->generateUniqueCode();
                 $transaksi->user_id = Auth::user()->id;
                 $transaksi->save();
 
@@ -88,7 +89,6 @@ class Create extends Component
                 $stok = StokPakaian::whereId($this->idPakaian)->first();
                 $stok->jumlah_stok -= $this->count;
                 $stok->save();
-
                 DB::commit();
                 $this->dispatch(
                     'alert',
