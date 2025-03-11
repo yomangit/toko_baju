@@ -83,10 +83,9 @@ class Create extends Component
             try {
                 // Save the transaction
                 $Transaksi = new Transaksi();
-                $Transaksi->nama_kostumer = 'Kostumer Baru';
                 $Transaksi->total_price = $this->total_price;
+                $Transaksi->transaction_date = Carbon::now()->format('d-m-Y');
                 $Transaksi->quantity = $this->quantity;
-                $Transaksi->status = 'pending';
                 $Transaksi->user_id = Auth::user()->id;
                 $Transaksi->save();
                 // Assuming you have a Transaksi model to save the transaction
