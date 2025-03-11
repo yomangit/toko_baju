@@ -24,7 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/stok', adminStok::class)->name('stok');
     Route::get('admin/CustomerController', CustomerController::class)->name('CustomerController');
     Route::get('admin/transaksi/new/{code?}', newTransaksi::class)->name('transaksi.detail');
-    Route::get('admin/transaksi/new/', transaksiIndex::class)->name('transaksi.new');
+    Route::get('admin/transaksi/', transaksiIndex::class)->name('transaksi.new');
 });
 
 require __DIR__ . '/auth.php';
