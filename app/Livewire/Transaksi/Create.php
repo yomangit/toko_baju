@@ -67,7 +67,7 @@ class Create extends Component
     {
         $Transaksi = new Transaksi();
         $Transaksi->total_price = $this->total_price;
-        $Transaksi->transaction_date = Carbon::now()->format('d-m-Y');
+        $Transaksi->transaction_date = Carbon::now()->format('Y-m-d');
         $Transaksi->quantity = $this->quantity;
         $Transaksi->user_id = Auth::user()->id;
         $Transaksi->save();
