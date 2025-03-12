@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('photo')->nullable();
             $table->unsignedBigInteger('kategori_id');
             $table->foreign('kategori_id')->references('id')->on('kategoris')->onDelete('cascade');
-            $table->unsignedBigInteger('warna_id');
+            $table->unsignedBigInteger('warna_id')->nullable();
             $table->foreign('warna_id')->references('id')->on('warnas')->onDelete('cascade');
             $table->unsignedBigInteger('ukuran_pakaian_id');
             $table->foreign('ukuran_pakaian_id')->references('id')->on('ukuran_pakaians')->onDelete('cascade');
