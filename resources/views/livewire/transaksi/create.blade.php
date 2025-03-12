@@ -117,7 +117,7 @@
                                     <td>{{ $item->stokPakaian->nama_pakaian }}</td>
                                     <td>{{ $item->stokPakaian->harga_satuan }}</td>
                                     <td>{{ $item->quantity }}</td>
-                                    <td>{{ $item->price }}</td>
+                                    <td>Rp {{ number_format($item->price, 0, ',', '.') }}</td>
                                     <td>
                                         <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
                                             wire:click="destroy('{{ $item->product_id }}')"
