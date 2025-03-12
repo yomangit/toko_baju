@@ -27,6 +27,11 @@ class Create extends Component
     {
         $this->count--;
     }
+    public function mount($id)
+    {
+        $this->transaksi_id = $id;
+        dd($id);
+    }
     public function render()
     {
         $transaksi = Transaksi::exists();
@@ -82,14 +87,6 @@ class Create extends Component
 
             try {
 
-                $Transaksi =  Transaksi::create(
-                    [
-                        'total_price' => $this->total_price,
-                        'transaction_date' =>  Carbon::now()->format('Y-m-d'),
-                        'quantity' => $this->quantity,
-                        'user_id' => auth()->user()->id,
-                    ]
-                );
 
                 // Assuming you have a Transaksi model to save the transaction
                 $TransaksiDetail = new TransaksiDetail();
