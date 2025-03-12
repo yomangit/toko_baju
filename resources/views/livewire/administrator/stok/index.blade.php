@@ -35,7 +35,7 @@
                             <td>{{ $stok->nama_pakaian }}</td>
                             <td>{{ $stok->kategories->kategori_pakaian }}</td>
                             <td>{{ $stok->Ukuran->ukuran_pakaian }}</td>
-                            <td>{{ $stok->warna->nama_warna }}</td>
+                            <td>{{ $stok->warna_id ? $stok->warna->nama_warna : '-' }}</td>
                             <td>{{ $stok->jumlah_stok }}</td>
                             <td>Rp {{ number_format($stok->harga_jual, 0, ',', '.') }}</td>
                             <td>Rp {{ number_format($stok->harga_pokok, 0, ',', '.') }}</td>
