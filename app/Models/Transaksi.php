@@ -9,5 +9,5 @@ class Transaksi extends Model
 {
 
     protected $table = 'transaksis';
-    protected $fillable = ['nama_pakaian', 'column2', 'column3'];
+    protected $fillable = ['user_id', 'quantity', 'total_price', 'transaction_date'];
 }
