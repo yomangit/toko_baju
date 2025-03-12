@@ -30,7 +30,6 @@ class Create extends Component
     public function mount($id)
     {
         $this->transaksi_id = $id;
-        dd($id);
     }
     public function render()
     {
