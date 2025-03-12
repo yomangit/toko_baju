@@ -40,6 +40,7 @@ class Create extends Component
         $source = TransaksiDetail::where('transaksi_id', 'Like', $this->transaksi_id)->paginate(10);
         $this->total_price = TransaksiDetail::where('transaksi_id', $this->transaksi_id)->sum('price');
         $this->quantity = TransaksiDetail::where('transaksi_id', $this->transaksi_id)->sum('quantity');
+        number_format($this->total_price, 0, ',', '.');
         if (StokPakaian::search(trim($this->search))->exists()) {
             if ($this->search) {
                 $stok = StokPakaian::search(trim($this->search))->first();
