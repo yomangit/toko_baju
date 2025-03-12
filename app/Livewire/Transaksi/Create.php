@@ -89,7 +89,7 @@ class Create extends Component
                         'total_price' => $this->total_price,
                         'transaction_date' =>  Carbon::now()->format('Y-m-d'),
                         'quantity' => $this->quantity,
-                        'user_id' => Auth::user()->id,
+                        'user_id' => auth()->user()->id,
                     ]
                 );
 
