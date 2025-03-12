@@ -17,7 +17,7 @@ class Index extends Component
     {
         $Transaksi =  Transaksi::create(
             [
-                'quantity' => $this->quantity,
+                'quantity' => 0,
                 'user_id' => Auth::user()->id,
             ]
         );
