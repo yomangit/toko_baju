@@ -31,11 +31,9 @@ class Create extends Component
     {
         $transaksi = Transaksi::exists();
         if ($transaksi) {
-            $this->transaksi_id = Transaksi::latest()->first()->id + 1;
-        } else {
-            $this->transaksi_id = 1;
+            $this->transaksi_id = Transaksi::latest()->first()->id;
         }
-        $source = TransaksiDetail::where('transaksi_id', $this->transaksi_id)->paginate(10);
+        $source = TransaksiDetail::where('transaksi_id', 'Like', $this->transaksi_id)->paginate(10);
         $this->total_price = TransaksiDetail::where('transaksi_id', $this->transaksi_id)->sum('price');
         if (StokPakaian::search(trim($this->search))->exists()) {
             if ($this->search) {
