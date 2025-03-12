@@ -2,7 +2,7 @@
     <x-notif />
     <div class="flex items-center justify-between">
         <div class="py-2">
-            <x-btn-ref href="{{ route('transaksi.detail') }}" data-tip="Add Data" />
+            <x-btn-ref wire:click='addTransaksi' data-tip="Add Data" />
         </div>
         <label class=" floating-label">
             <x-text-cari wire:model.live='searching' type="text" placeholder="Pencarian" />

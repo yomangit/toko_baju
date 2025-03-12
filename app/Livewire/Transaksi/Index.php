@@ -8,9 +8,19 @@ use Illuminate\Support\Facades\Auth;
 
 class Index extends Component
 {
-    public $transaksi_id;
+    public $code;
     public function render()
     {
         return view('livewire.transaksi.index')->extends('layouts.app', ['header' => 'Transaksi ', 'title' => 'Transaksi '])->section('content');
+    }
+    public function addTransaksi()
+    {
+        $Transaksi =  Transaksi::create(
+            [
+                'user_id' => Auth::user()->id,
+            ]
+        );
+        $this->code = $Transaksi->id;
+        return redirect()->route('transaksi.detail', ['id' => $Transaksi->id]);
     }
 }
