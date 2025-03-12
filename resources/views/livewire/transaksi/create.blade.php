@@ -120,11 +120,6 @@
                                     <td>{{ $item->quantity }}</td>
                                     <td>Rp {{ number_format($item->price, 0, ',', '.') }}</td>
                                     <td>
-                                        <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
-                                            wire:click="destroy('{{ $item->product_id }}')"
-                                            wire:confirm.prompt="Are you sure delete {{ $item->stokPakaian->nama_pakaian }}?\n\nType DELETE to confirm|DELETE" />
-                                    </td>
-                                    <td>
                                         <div class="avatar drop-shadow-lg">
                                             <div class="w-16 rounded">
                                                 @if ($item->stokPakaian->photo)
@@ -135,6 +130,11 @@
                                                 @endif
                                             </div>
                                         </div>
+                                    </td>
+                                    <td>
+                                        <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
+                                            wire:click="destroy('{{ $item->product_id }}')"
+                                            wire:confirm.prompt="Are you sure delete {{ $item->stokPakaian->nama_pakaian }}?\n\nType DELETE to confirm|DELETE" />
                                     </td>
                                 </tr>
                             @endforeach
