@@ -121,7 +121,7 @@
                                     <td>Rp {{ number_format($item->price, 0, ',', '.') }}</td>
                                     <td>
                                         <div class="avatar drop-shadow-lg">
-                                            <div class="w-16 rounded">
+                                            <div class="w-8 rounded">
                                                 @if ($item->stokPakaian->photo)
                                                     <img
                                                         src="{{ asset('/myfiles/img/' . $item->stokPakaian->photo) }}">
