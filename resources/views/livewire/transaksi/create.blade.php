@@ -115,7 +115,7 @@
                                 <tr>
                                     <th>{{ $source->firstItem() + $index }}</th>
                                     <td>{{ $item->stokPakaian->nama_pakaian }}</td>
-                                    <td>{{ $item->stokPakaian->harga_satuan }}</td>
+                                    <td>{{ $item->stokPakaian->harga_jual }}</td>
                                     <td>{{ $item->quantity }}</td>
                                     <td>Rp {{ number_format($item->price, 0, ',', '.') }}</td>
                                     <td>
