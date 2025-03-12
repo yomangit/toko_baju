@@ -39,6 +39,7 @@ class Create extends Component
         }
         $source = TransaksiDetail::where('transaksi_id', 'Like', $this->transaksi_id)->paginate(10);
         $this->total_price = TransaksiDetail::where('transaksi_id', $this->transaksi_id)->sum('price');
+        $this->total_price = TransaksiDetail::where('transaksi_id', $this->transaksi_id)->sum('quantity');
         if (StokPakaian::search(trim($this->search))->exists()) {
             if ($this->search) {
                 $stok = StokPakaian::search(trim($this->search))->first();
@@ -85,11 +86,18 @@ class Create extends Component
         } else {
 
             try {
-
+                Transaksi::whereId($this->transaksi_id)->update(
+                    [
+                        'quantity' =>  $this->quantity,
+                        'user_id' => Auth::user()->id,
+                        'total_price' => $this->total_price,
+                        'transaction_date' => Carbon::now()->format('Y-m-d'),
+                    ]
+                );
 
                 // Assuming you have a Transaksi model to save the transaction
                 $TransaksiDetail = new TransaksiDetail();
-                $TransaksiDetail->transaksi_id = $Transaksi->id;
+                $TransaksiDetail->transaksi_id = $this->transaksi_id;
                 $TransaksiDetail->product_id = $this->product_id;
                 $TransaksiDetail->quantity = $this->count;
                 $TransaksiDetail->price = $this->total_harga;
