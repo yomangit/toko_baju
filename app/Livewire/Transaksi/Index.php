@@ -22,6 +22,6 @@ class Index extends Component
             ]
         );
         $this->code = $Transaksi->id;
-        return redirect()->route('transaksi.detail', ['id' => $Transaksi->id]);
+        return redirect()->route('transaksi.detail', ['id' => $this->code]);
     }
 }
