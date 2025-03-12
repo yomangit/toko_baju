@@ -107,6 +107,7 @@
                                 <th>Harga Satuan</th>
                                 <th>Quantity</th>
                                 <th>Total Harga</th>
+                                <th>Foto</th>
                                 <th>#</th>
                             </tr>
                         </thead>
@@ -122,6 +123,18 @@
                                         <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
                                             wire:click="destroy('{{ $item->product_id }}')"
                                             wire:confirm.prompt="Are you sure delete {{ $item->stokPakaian->nama_pakaian }}?\n\nType DELETE to confirm|DELETE" />
+                                    </td>
+                                    <td>
+                                        <div class="avatar drop-shadow-lg">
+                                            <div class="w-16 rounded">
+                                                @if ($item->stokPakaian->photo)
+                                                    <img
+                                                        src="{{ asset('/myfiles/img/' . $item->stokPakaian->photo) }}">
+                                                @else
+                                                    <img src="{{ asset('assets/img/empty-image.png') }}">
+                                                @endif
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
