@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->integer('quantity');
-            $table->decimal('total_price', 10, 2);
-            $table->timestamp('transaction_date');
+            $table->integer('quantity')->nullable();
+            $table->decimal('total_price', 10, 2)->nullable();
+            $table->timestamp('transaction_date')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
