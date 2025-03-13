@@ -108,6 +108,7 @@
                                 <th>Quantity</th>
                                 <th>Total Harga</th>
                                 <th>Foto</th>
+                                <th>Status</th>
                                 <th>#</th>
                             </tr>
                         </thead>
@@ -136,6 +137,9 @@
                                                 @endif
                                             </div>
                                         </div>
+                                    </td>
+                                    <td>
+                                        <span class="badge badge-error">{{ $item->state }}</span>
                                     </td>
                                     <td>
                                         <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
