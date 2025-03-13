@@ -41,21 +41,21 @@ class Create extends Component
         $total_price = TransaksiDetail::where('transaksi_id', $this->transaksi_id)->sum('price');
         $this->quantity = TransaksiDetail::where('transaksi_id', $this->transaksi_id)->sum('quantity');
         $this->total_price = number_format($total_price, 0, ',', '.');
-        if (StokPakaian::search(trim($this->search))->exists()) {
-            if ($this->search) {
-                $stok = StokPakaian::search(trim($this->search))->first();
-                $this->product_id = $stok->id;
-                $this->harga_satuan = $stok->harga_jual;
-                $this->nama_pakaian = $stok->nama_pakaian;
-                $this->stok = $stok->jumlah_stok;
-                $this->total_harga = $this->count * $this->harga_satuan;
-            } else {
-                $this->harga_satuan = 0;
-                $this->nama_pakaian = '';
-                $this->stok = 0;
-                $this->total_harga = 0;
-            }
+
+        if ($this->search) {
+            $stok = StokPakaian::search(trim($this->search))->first();
+            $this->product_id = $stok->id;
+            $this->harga_satuan = $stok->harga_jual;
+            $this->nama_pakaian = $stok->nama_pakaian;
+            $this->stok = $stok->jumlah_stok;
+            $this->total_harga = $this->count * $this->harga_satuan;
+        } else {
+            $this->harga_satuan = 0;
+            $this->nama_pakaian = '';
+            $this->stok = 0;
+            $this->total_harga = 0;
         }
+
         return view('livewire.transaksi.create', [
             'source' => $source,
 
@@ -153,7 +153,7 @@ class Create extends Component
         $this->dispatch(
             'alert',
             [
-                'text' => "Kostumer deleted!!",
+                'text' => "Belanjaan di hapus!!",
                 'duration' => 3000,
                 'destination' => '/contact',
                 'newWindow' => true,
