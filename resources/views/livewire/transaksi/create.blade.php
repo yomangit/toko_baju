@@ -118,16 +118,16 @@
                                     <td>{{ App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->nama_pakaian }}
                                     </td>
                                     <td>Rp
-                                        {{ number_format(App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->nama_pakaianharga_jual, 0, ',', '.') }}
+                                        {{ number_format(App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->harga_jual, 0, ',', '.') }}
                                     </td>
                                     <td>{{ $item->quantity }}</td>
                                     <td>Rp {{ number_format($item->price, 0, ',', '.') }}</td>
                                     <td>
                                         <div class="avatar drop-shadow-lg">
                                             <div class="w-8 rounded">
-                                                @if (App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->nama_pakaianphoto)
+                                                @if (App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->photo)
                                                     <img
-                                                        src="{{ asset('/myfiles/img/' . App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->nama_pakaianphoto) }}">
+                                                        src="{{ asset('/myfiles/img/' . App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->photo) }}">
                                                 @else
                                                     <img src="{{ asset('assets/img/empty-image.png') }}">
                                                 @endif
@@ -136,8 +136,8 @@
                                     </td>
                                     <td>
                                         <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
-                                            wire:click="destroy({{ $item->product_id }})"
-                                            wire:confirm.prompt="Are you sure delete {{ App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->nama_pakaiannama_pakaian }}?\n\nType DELETE to confirm|DELETE" />
+                                            wire:click="destroy({{ $item->id }})"
+                                            wire:confirm.prompt="Are you sure delete {{ App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->nama_pakaian }}?\n\nType DELETE to confirm|DELETE" />
                                     </td>
                                 </tr>
                             @endforeach

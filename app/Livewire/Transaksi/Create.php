@@ -148,9 +148,9 @@ class Create extends Component
 
     public function destroy($id)
     {
-        $approve =   TransaksiDetail::where('transaksi_id',  $this->transaksi_id)->first();
-        $jumlah = $approve->quantity;
-        $id_stok = $approve->product_id;
+        $approve =   Approval::whereId($id)->first();
+        $jumlah = $approve->new_data['quantity'];
+        $id_stok = $approve->new_data['product_id'];
         $stok = StokPakaian::whereId($id_stok)->first();
         if ($stok) {
             $stok->jumlah_stok += $jumlah;
