@@ -158,6 +158,7 @@
                         <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
                         <x-text-input-ghost wire:model.live='payment' :error="$errors->get('stok')" type="number"
                             placeholder="Jumlah pembayaran" />
+                        <x-input-error :messages="$errors->get('payment')" />
                         <x-label>{{ __('Uang kembali') }}</x-label>
                         <x-text-input-ghost wire:model.live='cashback' disabled :error="$errors->get('harga_satuan')" readonly
                             type="number" placeholder="0" />

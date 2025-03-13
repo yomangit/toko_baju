@@ -6,8 +6,9 @@ use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Transaksi;
 use App\Models\StokPakaian;
-use App\Models\TransaksiDetail;
 use Livewire\WithPagination;
+use App\Models\TransaksiDetail;
+use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Cjmellor\Approval\Models\Approval;
@@ -15,8 +16,10 @@ use Cjmellor\Approval\Models\Approval;
 class Create extends Component
 {
     public $harga_satuan, $stok, $nama_pakaian, $product_id;
-    public $count = 1, $total_harga, $total_price, $cashback, $price, $quantity, $payment = 0, $search = '';
+    public $count = 1, $total_harga, $total_price, $total_pembayaran, $cashback, $price, $quantity, $search = '';
     public $transaksi_id, $Pakaian;
+    #[Validate('required', message: 'kolom pembayaran harus di isi!!!')]
+    public $payment;
     use WithPagination;
     public function increment()
     {
@@ -40,6 +43,7 @@ class Create extends Component
         $source = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->paginate(10);
         $total_price = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->price');
         $this->quantity = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->quantity');
+        $this->total_pembayaran = $total_price;
         $this->total_price = number_format($total_price, 0, ',', '.');
         $this->Pakaian = StokPakaian::get();
         if ($this->search) {
@@ -136,31 +140,44 @@ class Create extends Component
             }
         }
     }
-
     public function selesai()
     {
-        $transaksi =   Transaksi::create(
-            [
-                'quantity' =>  $this->quantity,
-                'user_id' => Auth::user()->id,
-                'total_price' => $this->total_price,
-                'payment' => $this->payment,
-                'cashback' => $this->cashback,
-                'transaction_date' => Carbon::now()->format('Y-m-d'),
-            ]
-        );
-        Approval::where('new_data->transaksi_id', $transaksi->id)->approve();
-        $this->dispatch(
-            'alert',
-            [
-                'text' => "Transaksi Selesai!!",
-                'duration' => 3000,
-                'destination' => '/contact',
-                'newWindow' => true,
-                'close' => true,
-                'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
-            ]
-        );
+        if ($this->payment >  $this->total_pembayaran) {
+            $transaksi =   Transaksi::create(
+                [
+                    'quantity' =>  $this->quantity,
+                    'user_id' => Auth::user()->id,
+                    'total_price' => $this->total_price,
+                    'payment' => $this->payment,
+                    'cashback' => $this->cashback,
+                    'transaction_date' => Carbon::now()->format('Y-m-d'),
+                ]
+            );
+            Approval::where('new_data->transaksi_id', $transaksi->id)->approve();
+            $this->dispatch(
+                'alert',
+                [
+                    'text' => "Transaksi Selesai!!",
+                    'duration' => 3000,
+                    'destination' => '/contact',
+                    'newWindow' => true,
+                    'close' => true,
+                    'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
+                ]
+            );
+        } else {
+            $this->dispatch(
+                'alert',
+                [
+                    'text' => "Pembayaran Kurang!!",
+                    'duration' => 3000,
+                    'destination' => '/contact',
+                    'newWindow' => true,
+                    'close' => true,
+                    'backgroundColor' => "linear-gradient(to right, #ff3333, #ff6666)",
+                ]
+            );
+        }
     }
 
     public function destroy($id)
