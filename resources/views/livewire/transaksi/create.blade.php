@@ -174,12 +174,6 @@
         </div>
     </div>
     <script>
-        /* Tanpa Rupiah */
-        var tanpa_rupiah = document.getElementById('tanpa-rupiah');
-        tanpa_rupiah.addEventListener('keyup', function(e) {
-            tanpa_rupiah.value = formatRupiah(this.value);
-        });
-
         /* Dengan Rupiah */
         var dengan_rupiah = document.querySelector('input[type="currency"]')
         dengan_rupiah.addEventListener('keyup', function(e) {
