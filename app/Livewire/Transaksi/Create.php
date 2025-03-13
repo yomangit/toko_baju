@@ -16,7 +16,7 @@ class Create extends Component
 {
     public $harga_satuan, $stok, $nama_pakaian, $product_id;
     public $count = 1, $total_harga, $total_price, $price, $quantity = 0, $search = '';
-    public $transaksi_id;
+    public $transaksi_id, $Pakaian;
     use WithPagination;
     public function increment()
     {
@@ -41,7 +41,7 @@ class Create extends Component
         $total_price = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->price');
         $this->quantity = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->quantity');
         $this->total_price = number_format($total_price, 0, ',', '.');
-
+        $this->Pakaian = StokPakaian::get();
         if ($this->search) {
             if (StokPakaian::search(trim($this->search))->exists()) {
                 $stok = StokPakaian::search(trim($this->search))->first();
