@@ -23,7 +23,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('admin/stok', adminStok::class)->name('stok');
     Route::get('admin/CustomerController', CustomerController::class)->name('CustomerController');
-    Route::get('admin/transaksi/new/{id}', newTransaksi::class)->name('transaksi.detail');
+    Route::get('admin/transaksi/new', newTransaksi::class)->name('transaksi.detail');
     Route::get('admin/transaksi/', transaksiIndex::class)->name('transaksi.new');
 });
 

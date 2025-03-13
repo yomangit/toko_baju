@@ -27,15 +27,14 @@ class Create extends Component
     {
         $this->count--;
     }
-    public function mount($id)
-    {
-        $this->transaksi_id = $id;
-    }
+
     public function render()
     {
         $transaksi = Transaksi::exists();
         if ($transaksi) {
             $this->transaksi_id = Transaksi::latest()->first()->id;
+        } else {
+            $this->transaksi_id = 1;
         }
         $source = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->paginate(10);
         $total_price = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->price');
