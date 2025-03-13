@@ -92,14 +92,7 @@ class Create extends Component
             return;
         } else {
             try {
-                Transaksi::whereId($this->transaksi_id)->update(
-                    [
-                        'quantity' =>  $this->quantity,
-                        'user_id' => Auth::user()->id,
-                        'total_price' => $this->total_price,
-                        'transaction_date' => Carbon::now()->format('Y-m-d'),
-                    ]
-                );
+
 
                 // Assuming you have a Transaksi model to save the transaction
                 $TransaksiDetail = new TransaksiDetail();
@@ -142,6 +135,19 @@ class Create extends Component
                 );
             }
         }
+    }
+
+    public function selesai()
+    {
+        $transaksi =   Transaksi::create(
+            [
+                'quantity' =>  $this->quantity,
+                'user_id' => Auth::user()->id,
+                'total_price' => $this->total_price,
+                'transaction_date' => Carbon::now()->format('Y-m-d'),
+            ]
+        );
+        Approval::where('new_data->transaksi_id', $transaksi->id)->approve();
     }
 
     public function destroy($id)
