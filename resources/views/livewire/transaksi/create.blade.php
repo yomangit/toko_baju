@@ -156,7 +156,7 @@
                         <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')" type="number"
                             placeholder="0" />
                         <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
-                        <x-text-input-ghost wire:model.live='payment' :error="$errors->get('stok')" type="number"
+                        <x-text-input-ghost wire:model.live='payment' :error="$errors->get('payment')" type="number"
                             placeholder="Jumlah pembayaran" />
                         <x-input-error :messages="$errors->get('payment')" />
                         <x-label>{{ __('Uang kembali') }}</x-label>
