@@ -204,7 +204,7 @@
 
             // Replace group separators and normalize decimal separator
             const normalizedString = cleanedString
-                .replace(new RegExp(`\\${groupSeparator}`, 'g'), '')
+                .replace(new RegExp(`\\${groupSeparator}`, 'Rp.'), '')
                 .replace(decimalSeparator, '.');
 
             // Parse the string to a number
