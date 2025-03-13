@@ -157,7 +157,7 @@
                             <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')" type="number"
                                 placeholder="0" />
                             <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
-                            <x-text-input-ghost wire:model.live='payment' :error="$errors->get('payment')" type="number"
+                            <x-text-input-ghost wire:model.live='payment' :error="$errors->get('payment')" type='currency'
                                 placeholder="Jumlah pembayaran" />
                             <x-input-error :messages="$errors->get('payment')" />
                             <x-label>{{ __('Uang kembali') }}</x-label>
@@ -173,4 +173,70 @@
             </fieldset>
         </div>
     </div>
+    <script>
+        var currencyInput = document.querySelector('input[type="currency"]')
+        var currency = 'GBP' // https://www.currency-iso.org/dam/downloads/lists/list_one.xml
+
+        // format inital value
+        onBlur({
+            target: currencyInput
+        })
+
+        // bind event listeners
+        currencyInput.addEventListener('focus', onFocus)
+        currencyInput.addEventListener('blur', onBlur)
+
+        // since a numeral is represented differently across the world, this has to be taken into account when parsing the string back to a number:
+        function currencyStringToNumber(currencyString) {
+            // Get the user's locale
+            const userLocale = navigator.language || navigator.userLanguage || 'en-US';
+
+            // Remove any currency symbols and whitespace
+            const cleanedString = currencyString.trim().replace(/^[^\d-]+/, '').replace(/[^\d.,\-]+$/, '');
+
+            // Create a NumberFormat instance for parsing
+            const numberFormat = new Intl.NumberFormat(userLocale);
+
+            // Get the formatting options to determine decimal and group separators
+            const formatParts = numberFormat.formatToParts(1234.5);
+            const decimalSeparator = formatParts.find(part => part.type === 'decimal')?.value || '.';
+            const groupSeparator = formatParts.find(part => part.type === 'group')?.value || ',';
+
+            // Replace group separators and normalize decimal separator
+            const normalizedString = cleanedString
+                .replace(new RegExp(`\\${groupSeparator}`, 'g'), '')
+                .replace(decimalSeparator, '.');
+
+            // Parse the string to a number
+            const number = parseFloat(normalizedString);
+
+            // Check if the result is a valid number
+            if (isNaN(number)) {
+                throw new Error('Invalid number format');
+            }
+
+            return number;
+        };
+
+        function onFocus(e) {
+            var value = e.target.value;
+            console.log(String(value))
+            e.target.value = value ? currencyStringToNumber(value) : ''
+        }
+
+        function onBlur(e) {
+            var value = e.target.value
+
+            var options = {
+                maximumFractionDigits: 2,
+                currency: currency,
+                style: "currency",
+                currencyDisplay: "symbol"
+            }
+
+            e.target.value = (value || value === 0) ?
+                currencyStringToNumber(value).toLocaleString(undefined, options) :
+                ''
+        }
+    </script>
 </div>

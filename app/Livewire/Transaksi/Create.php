@@ -50,7 +50,7 @@ class Create extends Component
         $this->quantity = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->quantity');
         $this->total_pembayaran = $total_price;
         $this->total_price = number_format($total_price, 0, ',', '.');
-        $this->payment = number_format($this->payment, 0, ',', '.');
+
         $this->Pakaian = StokPakaian::get();
         if ($this->search) {
             if (StokPakaian::search(trim($this->search))->exists()) {
