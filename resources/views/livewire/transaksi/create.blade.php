@@ -139,7 +139,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="badge badge-error">{{ $item->state }}</span>
+                                        <span class="badge badge-error badge-xs">{{ $item->state }}</span>
                                     </td>
                                     <td>
                                         <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
