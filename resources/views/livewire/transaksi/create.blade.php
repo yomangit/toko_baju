@@ -157,8 +157,8 @@
                             <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')" type="number"
                                 placeholder="0" />
                             <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
-                            <x-text-input-ghost wire:model.live='payment' :error="$errors->get('payment')" type='currency'
-                                placeholder="Jumlah pembayaran" />
+                            <x-text-input-ghost id="dengan-rupiah" wire:model.live='number' :error="$errors->get('payment')"
+                                type='currency' placeholder="Jumlah pembayaran" />
                             <x-input-error :messages="$errors->get('payment')" />
                             <x-label>{{ __('Uang kembali') }}</x-label>
                             <x-text-input-ghost wire:model.live='cashback' disabled :error="$errors->get('harga_satuan')" readonly
@@ -176,7 +176,7 @@
     </div>
     <script>
         /* Dengan Rupiah */
-        var dengan_rupiah = document.querySelector('input[type="currency"]')
+        var dengan_rupiah = document.getElementById('dengan-rupiah');
         dengan_rupiah.addEventListener('keyup', function(e) {
             dengan_rupiah.value = formatRupiah(this.value, 'Rp. ');
         });
@@ -194,7 +194,7 @@
                 separator = sisa ? '.' : '';
                 rupiah += separator + ribuan.join('.');
             }
-            console.log(number_string);
+
             rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
             return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
 
