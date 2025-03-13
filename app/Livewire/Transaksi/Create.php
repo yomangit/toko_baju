@@ -15,7 +15,7 @@ use Cjmellor\Approval\Models\Approval;
 class Create extends Component
 {
     public $harga_satuan, $stok, $nama_pakaian, $product_id;
-    public $count = 1, $total_harga, $total_price, $price, $quantity = 0, $search = '';
+    public $count = 1, $total_harga, $total_price, $cashback, $price, $quantity, $payment = 0, $search = '';
     public $transaksi_id, $Pakaian;
     use WithPagination;
     public function increment()
@@ -144,10 +144,23 @@ class Create extends Component
                 'quantity' =>  $this->quantity,
                 'user_id' => Auth::user()->id,
                 'total_price' => $this->total_price,
+                'payment' => $this->payment,
+                'cashback' => $this->cashback,
                 'transaction_date' => Carbon::now()->format('Y-m-d'),
             ]
         );
         Approval::where('new_data->transaksi_id', $transaksi->id)->approve();
+        $this->dispatch(
+            'alert',
+            [
+                'text' => "Transaksi Selesai!!",
+                'duration' => 3000,
+                'destination' => '/contact',
+                'newWindow' => true,
+                'close' => true,
+                'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
+            ]
+        );
     }
 
     public function destroy($id)
