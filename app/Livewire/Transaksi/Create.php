@@ -41,7 +41,7 @@ class Create extends Component
         }
         $source = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->paginate(10);
         $total_price = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->price');
-        $kembali = $total_price - $this->payment;
+        $kembali = $this->payment - $total_price;
         if ($kembali <= 0) {
             $this->cashback = 0;
         } else {
