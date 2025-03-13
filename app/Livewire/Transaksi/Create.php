@@ -32,10 +32,11 @@ class Create extends Component
     {
         $transaksi = Transaksi::exists();
         if ($transaksi) {
-            $this->transaksi_id = Transaksi::latest()->first()->id;
+            $this->transaksi_id = Transaksi::latest()->first()->id + 1;
         } else {
             $this->transaksi_id = 1;
         }
+
         $source = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->paginate(10);
         $total_price = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->price');
         $this->quantity = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->quantity');
