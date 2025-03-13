@@ -121,10 +121,10 @@
                                     <td>Rp
                                         {{ number_format(App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->harga_jual, 0, ',', '.') }}
                                     </td>
-                                    <td>{{ App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->quantity }}
+                                    <td>{{ $item->new_data['quantity'] }}
                                     </td>
                                     <td>Rp
-                                        {{ number_format(App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->price, 0, ',', '.') }}
+                                        {{ number_format($item->new_data['price'], 0, ',', '.') }}
                                     </td>
                                     <td>
                                         <div class="avatar drop-shadow-lg">

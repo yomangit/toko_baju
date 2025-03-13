@@ -76,7 +76,6 @@ class Create extends Component
 
     public function store()
     {
-
         DB::beginTransaction();
         if ($this->stok < $this->count) {
             $this->dispatch(
@@ -92,7 +91,6 @@ class Create extends Component
             );
             return;
         } else {
-
             try {
                 Transaksi::whereId($this->transaksi_id)->update(
                     [
