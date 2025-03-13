@@ -1,4 +1,4 @@
-<label {{ $attributes->merge(['class' => 'btn btn-dash btn-neutral btn-xs']) }}>
+<button {{ $attributes->merge(['type' => 'submit', 'class' => 'btn btn-dash btn-neutral btn-xs']) }}>
 
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="size-4">
         <path fill-rule="evenodd"
@@ -9,4 +9,4 @@
     </svg>
 
     {{ $slot }}
-</label>
+</button>

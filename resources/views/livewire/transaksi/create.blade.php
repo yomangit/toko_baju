@@ -151,22 +151,25 @@
                     </table>
                 </div>
                 <div class="h-32">
-                    <fieldset class="pb-0.5 fieldset h-32">
-                        <x-label>{{ __('Total Belanja') }} </x-label>
-                        <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')" type="number"
-                            placeholder="0" />
-                        <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
-                        <x-text-input-ghost wire:model.live='payment' :error="$errors->get('payment')" type="number"
-                            placeholder="Jumlah pembayaran" />
-                        <x-input-error :messages="$errors->get('payment')" />
-                        <x-label>{{ __('Uang kembali') }}</x-label>
-                        <x-text-input-ghost wire:model.live='cashback' disabled :error="$errors->get('harga_satuan')" readonly
-                            type="number" placeholder="0" />
-                    </fieldset>
+                    <form wire:submit.prevent='selesai'>
+                        <fieldset class="pb-0.5 fieldset h-32">
+                            <x-label>{{ __('Total Belanja') }} </x-label>
+                            <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')" type="number"
+                                placeholder="0" />
+                            <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
+                            <x-text-input-ghost wire:model.live='payment' :error="$errors->get('payment')" type="number"
+                                placeholder="Jumlah pembayaran" />
+                            <x-input-error :messages="$errors->get('payment')" />
+                            <x-label>{{ __('Uang kembali') }}</x-label>
+                            <x-text-input-ghost wire:model.live='cashback' disabled :error="$errors->get('harga_satuan')" readonly
+                                type="number" placeholder="0" />
+                        </fieldset>
+                        <div class=" modal-action">
+                            <x-btn-selesai wire:click=''>{{ __('Selesai') }}</x-btn-selesai>
+                        </div>
                 </div>
-                <div class=" modal-action">
-                    <x-btn-selesai wire:click='selesai'>{{ __('Selesai') }}</x-btn-selesai>
-                </div>
+                </form>
+
             </fieldset>
         </div>
     </div>

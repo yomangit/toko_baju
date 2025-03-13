@@ -142,7 +142,7 @@ class Create extends Component
     }
     public function selesai()
     {
-        if (!empty($this->payment) && $this->payment >  $this->total_pembayaran) {
+        if (!empty($this->payment) || $this->payment >  $this->total_pembayaran) {
             $transaksi =   Transaksi::create(
                 [
                     'quantity' =>  $this->quantity,
