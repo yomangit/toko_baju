@@ -150,7 +150,7 @@
                             @endforeach
                     </table>
                 </div>
-                <div class="h-32">
+                <div class="overflow-y-auto max-h-36">
                     <form wire:submit.prevent='selesai'>
                         <fieldset class="pb-0.5 fieldset h-32">
                             <x-label>{{ __('Total Belanja') }} </x-label>
@@ -164,7 +164,7 @@
                             <x-text-input-ghost wire:model.live='cashback' disabled :error="$errors->get('harga_satuan')" readonly
                                 type="number" placeholder="0" />
                         </fieldset>
-                        {{ $payment }}
+
                         <div class=" modal-action">
                             <x-btn-selesai wire:click=''>{{ __('Selesai') }}</x-btn-selesai>
                         </div>
