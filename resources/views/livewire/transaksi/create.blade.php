@@ -133,7 +133,7 @@
                                     </td>
                                     <td>
                                         <x-icon-btn-delete data-tip="Hapus" data-tip="delete"
-                                            wire:click="destroy('{{ $item->product_id }}')"
+                                            wire:click="destroy({{ $item->product_id }})"
                                             wire:confirm.prompt="Are you sure delete {{ $item->stokPakaian->nama_pakaian }}?\n\nType DELETE to confirm|DELETE" />
                                     </td>
                                 </tr>
