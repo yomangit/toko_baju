@@ -115,7 +115,7 @@
                             @foreach ($source as $index => $item)
                                 <tr>
                                     <th>{{ $source->firstItem() + $index }}</th>
-                                    <td>{{ $Pakaian->whereId($item->new_data['product_id'])->first()->nama_pakaian }}
+                                    <td>{{ App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->nama_pakaian }}
                                     </td>
                                     <td>Rp {{ number_format($item->stokPakaian->harga_jual, 0, ',', '.') }}</td>
                                     <td>{{ $item->quantity }}</td>
