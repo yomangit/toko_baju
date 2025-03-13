@@ -39,9 +39,14 @@ class Create extends Component
         } else {
             $this->transaksi_id = 1;
         }
-
         $source = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->paginate(10);
         $total_price = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->price');
+        $kembali = $total_price - $this->payment;
+        if ($kembali <= 0) {
+            $this->cashback = 0;
+        } else {
+            $this->cashback = $kembali;
+        }
         $this->quantity = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->quantity');
         $this->total_pembayaran = $total_price;
         $this->total_price = number_format($total_price, 0, ',', '.');
