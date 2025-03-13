@@ -189,7 +189,7 @@
         // since a numeral is represented differently across the world, this has to be taken into account when parsing the string back to a number:
         function currencyStringToNumber(currencyString) {
             // Get the user's locale
-            const userLocale = navigator.language || navigator.userLanguage || 'en-US';
+            const userLocale = navigator.language || navigator.userLanguage || 'id-ID';
 
             // Remove any currency symbols and whitespace
             const cleanedString = currencyString.trim().replace(/^[^\d-]+/, '').replace(/[^\d.,\-]+$/, '');
