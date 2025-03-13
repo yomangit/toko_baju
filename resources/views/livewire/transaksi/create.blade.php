@@ -164,7 +164,7 @@
                             <x-text-input-ghost wire:model.live='cashback' disabled :error="$errors->get('harga_satuan')" readonly
                                 type="number" placeholder="0" />
                         </fieldset>
-
+                        {{ $payment }}
                         <div class=" modal-action">
                             <x-btn-selesai wire:click=''>{{ __('Selesai') }}</x-btn-selesai>
                         </div>
