@@ -164,7 +164,7 @@
                             <x-text-input-ghost wire:model.live='cashback' disabled :error="$errors->get('harga_satuan')" readonly
                                 type="number" placeholder="0" />
                         </fieldset>
-                        {{ (int) $payment }}
+
                         <div class=" modal-action">
                             <x-btn-selesai wire:click=''>{{ __('Selesai') }}</x-btn-selesai>
                         </div>
@@ -196,6 +196,8 @@
 
             rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
             return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+            console.log(rupiah);
+
         }
     </script>
 </div>
