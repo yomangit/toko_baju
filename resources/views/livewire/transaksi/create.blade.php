@@ -120,8 +120,11 @@
                                     <td>Rp
                                         {{ number_format(App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->harga_jual, 0, ',', '.') }}
                                     </td>
-                                    <td>{{ $item->quantity }}</td>
-                                    <td>Rp {{ number_format($item->price, 0, ',', '.') }}</td>
+                                    <td>{{ App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->quantity }}
+                                    </td>
+                                    <td>Rp
+                                        {{ number_format(App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->price, 0, ',', '.') }}
+                                    </td>
                                     <td>
                                         <div class="avatar drop-shadow-lg">
                                             <div class="w-8 rounded">
