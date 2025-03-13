@@ -157,9 +157,9 @@
                             <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')" type="number"
                                 placeholder="0" />
                             <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
-                            <x-text-input-ghost id="rupiah" wire:model.live='payment' :error="$errors->get('payment')"
+                            <x-text-input-ghost id="rupiah" wire:model.live='payment_rp' :error="$errors->get('payment_rp')"
                                 type='text' placeholder="Jumlah pembayaran" />
-                            <x-input-error :messages="$errors->get('payment')" />
+                            <x-input-error :messages="$errors->get('payment_rp')" />
                             <x-label>{{ __('Uang kembali') }}</x-label>
                             <x-text-input-ghost wire:model.live='cashback' disabled :error="$errors->get('harga_satuan')" readonly
                                 type="number" placeholder="0" />
@@ -189,7 +189,8 @@
                 sisa = split[0].length % 3,
                 rupiah = split[0].substr(0, sisa),
                 ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-            console.log(number_string);
+
+            @this.set('payment', number_string)
             if (ribuan) {
                 separator = sisa ? '.' : '';
                 rupiah += separator + ribuan.join('.');

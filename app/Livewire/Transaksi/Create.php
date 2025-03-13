@@ -18,8 +18,9 @@ class Create extends Component
     public $harga_satuan, $stok, $nama_pakaian, $product_id;
     public $count = 1, $total_harga, $total_price, $total_pembayaran, $cashback, $price, $quantity, $search = '';
     public $transaksi_id, $Pakaian;
-    #[Validate('required', message: 'kolom pembayaran harus di isi!!!')]
     public $payment;
+    #[Validate('required', message: 'kolom pembayaran harus di isi!!!')]
+    public $payment_rp;
     use WithPagination;
     public function increment()
     {
