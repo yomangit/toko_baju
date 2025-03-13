@@ -37,9 +37,9 @@ class Create extends Component
         if ($transaksi) {
             $this->transaksi_id = Transaksi::latest()->first()->id;
         }
-        $source = TransaksiDetail::where('transaksi_id', 'Like', $this->transaksi_id)->paginate(10);
-        $total_price = TransaksiDetail::where('transaksi_id', $this->transaksi_id)->sum('price');
-        $this->quantity = TransaksiDetail::where('transaksi_id', $this->transaksi_id)->sum('quantity');
+        $source = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->paginate(10);
+        $total_price = Approval::where('new_data->transaksi_id', $this->transaksi_id)->sum('price');
+        $this->quantity = Approval::where('new_data->transaksi_id', $this->transaksi_id)->sum('quantity');
         $this->total_price = number_format($total_price, 0, ',', '.');
 
         if ($this->search) {
