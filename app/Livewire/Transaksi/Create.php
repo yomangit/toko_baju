@@ -43,12 +43,19 @@ class Create extends Component
         $this->total_price = number_format($total_price, 0, ',', '.');
 
         if ($this->search) {
-            $stok = StokPakaian::search(trim($this->search))->first();
-            $this->product_id = $stok->id;
-            $this->harga_satuan = $stok->harga_jual;
-            $this->nama_pakaian = $stok->nama_pakaian;
-            $this->stok = $stok->jumlah_stok;
-            $this->total_harga = $this->count * $this->harga_satuan;
+            if (StokPakaian::search(trim($this->search))->exists()) {
+                $stok = StokPakaian::search(trim($this->search))->first();
+                $this->product_id = $stok->id;
+                $this->harga_satuan = $stok->harga_jual;
+                $this->nama_pakaian = $stok->nama_pakaian;
+                $this->stok = $stok->jumlah_stok;
+                $this->total_harga = $this->count * $this->harga_satuan;
+            } else {
+                $this->harga_satuan = 0;
+                $this->nama_pakaian = '';
+                $this->stok = 0;
+                $this->total_harga = 0;
+            }
         } else {
             $this->harga_satuan = 0;
             $this->nama_pakaian = '';
