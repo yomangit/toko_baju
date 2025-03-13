@@ -163,8 +163,10 @@
                             type="number" placeholder="0" />
                     </fieldset>
                 </div>
+                <div class="py-2 modal-action">
+                    <x-btn-selesai wire:click='selesai'>{{ __('Selesai') }}</x-btn-selesai>
+                </div>
             </fieldset>
-            <x-btn-selesai wire:click='selesai'>{{ __('Selesai') }}</x-btn-selesai>
         </div>
     </div>
 </div>
