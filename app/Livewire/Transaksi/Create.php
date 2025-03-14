@@ -170,7 +170,7 @@ class Create extends Component
         DB::beginTransaction();
         try {
             if ($this->payment >  $this->total_pembayaran) {
-                $transaksi =   Transaksi::updateOrcreate(
+                Transaksi::updateOrcreate(
                     ['id' => $this->transaksi_id],
                     [
                         'quantity' =>  $this->quantity,
@@ -181,7 +181,7 @@ class Create extends Component
                         'transaction_date' => Carbon::now()->format('Y-m-d'),
                     ]
                 );
-                Approval::whereIn('new_data->transaksi_id', [$transaksi->id])->approve();
+                Approval::whereIn('new_data->transaksi_id', [$this->transaksi_id])->approve();
                 $this->dispatch(
                     'alert',
                     [
