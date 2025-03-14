@@ -78,7 +78,7 @@ class Create extends Component
             $this->stok = 0;
             $this->total_harga = 0;
         }
-        $products = StokPakaian::where('nama_pakaian', 'like', '%' . $this->search . '%')->get();
+        $products = StokPakaian::where('kode_pakaian', 'like', '%' . $this->search . '%')->get();
         return view('livewire.transaksi.create', [
             'source' => $source,
             'products' => $products,
