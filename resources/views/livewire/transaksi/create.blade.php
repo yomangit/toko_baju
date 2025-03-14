@@ -100,7 +100,7 @@
                 <legend class="fieldset-legend">Keranjang {{ $transaksi_id }}</legend>
                 <div
                     class="overflow-x-auto overflow-y-auto border rounded-sm  h-[40vh] rounded-box border-base-content/5">
-                    <table class="table text-center table-xs">
+                    <table class="table text-center table-xs table-pin-rows">
                         <thead>
                             <tr>
                                 <th>No.</th>
