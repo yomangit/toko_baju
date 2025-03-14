@@ -26,7 +26,7 @@
                                     </li> --}}
 
                                     <x-text-input-ghost wire:click="setKodePakaian('{{ $product->kode_pakaian }}')"
-                                        value=' {{ $product->kode_pakaian }}' readonly type="text"
+                                        :error="$errors->get('payment_rp')" value=' {{ $product->kode_pakaian }}' readonly type="text"
                                         placeholder="Kode Pakaian" />
                                 @endforeach
 
