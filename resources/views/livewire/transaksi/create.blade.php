@@ -151,7 +151,7 @@
                             @endforeach
                     </table>
                 </div>
-                <div class=" max-h-32 bg-amber-200">
+                <div class="relative max-h-32 bg-amber-200">
                     <form wire:submit.prevent='selesai'>
                         <fieldset class="pb-0.5 fieldset ">
                             <x-label>{{ __('Total Belanja') }} </x-label>
@@ -168,7 +168,8 @@
                                     readonlytype="number" placeholder="0" />
                             </fieldset>
                         </fieldset>
-                        <x-btn-selesai wire:click=''>{{ __('Selesai') }}</x-btn-selesai>
+                        <x-btn-selesai class="absolute bottom-0 right-0"
+                            wire:click=''>{{ __('Selesai') }}</x-btn-selesai>
                 </div>
                 </form>
 
