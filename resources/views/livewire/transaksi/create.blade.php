@@ -164,7 +164,7 @@
 
                             <fieldset class="pb-0.5 fieldset ">
                                 <x-label>{{ __('Uang kembali') }}</x-label>
-                                <x-text-input-ghost id="kembalian" wire:model.live='cashback' disabled
+                                <x-text-input-ghost id="kembalian" wire:model.live='cashback_rp' disabled
                                     :error="$errors->get('harga_satuan')" readonlytype="number" placeholder="0" />
                             </fieldset>
                         </fieldset>

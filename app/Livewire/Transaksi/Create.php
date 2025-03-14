@@ -16,7 +16,7 @@ use Cjmellor\Approval\Models\Approval;
 class Create extends Component
 {
     public $harga_satuan, $stok, $nama_pakaian, $product_id;
-    public $count = 1, $total_harga, $total_price, $total_pembayaran, $cashback, $price, $quantity, $search = '';
+    public $count = 1, $total_harga, $total_price, $total_pembayaran, $cashback, $cashback_rp, $price, $quantity, $search = '';
     public $transaksi_id, $Pakaian;
     public $payment;
     #[Validate('required', message: 'kolom pembayaran harus di isi!!!')]
@@ -46,7 +46,7 @@ class Create extends Component
         if ($kembali <= 0) {
             $this->cashback = 0;
         } else {
-            $this->cashback = $kembali;
+            $this->cashback_rp = 'Rp.' . number_format($kembali, 0, ',', '.');
         }
         $this->quantity = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->quantity');
         $this->total_pembayaran = $total_price;
