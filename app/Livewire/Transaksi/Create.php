@@ -34,18 +34,9 @@ class Create extends Component
     public function mount()
     {
         $transaksi = Transaksi::exists();
-        if (!$transaksi) {
-            $trans_id =   Transaksi::create(
-                [
-                    'quantity' => 0,
-                    'user_id' => Auth::user()->id,
-                    'total_price' => 0,
-                    'payment' => 0,
-                    'cashback' => 0,
-                    'transaction_date' => Carbon::now()->format('Y-m-d'),
-                ]
-            );
-            $this->transaksi_id = $trans_id->id;
+        if ($transaksi) {
+
+            $this->transaksi_id = Transaksi::latest()->first()->id;
         }
     }
     public function render()
@@ -117,7 +108,21 @@ class Create extends Component
             return;
         } else {
             try {
-
+                $transaksi = Transaksi::exists();
+                if (!$transaksi) {
+                    $trans_id =   Transaksi::updateOrcreate(
+                        ['id' => $this->transaksi_id],
+                        [
+                            'quantity' => 0,
+                            'user_id' => Auth::user()->id,
+                            'total_price' => 0,
+                            'payment' => 0,
+                            'cashback' => 0,
+                            'transaction_date' => Carbon::now()->format('Y-m-d'),
+                        ]
+                    );
+                    $this->transaksi_id = $trans_id->id;
+                }
                 // Assuming you have a Transaksi model to save the transaction
                 TransaksiDetail::create([
                     'transaksi_id' => $this->transaksi_id,
