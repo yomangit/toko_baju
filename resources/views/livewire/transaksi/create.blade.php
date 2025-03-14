@@ -165,7 +165,7 @@
                                 type="number" placeholder="0" />
                         </fieldset>
 
-                        <div class=" modal-action">
+                        <div class="">
                             <x-btn-selesai wire:click=''>{{ __('Selesai') }}</x-btn-selesai>
                         </div>
                 </div>
