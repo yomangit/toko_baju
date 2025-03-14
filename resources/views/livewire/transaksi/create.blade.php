@@ -162,7 +162,6 @@
                             <x-input-error :messages="$errors->get('payment_rp')" />
                             <div class="flex flex-row justify-betw">
                                 <fieldset class="pb-0.5 fieldset ">
-                                    <x-lable-req>{{ __('nama pakaian') }} </x-lable-req>
                                     <x-label>{{ __('Uang kembali') }}</x-label>
                                     <x-text-input-ghost wire:model.live='cashback' disabled :error="$errors->get('harga_satuan')"
                                         readonlytype="number" placeholder="0" />
