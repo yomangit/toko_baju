@@ -168,7 +168,6 @@
                             </fieldset>
                         </fieldset>
                         <x-btn-selesai wire:click=''>{{ __('Selesai') }}</x-btn-selesai>
-
                 </div>
                 </form>
 
