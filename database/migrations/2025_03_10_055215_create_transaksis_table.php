@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('total_price', 10, 2)->nullable();
             $table->timestamp('transaction_date')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
