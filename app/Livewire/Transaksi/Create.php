@@ -43,19 +43,10 @@ class Create extends Component
     {
 
         $source = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->get();
-        $total_price = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->price');
-        // if ($this->payment) {
-        //     $kembali = $this->payment - $total_price;
-        //     if ($kembali <= 0) {
-        //         $this->cashback = 0;
-        //     } else {
-        //         $this->cashback_rp = 'Rp. ' . number_format($kembali, 0, ',', '.');
-        //         $this->cashback =  $kembali;
-        //     }
-        // }
+
+
         $this->quantity = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->quantity');
-        $this->total_pembayaran = $total_price;
-        $this->total_price = 'Rp. ' . number_format($total_price, 0, ',', '.');
+
 
         $this->Pakaian = StokPakaian::get();
         if ($this->search) {
@@ -95,8 +86,9 @@ class Create extends Component
     }
     public function updatedPayment()
     {
-        $total_price = Approval::where('new_data->transaksi_id
-        ', 'Like', $this->transaksi_id)->sum('new_data->price');
+        $total_price = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->price');
+        $this->total_pembayaran = $total_price;
+        $this->total_price = 'Rp. ' . number_format($total_price, 0, ',', '.');
         $kembali = $this->payment - $total_price;
         if ($kembali <= 0) {
             $this->cashback = 0;
@@ -105,6 +97,7 @@ class Create extends Component
             $this->cashback =  $kembali;
         }
     }
+
     public function updatedSearch()
     {
         $this->resetPage();
