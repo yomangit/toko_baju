@@ -34,9 +34,7 @@ class Create extends Component
     public function mount()
     {
         $transaksi = Transaksi::exists();
-        if ($transaksi) {
-            $this->transaksi_id = Transaksi::latest()->first()->id + 1;
-        } else {
+        if (!$transaksi) {
             $trans_id =   Transaksi::create(
                 [
                     'quantity' => 0,
@@ -119,6 +117,7 @@ class Create extends Component
             return;
         } else {
             try {
+
                 // Assuming you have a Transaksi model to save the transaction
                 TransaksiDetail::create([
                     'transaksi_id' => $this->transaksi_id,
@@ -166,7 +165,8 @@ class Create extends Component
         DB::beginTransaction();
         try {
             if ($this->payment >  $this->total_pembayaran) {
-                $transaksi =   Transaksi::whereId($this->transaksi_id)->update(
+                $transaksi =   Transaksi::updateOrcreate(
+                    ['id' => $this->transaksi_id],
                     [
                         'quantity' =>  $this->quantity,
                         'user_id' => Auth::user()->id,
