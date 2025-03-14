@@ -87,12 +87,7 @@ class Create extends Component
     }
     public function setKodePakaian($kode_pakaian)
     {
-        $stok = StokPakaian::where('kode_pakaian', 'like', $kode_pakaian)->first();
-        $this->product_id = $stok->id;
-        $this->harga_satuan = $stok->harga_jual;
-        $this->nama_pakaian = $stok->nama_pakaian;
-        $this->stok = $stok->jumlah_stok;
-        $this->total_harga = $this->count * $this->harga_satuan;
+        $this->search = $kode_pakaian;
     }
     public function updatedCount()
     {
