@@ -18,7 +18,7 @@
                             </svg>
                         </div>
                         <ul tabindex="0" class="p-2 shadow-sm menu dropdown-content bg-base-100 rounded-box z-1 w-52">
-                            <fieldset>
+                            <fieldset class="h-40 overflow-y-auto fieldset">
                                 @foreach ($products as $product)
                                     {{-- <li wire:click="setKodePakaian('{{ $product->kode_pakaian }}')"
                                         class="menu-title">
