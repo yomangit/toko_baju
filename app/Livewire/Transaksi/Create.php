@@ -44,15 +44,15 @@ class Create extends Component
 
         $source = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->get();
         $total_price = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->price');
-        if ($this->payment) {
-            $kembali = $this->payment - $total_price;
-            if ($kembali <= 0) {
-                $this->cashback = 0;
-            } else {
-                $this->cashback_rp = 'Rp. ' . number_format($kembali, 0, ',', '.');
-                $this->cashback =  $kembali;
-            }
-        }
+        // if ($this->payment) {
+        //     $kembali = $this->payment - $total_price;
+        //     if ($kembali <= 0) {
+        //         $this->cashback = 0;
+        //     } else {
+        //         $this->cashback_rp = 'Rp. ' . number_format($kembali, 0, ',', '.');
+        //         $this->cashback =  $kembali;
+        //     }
+        // }
         $this->quantity = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->quantity');
         $this->total_pembayaran = $total_price;
         $this->total_price = 'Rp. ' . number_format($total_price, 0, ',', '.');
@@ -78,16 +78,41 @@ class Create extends Component
             $this->stok = 0;
             $this->total_harga = 0;
         }
-
+        $products = StokPakaian::where('nama_pakaian', 'like', '%' . $this->search . '%')->get();
         return view('livewire.transaksi.create', [
             'source' => $source,
+            'products' => $products,
 
         ])->extends('layouts.app', ['header' => 'Transaksi Baru', 'title' => 'Transaksi Baru'])->section('content');
     }
-    public function generateUniqueCode()
+    public function setKodePakaian($kode_pakaian)
     {
-        $code = 'current_id_transaction-' . random_int(100000, 999999);
-        return $code;
+        $stok = StokPakaian::where('kode_pakaian', 'like', $kode_pakaian)->first();
+        $this->product_id = $stok->id;
+        $this->harga_satuan = $stok->harga_jual;
+        $this->nama_pakaian = $stok->nama_pakaian;
+        $this->stok = $stok->jumlah_stok;
+        $this->total_harga = $this->count * $this->harga_satuan;
+    }
+    public function updatedCount()
+    {
+        $this->total_harga = $this->count * $this->harga_satuan;
+    }
+    public function updatedPayment()
+    {
+        $total_price = Approval::where('new_data->transaksi_id
+        ', 'Like', $this->transaksi_id)->sum('new_data->price');
+        $kembali = $this->payment - $total_price;
+        if ($kembali <= 0) {
+            $this->cashback = 0;
+        } else {
+            $this->cashback_rp = 'Rp. ' . number_format($kembali, 0, ',', '.');
+            $this->cashback =  $kembali;
+        }
+    }
+    public function updatedSearch()
+    {
+        $this->resetPage();
     }
 
     public function store()
