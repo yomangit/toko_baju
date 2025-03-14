@@ -150,7 +150,7 @@
                             @endforeach
                     </table>
                 </div>
-                <div class=" max-h-32">
+                <div class=" max-h-32 bg-amber-200">
                     <form wire:submit.prevent='selesai'>
                         <fieldset class="pb-0.5 fieldset ">
                             <x-label>{{ __('Total Belanja') }} </x-label>
