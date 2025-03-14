@@ -20,11 +20,15 @@
                         <ul tabindex="0" class="p-2 shadow-sm menu dropdown-content bg-base-100 rounded-box z-1 w-52">
                             <fieldset>
                                 @foreach ($products as $product)
-                                    <li wire:click="setKodePakaian('{{ $product->kode_pakaian }}')" class="menu-title">
+                                    {{-- <li wire:click="setKodePakaian('{{ $product->kode_pakaian }}')"
+                                        class="menu-title">
                                         {{ $product->kode_pakaian }}
-                                    </li>
-                                @endforeach
+                                    </li> --}}
 
+                                    <x-text-input-ghost wire:click="setKodePakaian('{{ $product->kode_pakaian }}')"
+                                        value=' {{ $product->kode_pakaian }}' readonly type="text"
+                                        placeholder="Kode Pakaian" />
+                                @endforeach
 
                             </fieldset>
                         </ul>
