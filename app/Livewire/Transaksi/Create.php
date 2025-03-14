@@ -161,7 +161,7 @@ class Create extends Component
                     'transaction_date' => Carbon::now()->format('Y-m-d'),
                 ]
             );
-            Approval::where('new_data->transaksi_id', $transaksi->id)->approve();
+            Approval::where('new_data->transaksi_id', 'like', $transaksi->id)->approve();
             $this->dispatch(
                 'alert',
                 [
