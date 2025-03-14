@@ -98,7 +98,8 @@
         <div class="col-span-2 border shadow-md rounded-box card grow bg-base-200 border-base-300">
             <fieldset class="p-4 fieldset ">
                 <legend class="fieldset-legend">Keranjang</legend>
-                <div class="overflow-x-auto overflow-y-auto border rounded-sm h-52 rounded-box border-base-content/5">
+                <div
+                    class="overflow-x-auto overflow-y-auto border rounded-sm  h-[60vh] rounded-box border-base-content/5">
                     <table class="table text-center table-xs">
                         <thead>
                             <tr>
