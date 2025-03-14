@@ -36,7 +36,7 @@ class Create extends Component
         $transaksi = Transaksi::exists();
         if ($transaksi) {
 
-            $this->transaksi_id = Transaksi::latest()->first()->id;
+            $this->transaksi_id = Transaksi::latest()->first()->id + 1;
         }
     }
     public function render()
@@ -122,8 +122,6 @@ class Create extends Component
                         ]
                     );
                     $this->transaksi_id = $trans_id->id;
-                } else {
-                    $this->transaksi_id = Transaksi::latest()->first()->id + 1;
                 }
                 // Assuming you have a Transaksi model to save the transaction
                 TransaksiDetail::create([
@@ -197,6 +195,7 @@ class Create extends Component
                     'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
                 ]
             );
+            Approval::whereIn('new_data->transaksi_id', [$trans->id])->where('state', 'like', 'approved')->delete();
         } else {
             $this->dispatch(
                 'alert',
