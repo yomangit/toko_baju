@@ -150,39 +150,55 @@ class Create extends Component
     public function selesai()
     {
         $this->validate();
-        if ($this->payment >  $this->total_pembayaran) {
-            $transaksi =   Transaksi::create(
-                [
-                    'quantity' =>  $this->quantity,
-                    'user_id' => Auth::user()->id,
-                    'total_price' => $this->total_pembayaran,
-                    'payment' => $this->payment,
-                    'cashback' => $this->cashback,
-                    'transaction_date' => Carbon::now()->format('Y-m-d'),
-                ]
-            );
-            Approval::where('new_data->transaksi_id', 'like', $transaksi->id)->approve();
+        DB::beginTransaction();
+        try {
+            if ($this->payment >  $this->total_pembayaran) {
+                $transaksi =   Transaksi::create(
+                    [
+                        'quantity' =>  $this->quantity,
+                        'user_id' => Auth::user()->id,
+                        'total_price' => $this->total_pembayaran,
+                        'payment' => $this->payment,
+                        'cashback' => $this->cashback,
+                        'transaction_date' => Carbon::now()->format('Y-m-d'),
+                    ]
+                );
+                Approval::where('new_data->transaksi_id', 'like', $transaksi->id)->approve();
+                $this->dispatch(
+                    'alert',
+                    [
+                        'text' => "Transaksi Selesai!!",
+                        'duration' => 3000,
+                        'destination' => '/contact',
+                        'newWindow' => true,
+                        'close' => true,
+                        'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
+                    ]
+                );
+            } else {
+                $this->dispatch(
+                    'alert',
+                    [
+                        'text' => "Pembayaran Kurang!!",
+                        'duration' => 3000,
+                        'destination' => '/contact',
+                        'newWindow' => true,
+                        'close' => true,
+                        'backgroundColor' => "linear-gradient(to right, #ff3333, #ff6666)",
+                    ]
+                );
+            }
+        } catch (\Exception $e) {
+            DB::rollBack();
             $this->dispatch(
                 'alert',
                 [
-                    'text' => "Transaksi Selesai!!",
+                    'text' => 'Terjadi kesalahan saat menyimpan transaksi: ' . $e->getMessage(),
                     'duration' => 3000,
                     'destination' => '/contact',
                     'newWindow' => true,
                     'close' => true,
                     'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
-                ]
-            );
-        } else {
-            $this->dispatch(
-                'alert',
-                [
-                    'text' => "Pembayaran Kurang!!",
-                    'duration' => 3000,
-                    'destination' => '/contact',
-                    'newWindow' => true,
-                    'close' => true,
-                    'backgroundColor' => "linear-gradient(to right, #ff3333, #ff6666)",
                 ]
             );
         }
