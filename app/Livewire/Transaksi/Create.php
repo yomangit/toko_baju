@@ -110,7 +110,6 @@ class Create extends Component
                     'quantity' => $this->count,
                     'price' => $this->total_harga,
                 ]);
-
                 // Save the transaction
                 // Update the stock
                 $stok = StokPakaian::whereId($this->product_id)->first();
