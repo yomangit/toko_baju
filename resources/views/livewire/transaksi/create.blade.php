@@ -97,7 +97,7 @@
 
         <div class="col-span-2">
             <fieldset class="p-4 border shadow-md fieldset rounded-box card grow bg-base-200 border-base-300">
-                <legend class="fieldset-legend">Keranjang</legend>
+                <legend class="fieldset-legend">Keranjang {{ $transaksi_id }}</legend>
                 <div
                     class="overflow-x-auto overflow-y-auto border rounded-sm  h-[40vh] rounded-box border-base-content/5">
                     <table class="table text-center table-xs">
