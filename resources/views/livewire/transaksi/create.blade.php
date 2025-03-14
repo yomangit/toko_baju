@@ -15,7 +15,7 @@
                                 clip-rule="evenodd" />
                         </svg>
                     </div>
-                    <ul class="absolute inset-x-0 bottom-0 shadow-md list bg-base-100 rounded-box">
+                    <ul class="absolute shadow-md list bg-base-100 rounded-box">
 
                         <li class="p-4 pb-2 text-xs tracking-wide opacity-60">Most played songs this week</li>
 
