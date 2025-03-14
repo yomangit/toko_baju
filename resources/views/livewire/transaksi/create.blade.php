@@ -164,8 +164,8 @@
 
                             <fieldset class="pb-0.5 fieldset ">
                                 <x-label>{{ __('Uang kembali') }}</x-label>
-                                <x-text-input-ghost wire:model.live='cashback' disabled :error="$errors->get('harga_satuan')"
-                                    readonlytype="number" placeholder="0" />
+                                <x-text-input-ghost id="kembalian" wire:model.live='cashback' disabled
+                                    :error="$errors->get('harga_satuan')" readonlytype="number" placeholder="0" />
                             </fieldset>
                         </fieldset>
                         <x-btn-selesai class="absolute bottom-0 right-0"
@@ -177,6 +177,10 @@
         </div>
     </div>
     <script>
+        var tanpa_rupiah = document.getElementById('kembalian');
+        tanpa_rupiah.addEventListener('keyup', function(e) {
+            tanpa_rupiah.value = formatRupiah(this.value);
+        });
         /* Dengan Rupiah */
         var dengan_rupiah = document.getElementById('rupiah');
         dengan_rupiah.addEventListener('keyup', function(e) {
