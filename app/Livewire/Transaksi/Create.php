@@ -123,7 +123,7 @@ class Create extends Component
                     );
                     $this->transaksi_id = $trans_id->id;
                 } else {
-                    $this->transaksi_id = Transaksi::latest()->first()->id;
+                    $this->transaksi_id = Transaksi::latest()->first()->id + 1;
                 }
                 // Assuming you have a Transaksi model to save the transaction
                 TransaksiDetail::create([
