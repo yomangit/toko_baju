@@ -43,11 +43,7 @@ class Create extends Component
     {
 
         $source = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->get();
-
-
         $this->quantity = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->quantity');
-
-
         $this->Pakaian = StokPakaian::get();
         if ($this->search) {
             if (StokPakaian::search(trim($this->search))->exists()) {
