@@ -166,8 +166,7 @@ class Create extends Component
         DB::beginTransaction();
         try {
             if ($this->payment >  $this->total_pembayaran) {
-                $transaksi =   Transaksi::updateOrCreate(
-                    ['id' => $this->transaksi_id],
+                $transaksi =   Transaksi::whereId($this->transaksi_id)->update(
                     [
                         'quantity' =>  $this->quantity,
                         'user_id' => Auth::user()->id,
