@@ -48,6 +48,7 @@ class Create extends Component
                 $this->cashback = 0;
             } else {
                 $this->cashback_rp = 'Rp. ' . number_format($kembali, 0, ',', '.');
+                $this->cashback =  $kembali;
             }
         }
         $this->quantity = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->quantity');
@@ -154,7 +155,7 @@ class Create extends Component
                 [
                     'quantity' =>  $this->quantity,
                     'user_id' => Auth::user()->id,
-                    'total_price' => $this->total_price,
+                    'total_price' => $this->total_pembayaran,
                     'payment' => $this->payment,
                     'cashback' => $this->cashback,
                     'transaction_date' => Carbon::now()->format('Y-m-d'),
