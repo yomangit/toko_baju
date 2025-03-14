@@ -49,7 +49,7 @@ class Create extends Component
             if (StokPakaian::search(trim($this->search))->exists()) {
                 $stok = StokPakaian::search(trim($this->search))->first();
                 $this->product_id = $stok->id;
-                $this->harga_satuan = $stok->harga_jual;
+                $this->harga_satuan = 'Rp. ' . number_format($stok->harga_jual, 0, ',', '.');
                 $this->nama_pakaian = $stok->nama_pakaian;
                 $this->stok = $stok->jumlah_stok;
                 $this->total_harga = $this->count * $this->harga_satuan;

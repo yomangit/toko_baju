@@ -190,7 +190,7 @@
                             </fieldset>
                         </fieldset>
                         <x-btn-selesai class="absolute bottom-0 right-0"
-                            wire:click=''>{{ __('Selesai') }}</x-btn-selesai>
+                            wire:click=''>{{ __('Beli Sekarang') }}</x-btn-selesai>
                 </div>
                 </form>
 
