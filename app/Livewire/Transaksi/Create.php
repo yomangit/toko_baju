@@ -160,7 +160,7 @@ class Create extends Component
                 $this->dispatch(
                     'alert',
                     [
-                        'text' => "Transaksi berhasil disimpan!!",
+                        'text' => "Pakaian di masukan dalam keranjang!!",
                         'duration' => 3000,
                         'destination' => '/contact',
                         'newWindow' => true,

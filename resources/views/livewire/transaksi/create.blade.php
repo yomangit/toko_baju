@@ -3,7 +3,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 h-[75vh]">
         <div class="justify-self-center md:justify-self-start">
             <fieldset class="items-stretch px-4 border shadow-md card w-xs bg-base-200 border-base-300 rounded-box">
-                <legend class="fieldset-legend">Data Barang</legend>
+                <legend class="fieldset-legend">Data Pakaian</legend>
                 <fieldset class="pb-0.5 fieldset ">
                     <div class="dropdown dropdown-center">
                         <div class="relative flex items-center">
