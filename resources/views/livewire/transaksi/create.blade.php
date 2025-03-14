@@ -142,7 +142,7 @@
                                         {{ number_format(App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->harga_jual, 0, ',', '.') }}
                                     </td>
                                     <td>
-                                        {{ number_format(App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->Ukuran->ukuran_pakaian, 0, ',', '.') }}
+                                        {{ App\Models\StokPakaian::whereId($item->new_data['product_id'])->first()->Ukuran->ukuran_pakaian }}
                                     </td>
                                     <td>{{ $item->new_data['quantity'] }}</td>
                                     <td>Rp
