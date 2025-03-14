@@ -122,7 +122,7 @@
                         <thead>
                             <tr>
                                 <th> <x-lable-req>{{ __('No.') }} </x-lable-req></th>
-                                <th><x-lable-req>{{ __('Name Pakaian') }} </x-lable-req></th>
+                                <th> <x-lable-req>{{ __('Name Pakaian') }} </x-lable-req></th>
                                 <th> <x-lable-req>{{ __('Harga Satuan') }} </x-lable-req></th>
                                 <th> <x-lable-req>{{ __('size') }} </x-lable-req></th>
                                 <th> <x-lable-req>{{ __('Quantity') }} </x-lable-req></th>
