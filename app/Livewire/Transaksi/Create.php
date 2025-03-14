@@ -170,7 +170,7 @@ class Create extends Component
     {
         $this->validate();
 
-        if ($this->payment >  $this->total_pembayaran) {
+        if (($this->payment >  $this->total_pembayaran) || ($this->payment == $this->total_pembayaran)) {
             $trans =  Transaksi::updateOrcreate(
                 ['id' => $this->transaksi_id],
                 [
