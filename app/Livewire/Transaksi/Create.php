@@ -167,7 +167,7 @@ class Create extends Component
     public function selesai()
     {
         $this->validate();
-        $source = Approval::whereIn('new_data->transaksi_id', $this->transaksi_id)->exists();
+        $source = Approval::whereIn('new_data->transaksi_id', [$this->transaksi_id])->exists();
 
         if ($source) {
             if (($this->payment >  $this->total_pembayaran) || ($this->payment == $this->total_pembayaran)) {
