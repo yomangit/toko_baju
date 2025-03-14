@@ -181,7 +181,7 @@ class Create extends Component
                         'transaction_date' => Carbon::now()->format('Y-m-d'),
                     ]
                 );
-                $source = Approval::whereIn('new_data->transaksi_id', [$trans->id])->approve();
+                $source = Approval::whereIn('new_data->transaksi_id', [$trans->id])->get();
                 foreach ($source as  $value) {
                     Approval::find($value->id)->approve();
                 }
