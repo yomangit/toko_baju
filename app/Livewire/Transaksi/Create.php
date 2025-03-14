@@ -38,7 +38,17 @@ class Create extends Component
         if ($transaksi) {
             $this->transaksi_id = Transaksi::latest()->first()->id + 1;
         } else {
-            $this->transaksi_id = 1;
+            $trans_id =   Transaksi::create(
+                [
+                    'quantity' => 0,
+                    'user_id' => Auth::user()->id,
+                    'total_price' => 0,
+                    'payment' => 0,
+                    'cashback' => 0,
+                    'transaction_date' => Carbon::now()->format('Y-m-d'),
+                ]
+            );
+            $this->transaksi_id = $trans_id->id;
         }
         $source = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->get();
         $total_price = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->price');
@@ -153,7 +163,8 @@ class Create extends Component
         DB::beginTransaction();
         try {
             if ($this->payment >  $this->total_pembayaran) {
-                $transaksi =   Transaksi::create(
+                $transaksi =   Transaksi::updateOrCreate(
+                    ['id' => $this->transaksi_id],
                     [
                         'quantity' =>  $this->quantity,
                         'user_id' => Auth::user()->id,
