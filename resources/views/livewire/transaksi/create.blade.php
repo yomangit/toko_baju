@@ -4,76 +4,23 @@
         <div class="justify-self-center md:justify-self-start">
             <fieldset class="items-stretch px-4 border shadow-md card w-xs bg-base-200 border-base-300 rounded-box">
                 <legend class="fieldset-legend">Data Barang</legend>
-                <fieldset class="pb-0.5 fieldset relative  ">
-                    <div class="relative flex items-center">
-                        <input id="11" wire:model.live='search' type="text" placeholder="cari kode pakaian"
-                            class="'relative block pl-8 pr-4 font-semibold border shadow-sm input input-bordered input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1'" />
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
-                            class="absolute ml-3 size-4">
-                            <path fill-rule="evenodd"
-                                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </div>
-                    <ul class="absolute z-30 mb-5 shadow-md list bg-base-100 rounded-box">
-
-                        <li class="p-4 pb-2 text-xs tracking-wide opacity-60">Most played songs this week</li>
-
-                        <li class="list-row">
-                            <div class="text-4xl font-thin opacity-30 tabular-nums">01</div>
-                            <div><img class="size-10 rounded-box"
-                                    src="https://img.daisyui.com/images/profile/demo/1@94.webp" /></div>
-                            <div class="list-col-grow">
-                                <div>Dio Lupa</div>
-                                <div class="text-xs font-semibold uppercase opacity-60">Remaining Reason</div>
-                            </div>
-                            <button class="btn btn-square btn-ghost">
-                                <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none"
-                                        stroke="currentColor">
-                                        <path d="M6 3L20 12 6 21 6 3z"></path>
-                                    </g>
-                                </svg>
-                            </button>
-                        </li>
-
-                        <li class="list-row">
-                            <div class="text-4xl font-thin opacity-30 tabular-nums">02</div>
-                            <div><img class="size-10 rounded-box"
-                                    src="https://img.daisyui.com/images/profile/demo/4@94.webp" /></div>
-                            <div class="list-col-grow">
-                                <div>Ellie Beilish</div>
-                                <div class="text-xs font-semibold uppercase opacity-60">Bears of a fever</div>
-                            </div>
-                            <button class="btn btn-square btn-ghost">
-                                <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none"
-                                        stroke="currentColor">
-                                        <path d="M6 3L20 12 6 21 6 3z"></path>
-                                    </g>
-                                </svg>
-                            </button>
-                        </li>
-
-                        <li class="list-row">
-                            <div class="text-4xl font-thin opacity-30 tabular-nums">03</div>
-                            <div><img class="size-10 rounded-box"
-                                    src="https://img.daisyui.com/images/profile/demo/3@94.webp" /></div>
-                            <div class="list-col-grow">
-                                <div>Sabrino Gardener</div>
-                                <div class="text-xs font-semibold uppercase opacity-60">Cappuccino</div>
-                            </div>
-                            <button class="btn btn-square btn-ghost">
-                                <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none"
-                                        stroke="currentColor">
-                                        <path d="M6 3L20 12 6 21 6 3z"></path>
-                                    </g>
-                                </svg>
-                            </button>
-                        </li>
-
-                    </ul>
+                <fieldset class="pb-0.5 fieldset ">
+                    <details class="dropdown dropdown-center">
+                        <summary class="relative flex items-center">
+                            <input id="11" wire:model.live='search' type="text" placeholder="cari kode pakaian"
+                                class="'relative block pl-8 pr-4 font-semibold border shadow-sm input input-bordered input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1'" />
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                                class="absolute ml-3 size-4">
+                                <path fill-rule="evenodd"
+                                    d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </summary>
+                        <ul class="p-2 shadow-sm menu dropdown-content bg-base-100 rounded-box z-1 w-52">
+                            <li><a>Item 1</a></li>
+                            <li><a>Item 2</a></li>
+                        </ul>
+                    </details>
                 </fieldset>
                 <form wire:submit.prevent='store'>
                     <fieldset class="pb-0.5 fieldset ">
@@ -126,8 +73,7 @@
                             <div class=" join">
                                 <span class="bg-transparent rounded-l-full btn btn-xs join-item btn-ghost"><svg
                                         fill="currentColor" class="size-4" viewBox="0 0 24 24" id="rupiah-2"
-                                        data-name="Flat Line" xmlns="http://www.w3.org/2000/svg"
-                                        class="icon flat-line">
+                                        data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line">
                                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
                                         </g>
@@ -215,8 +161,8 @@
                     <form wire:submit.prevent='selesai'>
                         <fieldset class="pb-0.5 fieldset ">
                             <x-label>{{ __('Total Belanja') }} </x-label>
-                            <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')"
-                                type="text" placeholder="0" />
+                            <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')" type="text"
+                                placeholder="0" />
                             <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
                             <x-text-input-ghost id="rupiah" wire:model.live='payment_rp' :error="$errors->get('payment_rp')"
                                 type='text' placeholder="Jumlah pembayaran" />
