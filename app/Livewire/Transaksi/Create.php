@@ -40,7 +40,7 @@ class Create extends Component
         } else {
             $this->transaksi_id = 1;
         }
-        $source = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->paginate(10);
+        $source = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->get();
         $total_price = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->price');
         $kembali = $this->payment - $total_price;
         if ($kembali <= 0) {
