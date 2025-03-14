@@ -19,7 +19,8 @@
                         </div>
                         <ul tabindex="0" class="p-2 shadow-sm menu dropdown-content bg-base-100 rounded-box z-1 w-52">
                             <fieldset>
-                                <li><a>Item 1</a></li>
+                                <x-text-input wire:model.live='nama_pakaian' :error="$errors->get('nama_pakaian')" type="text"
+                                    placeholder="Nama Pakaian" />
                                 <li><a>Item 2</a></li>
                             </fieldset>
                         </ul>
@@ -164,8 +165,8 @@
                     <form wire:submit.prevent='selesai'>
                         <fieldset class="pb-0.5 fieldset ">
                             <x-label>{{ __('Total Belanja') }} </x-label>
-                            <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')" type="text"
-                                placeholder="0" />
+                            <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')"
+                                type="text" placeholder="0" />
                             <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
                             <x-text-input-ghost id="rupiah" wire:model.live='payment_rp' :error="$errors->get('payment_rp')"
                                 type='text' placeholder="Jumlah pembayaran" />
