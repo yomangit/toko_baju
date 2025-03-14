@@ -18,8 +18,10 @@
                             </svg>
                         </div>
                         <ul tabindex="0" class="p-2 shadow-sm menu dropdown-content bg-base-100 rounded-box z-1 w-52">
-                            <li><a>Item 1</a></li>
-                            <li><a>Item 2</a></li>
+                            <fieldset>
+                                <li><a>Item 1</a></li>
+                                <li><a>Item 2</a></li>
+                            </fieldset>
                         </ul>
                     </div>
                 </fieldset>
