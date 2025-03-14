@@ -160,15 +160,14 @@
                             <x-text-input-ghost id="rupiah" wire:model.live='payment_rp' :error="$errors->get('payment_rp')"
                                 type='text' placeholder="Jumlah pembayaran" />
                             <x-input-error :messages="$errors->get('payment_rp')" />
-                            <div class="flex flex-row justify-betw">
-                                <fieldset class="pb-0.5 fieldset ">
-                                    <x-label>{{ __('Uang kembali') }}</x-label>
-                                    <x-text-input-ghost wire:model.live='cashback' disabled :error="$errors->get('harga_satuan')"
-                                        readonlytype="number" placeholder="0" />
-                                </fieldset>
-                                <x-btn-selesai wire:click=''>{{ __('Selesai') }}</x-btn-selesai>
-                            </div>
+
+                            <fieldset class="pb-0.5 fieldset ">
+                                <x-label>{{ __('Uang kembali') }}</x-label>
+                                <x-text-input-ghost wire:model.live='cashback' disabled :error="$errors->get('harga_satuan')"
+                                    readonlytype="number" placeholder="0" />
+                            </fieldset>
                         </fieldset>
+                        <x-btn-selesai wire:click=''>{{ __('Selesai') }}</x-btn-selesai>
 
                 </div>
                 </form>
