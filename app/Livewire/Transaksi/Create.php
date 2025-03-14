@@ -103,18 +103,15 @@ class Create extends Component
             return;
         } else {
             try {
-
-
                 // Assuming you have a Transaksi model to save the transaction
-                $TransaksiDetail = new TransaksiDetail();
-                $TransaksiDetail->transaksi_id = $this->transaksi_id;
-                $TransaksiDetail->product_id = $this->product_id;
-                $TransaksiDetail->quantity = $this->count;
-                $TransaksiDetail->price = $this->total_harga;
-                $TransaksiDetail->save();
+                TransaksiDetail::create([
+                    'transaksi_id' => $this->transaksi_id,
+                    'product_id' => $this->product_id,
+                    'quantity' => $this->count,
+                    'price' => $this->total_harga,
+                ]);
+
                 // Save the transaction
-
-
                 // Update the stock
                 $stok = StokPakaian::whereId($this->product_id)->first();
                 $stok->jumlah_stok -= $this->count;
