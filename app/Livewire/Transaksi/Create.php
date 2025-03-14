@@ -109,6 +109,7 @@ class Create extends Component
                     'product_id' => $this->product_id,
                     'quantity' => $this->count,
                     'price' => $this->total_harga,
+                    'transaction_date' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
                 // Save the transaction
                 // Update the stock
