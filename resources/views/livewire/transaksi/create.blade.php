@@ -121,15 +121,15 @@
                     <table class="table text-center table-xs table-pin-rows">
                         <thead>
                             <tr>
-                                <th> <x-lable-req>{{ __('No.') }} </x-lable-req> </th>
-                                <th> <x-lable-req>{{ __('Name Pakaian') }} </x-lable-req> </th>
-                                <th> <x-lable-req>{{ __('Harga Satuan') }} </x-lable-req> </th>
-                                <th> <x-lable-req>{{ __('size') }} </x-lable-req> </th>
-                                <th> <x-lable-req>{{ __('Quantity') }} </x-lable-req> </th>
-                                <th> <x-lable-req>{{ __('Total Harga') }} </x-lable-req> </th>
-                                <th> <x-lable-req>{{ __('Foto') }} </x-lable-req> </th>
-                                <th> <x-lable-req>{{ __('Status') }} </x-lable-req> </th>
-                                <th> <x-lable-req>{{ __('>#</') }} </x-lable-req> </th>
+                                <th> <x-label>{{ __('No.') }} </x-label> </th>
+                                <th> <x-label>{{ __('Name Pakaian') }} </x-label> </th>
+                                <th> <x-label>{{ __('Harga Satuan') }} </x-label> </th>
+                                <th> <x-label>{{ __('size') }} </x-label> </th>
+                                <th> <x-label>{{ __('Quantity') }} </x-label> </th>
+                                <th> <x-label>{{ __('Total Harga') }} </x-label> </th>
+                                <th> <x-label>{{ __('Foto') }} </x-label> </th>
+                                <th> <x-label>{{ __('Status') }} </x-label> </th>
+                                <th> <x-label>{{ __('#') }} </x-label> </th>
                             </tr>
                         </thead>
                         <tbody>
