@@ -167,40 +167,55 @@ class Create extends Component
     public function selesai()
     {
         $this->validate();
+        $source = Approval::whereIn('new_data->transaksi_id', $this->transaksi_id)->exists();
 
-        if (($this->payment >  $this->total_pembayaran) || ($this->payment == $this->total_pembayaran)) {
-            $trans =  Transaksi::updateOrcreate(
-                ['id' => $this->transaksi_id],
-                [
-                    'quantity' =>  $this->quantity,
-                    'user_id' => Auth::user()->id,
-                    'total_price' => $this->total_pembayaran,
-                    'payment' => $this->payment,
-                    'cashback' => $this->cashback,
-                    'transaction_date' => Carbon::now()->format('Y-m-d'),
-                ]
-            );
-            $source = Approval::whereIn('new_data->transaksi_id', [$trans->id])->get();
-            foreach ($source as  $value) {
-                Approval::find($value->id)->approve();
+        if ($source) {
+            if (($this->payment >  $this->total_pembayaran) || ($this->payment == $this->total_pembayaran)) {
+                $trans =  Transaksi::updateOrcreate(
+                    ['id' => $this->transaksi_id],
+                    [
+                        'quantity' =>  $this->quantity,
+                        'user_id' => Auth::user()->id,
+                        'total_price' => $this->total_pembayaran,
+                        'payment' => $this->payment,
+                        'cashback' => $this->cashback,
+                        'transaction_date' => Carbon::now()->format('Y-m-d'),
+                    ]
+                );
+                $source = Approval::whereIn('new_data->transaksi_id', [$trans->id])->get();
+                foreach ($source as  $value) {
+                    Approval::find($value->id)->approve();
+                }
+                $this->dispatch(
+                    'alert',
+                    [
+                        'text' => "Transaksi Selesai!!",
+                        'duration' => 3000,
+                        'destination' => '/contact',
+                        'newWindow' => true,
+                        'close' => true,
+                        'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
+                    ]
+                );
+                Approval::whereIn('new_data->transaksi_id', [$trans->id])->where('state', 'like', 'approved')->delete();
+            } else {
+                $this->dispatch(
+                    'alert',
+                    [
+                        'text' => "Pembayaran Kurang!!",
+                        'duration' => 3000,
+                        'destination' => '/contact',
+                        'newWindow' => true,
+                        'close' => true,
+                        'backgroundColor' => "linear-gradient(to right, #ff3333, #ff6666)",
+                    ]
+                );
             }
-            $this->dispatch(
-                'alert',
-                [
-                    'text' => "Transaksi Selesai!!",
-                    'duration' => 3000,
-                    'destination' => '/contact',
-                    'newWindow' => true,
-                    'close' => true,
-                    'backgroundColor' => "linear-gradient(to right, #00b09b, #96c93d)",
-                ]
-            );
-            Approval::whereIn('new_data->transaksi_id', [$trans->id])->where('state', 'like', 'approved')->delete();
         } else {
             $this->dispatch(
                 'alert',
                 [
-                    'text' => "Pembayaran Kurang!!",
+                    'text' => "Tidak ada belanjaan!!",
                     'duration' => 3000,
                     'destination' => '/contact',
                     'newWindow' => true,
