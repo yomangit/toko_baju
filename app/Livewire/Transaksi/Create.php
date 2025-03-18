@@ -223,6 +223,7 @@ class Create extends Component
                     ]
                 );
                 Approval::whereIn('new_data->transaksi_id', [$trans->id])->where('state', 'like', 'approved')->delete();
+                return redirect()->route('transaksi.detail', ['id' => $trans->id]);
             } else {
                 $this->dispatch(
                     'alert',
