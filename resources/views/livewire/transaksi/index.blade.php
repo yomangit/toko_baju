@@ -48,7 +48,7 @@
                             <td>{{ $item->quantity }}</td>
                             <td>{{ $item->total_price }}</td>
                             <td>{{ $item->paymant }}</td>
-                            <td>{{ $item->paymant ? $item->paymant : 0 }}</td>
+                            <td>{{ $item->cashback ? $item->cashback : 0 }}</td>
                         </tr>
                     @endforeach
 
