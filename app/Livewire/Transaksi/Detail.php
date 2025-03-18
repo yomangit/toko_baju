@@ -15,7 +15,7 @@ class Detail extends Component
     public function render()
     {
         return view('livewire.transaksi.detail', [
-            'TransaksiDetail' => TransaksiDetail::with(['stokPakaian'])->whereIn('transaksi_id', $this->transaksi_id)->get()
+            'TransaksiDetail' => TransaksiDetail::with(['stokPakaian'])->where('transaksi_id', $this->transaksi_id)->get()
         ])->extends('layouts.app', ['header' => 'Detail Transaksi', 'title' => 'Detail Transaksi'])->section('content');
     }
 }
