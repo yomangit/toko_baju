@@ -198,6 +198,13 @@
                                     :error="$errors->get('harga_satuan')" readonlytype="number" placeholder="0" />
                             </fieldset>
                         </fieldset>
+                        <fieldset class="w-64 p-4 border fieldset bg-base-100 border-base-300 rounded-box">
+                            <legend class="fieldset-legend">Login options</legend>
+                            <label class="fieldset-label">
+                                <input type="checkbox" checked="checked" class="checkbox" />
+                                Remember me
+                            </label>
+                        </fieldset>
                         <x-btn-selesai class="absolute bottom-0 right-0"
                             wire:click=''>{{ __('Bayar') }}</x-btn-selesai>
                 </div>
