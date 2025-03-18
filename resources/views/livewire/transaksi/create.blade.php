@@ -202,9 +202,11 @@
                             <fieldset class="border fieldset bg-base-100 border-base-300 rounded-box">
                                 <legend class="fieldset-legend">Metode Pembayaran</legend>
                                 <label class="fieldset-label">
-                                    <input type="radio" checked="checked" name="radio_pay" class="radio" />
+                                    <input type="radio" checked="checked" name="radio_pay"
+                                        class="radio radio-xs" />
                                     Cash
-                                    <input type="radio" checked="checked" name="radio_pay" class="radio" />
+                                    <input type="radio" checked="checked" name="radio_pay"
+                                        class="radio radio-xs" />
                                     Qris
                                 </label>
                             </fieldset>
