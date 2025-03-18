@@ -201,6 +201,7 @@ class Create extends Component
                         'quantity' =>  $this->quantity,
                         'user_id' => Auth::user()->id,
                         'total_price' => $this->total_pembayaran,
+                        'customer_id' => $this->customer_id,
                         'payment' => $this->payment,
                         'cashback' => $this->cashback,
                         'transaction_date' => Carbon::now()->format('Y-m-d'),
