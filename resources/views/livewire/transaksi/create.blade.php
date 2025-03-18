@@ -200,10 +200,12 @@
                                 </fieldset>
                             </fieldset>
                             <fieldset class="border fieldset bg-base-100 border-base-300 rounded-box">
-                                <legend class="fieldset-legend">Login options</legend>
+                                <legend class="fieldset-legend">Metode Pembayaran</legend>
                                 <label class="fieldset-label">
-                                    <input type="checkbox" checked="checked" class="checkbox" />
-                                    Remember me
+                                    <input type="radio" checked="checked" name="radio_pay" class="radio" />
+                                    Cash
+                                    <input type="radio" checked="checked" name="radio_pay" class="radio" />
+                                    Qris
                                 </label>
                             </fieldset>
                         </div>
