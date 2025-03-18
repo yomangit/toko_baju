@@ -20,7 +20,7 @@
                         <ul tabindex="0" class="p-2 shadow-sm menu dropdown-content bg-base-100 rounded-box z-1 w-52">
                             <fieldset class="h-40 overflow-y-auto fieldset">
                                 @foreach ($customers as $customer)
-                                    <li wire:click="setNamaCustomer('{{ $customer->id }},{{ $customer->name }}')"
+                                    <li wire:click="setNamaCustomer({{ $customer->id }},'{{ $customer->name }}')"
                                         class="menu-title">
                                         {{ $customer->name }}
                                     </li>
