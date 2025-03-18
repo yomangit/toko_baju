@@ -34,7 +34,7 @@
                             {{ __('kembalian') }}
                         </th>
                         <th>
-
+                            {{ __('tanggal') }}
                         </th>
                     </tr>
                 </thead>
@@ -51,6 +51,7 @@
                             <td>{{ 'Rp. ' . number_format($item->payment, 0, ',', '.') }}</td>
                             <td>{{ $item->cashback ? 'Rp. ' . number_format($item->cashback, 0, ',', '.') : '-' }}
                             </td>
+                            <td>{{ date('d-m-Y', strtotime($item->transaction_date)) }}</td>
                         </tr>
                     @endforeach
 
