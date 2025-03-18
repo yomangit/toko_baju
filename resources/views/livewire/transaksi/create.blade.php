@@ -21,7 +21,7 @@
                             <fieldset class="h-40 overflow-y-auto fieldset">
                                 @foreach ($customers as $customer)
                                     <li wire:click="setNamaCustomer({{ $customer->id }},'{{ $customer->name }}')"
-                                        class="menu-title">
+                                        class="cursor-pointer menu-title hover:bg-secondary-content">
                                         {{ $customer->name }}
                                     </li>
                                 @endforeach
