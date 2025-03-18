@@ -209,6 +209,7 @@
                                         wire:model.live='pay_method' class="radio radio-xs" />
                                     Qris
                                 </label>
+                                <x-input-error :messages="$errors->get('pay_method')" />
                             </fieldset>
                         </div>
                         <x-btn-selesai class="absolute bottom-0 right-0"

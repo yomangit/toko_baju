@@ -22,6 +22,8 @@ class Create extends Component
     public $payment;
     #[Validate('required', message: 'kolom pembayaran harus di isi!!!')]
     public $payment_rp;
+    #[Validate('required', message: 'metode pembayaran harus di pilih !!!')]
+    public $pay_method;
     use WithPagination;
     public function increment()
     {
@@ -141,6 +143,7 @@ class Create extends Component
                             'customer_id' => $this->customer_id,
                             'total_price' => 0,
                             'payment' => 0,
+                            'pay_method' => $this->pay_method,
                             'cashback' => 0,
                             'transaction_date' => Carbon::now()->format('Y-m-d'),
                         ]
@@ -204,6 +207,7 @@ class Create extends Component
                         'customer_id' => $this->customer_id,
                         'payment' => $this->payment,
                         'cashback' => $this->cashback,
+                        'pay_method' => $this->pay_method,
                         'transaction_date' => Carbon::now()->format('Y-m-d'),
                     ]
                 );
