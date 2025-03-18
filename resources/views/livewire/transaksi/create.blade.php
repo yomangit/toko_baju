@@ -47,7 +47,7 @@
                         <x-input-error :messages="$errors->get('stok')" />
 
                         <x-lable-req>{{ __('Harga Satuan') }}</x-lable-req>
-                        <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" readonly type="number"
+                        <x-text-input wire:model.live='harga_satuan' :error="$errors->get('harga_satuan')" readonly type="text"
                             placeholder="Harga Satuan" />
                         <x-input-error :messages="$errors->get('harga_satuan')" />
                     </fieldset>
