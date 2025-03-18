@@ -13,7 +13,7 @@
         <div class="overflow-y-auto overflow-x-auto bg-base-200 h-[75vh] ">
             <table class="table table-xs table-zebra ">
                 <thead class="text-sm text-center capitalize">
-                    <tr class="items-center ">
+                    <tr class="text-center ">
                         <th>#</th>
                         <th>
                             <x-label>{{ __('Nama Customer') }}</x-label>
