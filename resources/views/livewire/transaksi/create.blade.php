@@ -183,19 +183,21 @@
                 </div>
                 <div class="relative max-h-32 ">
                     <form wire:submit.prevent='selesai'>
-                        <fieldset class="pb-0.5 fieldset ">
-                            <x-label>{{ __('Total Belanja') }} </x-label>
-                            <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')"
-                                type="text" placeholder="0" />
-                            <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
-                            <x-text-input-ghost id="rupiah" wire:model.live='payment_rp' :error="$errors->get('payment_rp')"
-                                type='text' placeholder="Jumlah pembayaran" />
-                            <x-input-error :messages="$errors->get('payment_rp')" />
-
+                        <div class="flex flex-row">
                             <fieldset class="pb-0.5 fieldset ">
-                                <x-label>{{ __('Uang kembali') }}</x-label>
-                                <x-text-input-ghost id="kembalian" wire:model.live='cashback_rp' disabled
-                                    :error="$errors->get('harga_satuan')" readonlytype="number" placeholder="0" />
+                                <x-label>{{ __('Total Belanja') }} </x-label>
+                                <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')"
+                                    type="text" placeholder="0" />
+                                <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
+                                <x-text-input-ghost id="rupiah" wire:model.live='payment_rp' :error="$errors->get('payment_rp')"
+                                    type='text' placeholder="Jumlah pembayaran" />
+                                <x-input-error :messages="$errors->get('payment_rp')" />
+
+                                <fieldset class="pb-0.5 fieldset ">
+                                    <x-label>{{ __('Uang kembali') }}</x-label>
+                                    <x-text-input-ghost id="kembalian" wire:model.live='cashback_rp' disabled
+                                        :error="$errors->get('harga_satuan')" readonlytype="number" placeholder="0" />
+                                </fieldset>
                             </fieldset>
                             <fieldset class="w-64 p-4 border fieldset bg-base-100 border-base-300 rounded-box">
                                 <legend class="fieldset-legend">Login options</legend>
@@ -204,8 +206,7 @@
                                     Remember me
                                 </label>
                             </fieldset>
-                        </fieldset>
-
+                        </div>
                         <x-btn-selesai class="absolute bottom-0 right-0"
                             wire:click=''>{{ __('Bayar') }}</x-btn-selesai>
                 </div>
