@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Transaksi;
 
+use App\Models\Customer;
 use Carbon\Carbon;
 use Livewire\Component;
 use App\Models\Transaksi;
@@ -15,8 +16,8 @@ use Cjmellor\Approval\Models\Approval;
 
 class Create extends Component
 {
-    public $harga_satuan, $stok_satuan, $stok, $nama_pakaian, $product_id;
-    public $count = 1, $total_harga, $total_harga_rp, $total_price, $total_pembayaran, $cashback, $cashback_rp, $price, $quantity, $search = '';
+    public $harga_satuan, $stok_satuan, $stok, $nama_pakaian, $product_id, $customer_id;
+    public $count = 1, $total_harga, $total_harga_rp, $total_price, $total_pembayaran, $cashback, $cashback_rp, $price, $quantity, $search = '', $customer_name = '';
     public $transaksi_id, $Pakaian;
     public $payment;
     #[Validate('required', message: 'kolom pembayaran harus di isi!!!')]
@@ -72,12 +73,18 @@ class Create extends Component
         return view('livewire.transaksi.create', [
             'source' => $source,
             'products' => $products,
+            'customers' => Customer::search(trim($this->customer_name))->get()
 
         ])->extends('layouts.app', ['header' => 'Transaksi Baru', 'title' => 'Transaksi Baru'])->section('content');
     }
     public function setKodePakaian($kode_pakaian)
     {
         $this->search = $kode_pakaian;
+    }
+    public function setNamaCustomer($id, $name)
+    {
+        $this->customer_name = $name;
+        $this->customer_id = $id;
     }
     public function updatedCount()
     {
@@ -106,6 +113,7 @@ class Create extends Component
 
     public function store()
     {
+        $this->validate();
         DB::beginTransaction();
         if ($this->stok < $this->count) {
             $this->dispatch(
@@ -129,6 +137,7 @@ class Create extends Component
                         [
                             'quantity' => 0,
                             'user_id' => Auth::user()->id,
+                            'customer_id' => $this->customer_id,
                             'total_price' => 0,
                             'payment' => 0,
                             'cashback' => 0,

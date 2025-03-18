@@ -7,6 +7,32 @@
                 <fieldset class="pb-0.5 fieldset ">
                     <div class="dropdown dropdown-center">
                         <div class="relative flex items-center">
+                            <input id="11" wire:model.live='customer_name' type="text" tabindex="0"
+                                role="button" placeholder="cari kode pakaian"
+                                class="'relative block pl-8 pr-4 font-semibold border shadow-sm input input-bordered input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1'" />
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                                class="absolute ml-3 size-4">
+                                <path fill-rule="evenodd"
+                                    d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <ul tabindex="0" class="p-2 shadow-sm menu dropdown-content bg-base-100 rounded-box z-1 w-52">
+                            <fieldset class="h-40 overflow-y-auto fieldset">
+                                @foreach ($customers as $customer)
+                                    <li wire:click="setNamaCustomer('{{ $customer->id }},{{ $customer->name }}')"
+                                        class="menu-title">
+                                        {{ $customer->name }}
+                                    </li>
+                                @endforeach
+
+                            </fieldset>
+                        </ul>
+                    </div>
+                </fieldset>
+                <fieldset class="pb-0.5 fieldset ">
+                    <div class="dropdown dropdown-center">
+                        <div class="relative flex items-center">
                             <input id="11" wire:model.live='search' type="text" tabindex="0" role="button"
                                 placeholder="cari kode pakaian"
                                 class="'relative block pl-8 pr-4 font-semibold border shadow-sm input input-bordered input-xs placeholder-slate-400 focus:outline-none focus:border-accent focus:ring-accent focus:ring-1'" />
@@ -157,8 +183,8 @@
                     <form wire:submit.prevent='selesai'>
                         <fieldset class="pb-0.5 fieldset ">
                             <x-label>{{ __('Total Belanja') }} </x-label>
-                            <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')" type="text"
-                                placeholder="0" />
+                            <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')"
+                                type="text" placeholder="0" />
                             <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
                             <x-text-input-ghost id="rupiah" wire:model.live='payment_rp' :error="$errors->get('payment_rp')"
                                 type='text' placeholder="Jumlah pembayaran" />
