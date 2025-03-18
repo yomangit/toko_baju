@@ -82,28 +82,9 @@
                         </fieldset>
                         <fieldset class=" fieldset">
                             <x-label>{{ __('Total') }}</x-label>
-                            <div class=" join">
-                                <span class="bg-transparent rounded-l-full btn btn-xs join-item btn-ghost"><svg
-                                        fill="currentColor" class="size-4" viewBox="0 0 24 24" id="rupiah-2"
-                                        data-name="Flat Line" xmlns="http://www.w3.org/2000/svg" class="icon flat-line">
-                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
-                                        </g>
-                                        <g id="SVGRepo_iconCarrier">
-                                            <path id="primary"
-                                                d="M21,13.5h0A2.5,2.5,0,0,0,18.5,11H16v5h2.5A2.5,2.5,0,0,0,21,13.5ZM16,16v4"
-                                                style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
-                                            </path>
-                                            <path id="primary-2" data-name="primary"
-                                                d="M8,12H3V4H8a4,4,0,0,1,4,4h0A4,4,0,0,1,8,12ZM3,10v8m8,0L8,12"
-                                                style="fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2;">
-                                            </path>
-                                        </g>
-                                    </svg></span>
-                                <input wire:model='total_harga' readonly
-                                    class="bg-transparent input join-item input-xs input-ghost focus:outline-none ring-none"
-                                    placeholder="total harga" />
-                            </div>
+                            <x-text-input-ghost wire:model.live='total_harga_rp' :error="$errors->get('total_harga_rp')" type='text'
+                                placeholder="total harga" />
+
                         </fieldset>
                     </div>
                     <div class="py-2 modal-action">
@@ -176,8 +157,8 @@
                     <form wire:submit.prevent='selesai'>
                         <fieldset class="pb-0.5 fieldset ">
                             <x-label>{{ __('Total Belanja') }} </x-label>
-                            <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')"
-                                type="text" placeholder="0" />
+                            <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')" type="text"
+                                placeholder="0" />
                             <x-lable-req>{{ __('Dibayarkan') }}</x-lable-req>
                             <x-text-input-ghost id="rupiah" wire:model.live='payment_rp' :error="$errors->get('payment_rp')"
                                 type='text' placeholder="Jumlah pembayaran" />

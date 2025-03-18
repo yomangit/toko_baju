@@ -16,7 +16,7 @@ use Cjmellor\Approval\Models\Approval;
 class Create extends Component
 {
     public $harga_satuan, $stok_satuan, $stok, $nama_pakaian, $product_id;
-    public $count = 1, $total_harga, $total_price, $total_pembayaran, $cashback, $cashback_rp, $price, $quantity, $search = '';
+    public $count = 1, $total_harga, $total_harga_rp, $total_price, $total_pembayaran, $cashback, $cashback_rp, $price, $quantity, $search = '';
     public $transaksi_id, $Pakaian;
     public $payment;
     #[Validate('required', message: 'kolom pembayaran harus di isi!!!')]
@@ -53,6 +53,7 @@ class Create extends Component
                 $this->nama_pakaian = $stok->nama_pakaian;
                 $this->stok = $stok->jumlah_stok;
                 $this->total_harga = $this->count * $stok->harga_jual;
+                $this->total_harga_rp =  'Rp. ' . number_format($this->total_harga, 0, ',', '.');
                 $this->stok_satuan = $stok->harga_jual;
             } else {
                 $this->harga_satuan = 0;
