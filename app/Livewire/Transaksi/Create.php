@@ -113,7 +113,7 @@ class Create extends Component
 
     public function store()
     {
-        $this->validate();
+
         DB::beginTransaction();
         if ($this->stok < $this->count) {
             $this->dispatch(
