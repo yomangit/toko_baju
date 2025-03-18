@@ -34,7 +34,7 @@
                         <tr class="text-center capitalize cursor-pointer hover:bg-base-100"
                             wire:click="goDetailTransaksi({{ $item->id }})">
                             <td></td>
-                            <td>{{ $item->stokPakaian->name }}</td>
+                            <td>{{ $item->stokPakaian->nama_pakaian }}</td>
                             <td>{{ $item->quantity }}</td>
                             <td>{{ 'Rp. ' . number_format($item->price, 0, ',', '.') }}</td>
                             <td>{{ date('d-m-Y', strtotime($item->transaction_date)) }}</td>
