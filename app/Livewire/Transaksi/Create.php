@@ -52,7 +52,7 @@ class Create extends Component
                 $this->harga_satuan = 'Rp. ' . number_format($stok->harga_jual, 0, ',', '.');
                 $this->nama_pakaian = $stok->nama_pakaian;
                 $this->stok = $stok->jumlah_stok;
-                $this->total_harga = $this->count * $this->harga_satuan;
+                $this->total_harga = $this->count * $stok->harga_jual;
             } else {
                 $this->harga_satuan = 0;
                 $this->nama_pakaian = '';
