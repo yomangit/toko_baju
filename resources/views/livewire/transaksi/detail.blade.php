@@ -1,6 +1,7 @@
 <div>
     <x-notif />
-    <div class="flex items-center justify-end py-2">
+    <div class="flex items-center justify-between py-2">
+        {{ Breadcrumbs::render('detail', $transaksi_id) }}
         <label class=" floating-label">
             <x-text-cari wire:model.live='searching' type="text" placeholder="Pencarian" />
             <span>Pencarian</span>
