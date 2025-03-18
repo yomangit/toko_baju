@@ -42,7 +42,7 @@
 
                     @foreach ($transaksi as $item)
                         <tr>
-                            <td></td>
+                            <td>{{ $item->kasir->name }}</td>
                         </tr>
                     @endforeach
 
