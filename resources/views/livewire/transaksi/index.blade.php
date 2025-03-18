@@ -42,7 +42,13 @@
 
                     @foreach ($transaksi as $item)
                         <tr>
+                            <td></td>
+                            <td>{{ $item->customer->name }}</td>
                             <td>{{ $item->kasir->name }}</td>
+                            <td>{{ $item->quantity }}</td>
+                            <td>{{ $item->total_price }}</td>
+                            <td>{{ $item->paymant }}</td>
+                            <td>{{ $item->paymant ? $item->paymant : 0 }}</td>
                         </tr>
                     @endforeach
 
