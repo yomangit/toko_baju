@@ -181,9 +181,9 @@
                             @endforeach
                     </table>
                 </div>
-                <div class="relative w-96 max-h-32">
+                <div class="relative max-h-32">
                     <form wire:submit.prevent='selesai'>
-                        <div class="grid grid-cols-2">
+                        <div class="grid grid-cols-2 w-96">
                             <fieldset class="pb-0.5 fieldset">
                                 <x-label>{{ __('Total Belanja') }} </x-label>
                                 <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')"
