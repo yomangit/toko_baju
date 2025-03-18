@@ -69,6 +69,7 @@ class Create extends Component
             $this->stok = 0;
             $this->total_harga = 0;
         }
+        $this->updateTotalPrice();
         $products = StokPakaian::where('kode_pakaian', 'like', '%' . $this->search . '%')->get();
         return view('livewire.transaksi.create', [
             'source' => $source,
@@ -90,7 +91,7 @@ class Create extends Component
     {
         $this->total_harga = $this->count *  $this->stok_satuan;
     }
-    public function updatedTotal_price()
+    public function updateTotalPrice()
     {
         $total_price = Approval::where('new_data->transaksi_id', 'Like', $this->transaksi_id)->sum('new_data->price');
         $this->total_pembayaran = $total_price;
