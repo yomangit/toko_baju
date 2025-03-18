@@ -15,25 +15,25 @@
                 <thead class="text-sm text-center capitalize">
                     <tr class="text-center ">
                         <th>#</th>
-                        <th class="item-center">
-                            <x-label>{{ __('Nama Customer') }}</x-label>
+                        <th>
+                            {{ __('Nama Customer') }}
                         </th>
-                        <th class="item-center">
-                            <x-label>{{ __('Nama Kasir') }}</x-label>
+                        <th>
+                            {{ __('Nama Kasir') }}
                         </th>
-                        <th class="item-center">
-                            <x-label>{{ __('quantity') }}</x-label>
+                        <th>
+                            {{ __('quantity') }}
                         </th>
-                        <th class="item-center">
-                            <x-label>{{ __('total harga') }}</x-label>
+                        <th>
+                            {{ __('total harga') }}
                         </th>
-                        <th class="item-center">
-                            <x-label>{{ __('pembayaran') }}</x-label>
+                        <th>
+                            {{ __('pembayaran') }}
                         </th>
-                        <th class="item-center">
-                            <x-label>{{ __('kembalian') }}</x-label>
+                        <th>
+                            {{ __('kembalian') }}
                         </th>
-                        <th class="item-center">
+                        <th>
 
                         </th>
                     </tr>
