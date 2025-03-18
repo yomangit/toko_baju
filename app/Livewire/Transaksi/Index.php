@@ -15,4 +15,8 @@ class Index extends Component
             'transaksi' => Transaksi::with(['kasir', 'customer', 'transaksi_details'])->get()
         ])->extends('layouts.app', ['header' => 'Transaksi ', 'title' => 'Transaksi '])->section('content');
     }
+    public function goDetailTransaksi($id)
+    {
+        return redirect()->route('transaksi.detail', ['id' => $id]);
+    }
 }

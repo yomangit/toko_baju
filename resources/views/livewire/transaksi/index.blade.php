@@ -2,7 +2,7 @@
     <x-notif />
     <div class="flex items-center justify-between">
         <div class="py-2">
-            <x-btn-ref href="{{ route('transaksi.detail') }}" data-tip="Add Data" />
+            <x-btn-ref href="{{ route('transaksi.new') }}" data-tip="Add Data" />
         </div>
         <label class=" floating-label">
             <x-text-cari wire:model.live='searching' type="text" placeholder="Pencarian" />
@@ -13,7 +13,7 @@
         <div class="overflow-y-auto overflow-x-auto bg-base-200 h-[75vh] ">
             <table class="table table-xs table-zebra ">
                 <thead class="text-sm text-center capitalize">
-                    <tr class="text-center capitalize">
+                    <tr class="text-center ">
                         <th>#</th>
                         <th>
                             {{ __('Nama Customer') }}
@@ -41,7 +41,8 @@
                 <tbody class="capitalize">
 
                     @foreach ($transaksi as $item)
-                        <tr class="text-center">
+                        <tr class="text-center capitalize hover:bg-secondary"
+                            wire:click="goDetailTransaksi({{ $item->id }})">
                             <td></td>
                             <td>{{ $item->customer->name }}</td>
                             <td>{{ $item->kasir->name }}</td>
