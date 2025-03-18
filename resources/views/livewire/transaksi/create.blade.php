@@ -181,7 +181,7 @@
                             @endforeach
                     </table>
                 </div>
-                <div class="relative w-full max-h-32">
+                <div class="relative w-96 max-h-32">
                     <form wire:submit.prevent='selesai'>
                         <div class="grid grid-cols-2">
                             <fieldset class="pb-0.5 fieldset">
