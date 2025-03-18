@@ -16,10 +16,10 @@
                     <tr>
                         <th>#</th>
                         <th>
-                            <x-label>{{ __('nama pakaian') }}</x-label>
+                            <x-label>{{ __('Nama Customer') }}</x-label>
                         </th>
                         <th>
-                            <x-label>{{ __('harga satuan') }}</x-label>
+                            <x-label>{{ __('Nama Kasir') }}</x-label>
                         </th>
                         <th>
                             <x-label>{{ __('quantity') }}</x-label>
@@ -28,12 +28,23 @@
                             <x-label>{{ __('total harga') }}</x-label>
                         </th>
                         <th>
+                            <x-label>{{ __('pembayaran') }}</x-label>
+                        </th>
+                        <th>
+                            <x-label>{{ __('kembalian') }}</x-label>
+                        </th>
+                        <th>
 
                         </th>
                     </tr>
                 </thead>
                 <tbody class="capitalize">
 
+                    @foreach ($transaksi as $item)
+                        <tr>
+                            <td></td>
+                        </tr>
+                    @endforeach
 
                 </tbody>
             </table>

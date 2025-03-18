@@ -36,4 +36,8 @@ class StokPakaian extends Model
     {
         return $query->where('kode_pakaian', 'LIKE',  $term);
     }
+    public function transaksi_details()
+    {
+        return $this->hasMany(TransaksiDetail::class);
+    }
 }

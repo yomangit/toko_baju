@@ -17,8 +17,12 @@ class Customer extends Model
     public function scopeSearch($query, $term)
     {
         return $query->where('name', 'LIKE', '%' . $term . '%')
-                     ->orWhere('phone_number', 'LIKE', '%' . $term . '%')
-                     ->orWhere('address', 'LIKE', '%' . $term . '%');
+            ->orWhere('phone_number', 'LIKE', '%' . $term . '%')
+            ->orWhere('address', 'LIKE', '%' . $term . '%');
     }
 
+    public function transaksis()
+    {
+        return $this->hasMany(Transaksi::class);
+    }
 }
