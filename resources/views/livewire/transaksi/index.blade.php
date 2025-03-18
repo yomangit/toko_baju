@@ -46,9 +46,10 @@
                             <td>{{ $item->customer->name }}</td>
                             <td>{{ $item->kasir->name }}</td>
                             <td>{{ $item->quantity }}</td>
-                            <td>{{ $item->total_price }}</td>
-                            <td>{{ $item->payment }}</td>
-                            <td>{{ $item->cashback ? $item->cashback : 0 }}</td>
+                            <td>{{ 'Rp. ' . number_format($item->total_price, 0, ',', '.') }}</td>
+                            <td>{{ 'Rp. ' . number_format($item->payment, 0, ',', '.') }}</td>
+                            <td>{{ $item->cashback ? 'Rp. ' . number_format($item->cashback, 0, ',', '.') : '-' }}
+                            </td>
                         </tr>
                     @endforeach
 
