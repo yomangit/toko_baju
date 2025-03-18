@@ -181,10 +181,10 @@
                             @endforeach
                     </table>
                 </div>
-                <div class="relative max-h-32 ">
+                <div class="relative grid w-full grid-cols-3 max-h-32">
                     <form wire:submit.prevent='selesai'>
                         <div class="flex flex-row">
-                            <fieldset class="pb-0.5 fieldset ">
+                            <fieldset class="pb-0.5 fieldset col-span-2">
                                 <x-label>{{ __('Total Belanja') }} </x-label>
                                 <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')"
                                     type="text" placeholder="0" />
@@ -199,7 +199,7 @@
                                         :error="$errors->get('harga_satuan')" readonlytype="number" placeholder="0" />
                                 </fieldset>
                             </fieldset>
-                            <fieldset class="w-64 p-4 border fieldset bg-base-100 border-base-300 rounded-box">
+                            <fieldset class="p-4 border fieldset bg-base-100 border-base-300 rounded-box">
                                 <legend class="fieldset-legend">Login options</legend>
                                 <label class="fieldset-label">
                                     <input type="checkbox" checked="checked" class="checkbox" />
