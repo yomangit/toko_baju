@@ -13,7 +13,7 @@
         <div class="overflow-y-auto overflow-x-auto bg-base-200 h-[75vh] ">
             <table class="table table-xs table-zebra ">
                 <thead class="text-sm text-center capitalize">
-                    <tr>
+                    <tr class="text-center">
                         <th>#</th>
                         <th>
                             <x-label>{{ __('Nama Customer') }}</x-label>
@@ -41,7 +41,7 @@
                 <tbody class="capitalize">
 
                     @foreach ($transaksi as $item)
-                        <tr>
+                        <tr class="text-center">
                             <td></td>
                             <td>{{ $item->customer->name }}</td>
                             <td>{{ $item->kasir->name }}</td>
