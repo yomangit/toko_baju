@@ -199,7 +199,7 @@
                                         :error="$errors->get('harga_satuan')" readonlytype="number" placeholder="0" />
                                 </fieldset>
                             </fieldset>
-                            <fieldset class="border fieldset bg-base-100 border-base-300 rounded-box">
+                            <fieldset class="h-20 p-4 border fieldset bg-base-100 border-base-300 rounded-box">
                                 <legend class="fieldset-legend">Metode Pembayaran</legend>
                                 <label class="fieldset-label">
                                     <input type="radio" checked="checked" name="radio_pay"
