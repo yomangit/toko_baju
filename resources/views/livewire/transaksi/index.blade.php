@@ -41,7 +41,7 @@
                 <tbody class="capitalize">
 
                     @foreach ($transaksi as $item)
-                        <tr class="text-center capitalize hover:bg-secondary"
+                        <tr class="text-center capitalize hover:bg-base-100"
                             wire:click="goDetailTransaksi({{ $item->id }})">
                             <td></td>
                             <td>{{ $item->customer->name }}</td>
