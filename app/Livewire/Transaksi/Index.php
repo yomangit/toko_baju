@@ -12,7 +12,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.transaksi.index', [
-            'transaksi' => Transaksi::get()
+            'transaksi' => Transaksi::with(['kasir', 'customer', 'transaksi_details'])->get()
         ])->extends('layouts.app', ['header' => 'Transaksi ', 'title' => 'Transaksi '])->section('content');
     }
 }
