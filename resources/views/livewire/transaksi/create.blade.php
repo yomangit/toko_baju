@@ -183,7 +183,7 @@
                 </div>
                 <div class="relative max-h-32">
                     <form wire:submit.prevent='selesai'>
-                        <div class="grid grid-cols-2 w-96">
+                        <div class="grid grid-cols-2 gap-4 w-96">
                             <fieldset class="pb-0.5 fieldset">
                                 <x-label>{{ __('Total Belanja') }} </x-label>
                                 <x-text-input-ghost wire:model.live='total_price' readonly :error="$errors->get('nama_pakaian')"
