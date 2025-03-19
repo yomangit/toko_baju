@@ -1,8 +1,7 @@
 @import "tailwindcss";
 @source "../views";
 @plugin "daisyui";
-
-@plugin "daisyui/theme" {
+d@plugin "daisyui/theme" {
     name: "sunnyunicorn";
     default: true;
     prefersdark: false;
@@ -29,7 +28,7 @@
     --color-error-content: oklch(97% 0.014 343.198);
     --radius-selector: 0.5rem;
     --radius-field: 0.25rem;
-    --radius-box: 2rem;
+    --radius-box: 0.5rem;
     --size-selector: 0.1875rem;
     --size-field: 0.21875rem;
     --border: 1px;
