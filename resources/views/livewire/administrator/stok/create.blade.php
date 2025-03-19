@@ -56,13 +56,13 @@
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Harga Satuan') }}</x-lable-req>
-                <x-text-input wire:model.live='harga_jual_rp' :error="$errors->get('harga_jual_rp')" id="harga_jual_rp" type="text"
+                <x-text-input wire:model.live='harga_jual_rp' :error="$errors->get('harga_jual_rp')" id="harga-jual" type="text"
                     placeholder="Harga Jual" />
                 <x-input-error :messages="$errors->get('harga_jual_rp')" />
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Harga Pokok') }}</x-lable-req>
-                <x-text-input wire:model.live='harga_pokok_rp' :error="$errors->get('harga_pokok_rp')" id="harga_pokok_rp" type="text"
+                <x-text-input wire:model.live='harga_pokok_rp' :error="$errors->get('harga_pokok_rp')" id="harga-pokok" type="text"
                     placeholder="Harga Pokok" />
                 <x-input-error :messages="$errors->get('harga_pokok_rp')" />
             </fieldset>
@@ -124,25 +124,25 @@
         </div>
         <script>
             /* Dengan Rupiah */
-            var harga_jual = document.getElementById('harga_jual');
+            var harga_jual = document.getElementById('harga-jual');
             harga_jual.addEventListener('keyup', function(e) {
-                harga_jual.value = formatharga_jual(this.value, 'Rp. ');
+                harga_jual.value = formatRupiah(this.value, 'Rp. ');
             });
             /* Dengan Rupiah */
-            var harga_pokok = document.getElementById('harga_pokok');
+            var harga_pokok = document.getElementById('harga-pokok');
             harga_pokok.addEventListener('keyup', function(e) {
                 harga_pokok.value = formatharga_pokok(this.value, 'Rp. ');
             });
 
-            /* Fungsi harga_jual*/
-            function formatharga_jual(angka, prefix) {
+            /* Fungsi Rupiah*/
+            function formatRupiah(angka, prefix) {
                 var number_string = angka.replace(/[^,\d]/g, '').toString(),
 
                     split = number_string.split(','),
                     sisa = split[0].length % 3,
                     rupiah = split[0].substr(0, sisa),
                     ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
+                console.log(number_string);
                 @this.set('harga_jual', number_string)
                 if (ribuan) {
                     separator = sisa ? '.' : '';
