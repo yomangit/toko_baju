@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @source "../views";
 @plugin "daisyui" {
-    themes: light --default, valentine --prefersdark, dark;
+    themes: light --default, garden --prefersdark, dark;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap");
@@ -27,7 +27,7 @@
     height: 100vh;
     transition: 0.3s;
 }
-.sidebar{
+.sidebar {
     transition: 0.3s;
 }
 .main-content_large {
