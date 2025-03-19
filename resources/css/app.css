@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @source "../views";
-
 @plugin "daisyui/theme" {
     name: "goldinferno";
     default: false;
