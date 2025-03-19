@@ -56,14 +56,12 @@
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Harga Satuan') }}</x-lable-req>
-                <x-text-input wire:model.live='harga_jual' :error="$errors->get('harga_jual')" id="harga_jual" type="text"
-                    placeholder="Harga Jual" />
+                <x-text-input :error="$errors->get('harga_jual')" id="harga_jual" type="text" placeholder="Harga Jual" />
                 <x-input-error :messages="$errors->get('harga_jual')" />
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Harga Pokok') }}</x-lable-req>
-                <x-text-input wire:model.live='harga_pokok' :error="$errors->get('harga_pokok')" id="harga_pokok" type="text"
-                    placeholder="Harga Pokok" />
+                <x-text-input :error="$errors->get('harga_pokok')" id="harga_pokok" type="text" placeholder="Harga Pokok" />
                 <x-input-error :messages="$errors->get('harga_pokok')" />
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
