@@ -15,7 +15,7 @@ use LivewireUI\Modal\ModalComponent;
 class Create extends ModalComponent
 {
     use WithFileUploads;
-    public $Ukuran;
+    public $Ukuran, $Pencarian = '';
     #[Validate('nullable', message: 'kolom foto pakaian tidak boleh kosong!!!')]
     #[Validate('image', message: 'harus file foto!!!')]
     public $photo;
