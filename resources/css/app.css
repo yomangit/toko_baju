@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @source "../views";
 @plugin "daisyui";
-d@plugin "daisyui/theme" {
+@plugin "daisyui/theme" {
     name: "sunnyunicorn";
     default: true;
     prefersdark: false;
