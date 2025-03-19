@@ -200,18 +200,18 @@
                                 </fieldset>
                             </fieldset>
                             <fieldset
-                                class="flex flex-row h-12 px-4 border rounded-md fieldset bg-base-100 border-base-300">
+                                class="flex flex-row h-12 px-4 capitalize border rounded-md fieldset bg-base-100 border-base-300">
                                 <legend class="fieldset-legend">Metode Pembayaran</legend>
                                 <label class="rounded-md fieldset-label border-accent">
                                     <input type="radio" name="radio_pay" value="Cash"
                                         wire:model.live='pay_method' class="radio radio-xs" />
-                                    Cash
+                                    {{ __('bayar tunai') }}
 
                                 </label>
                                 <label class="fieldset-label">
                                     <input type="radio" name="radio_pay" value="Qris"
                                         wire:model.live='pay_method' class="radio radio-xs" />
-                                    Qris
+                                    {{ __(' non-tunai') }}
                                 </label>
                                 <x-input-error :messages="$errors->get('pay_method')" />
                             </fieldset>
