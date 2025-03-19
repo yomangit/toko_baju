@@ -205,6 +205,9 @@
                                     <input type="radio" name="radio_pay" value="Cash"
                                         wire:model.live='pay_method' class="radio radio-xs" />
                                     Cash
+
+                                </label>
+                                <label class="fieldset-label">
                                     <input type="radio" name="radio_pay" value="Qris"
                                         wire:model.live='pay_method' class="radio radio-xs" />
                                     Qris
