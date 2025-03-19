@@ -122,65 +122,66 @@
                 </form>
             </div>
         </div>
+        <script>
+            /* Dengan Rupiah */
+            var harga_jual = document.getElementById('harga_jual');
+            harga_jual.addEventListener('keyup', function(e) {
+                harga_jual.value = formatharga_jual(this.value, 'Rp. ');
+            });
+            /* Dengan Rupiah */
+            var harga_pokok = document.getElementById('harga_pokok');
+            harga_pokok.addEventListener('keyup', function(e) {
+                harga_pokok.value = formatharga_pokok(this.value, 'Rp. ');
+            });
+
+            /* Fungsi harga_jual*/
+            function formatharga_jual(angka, prefix) {
+                var number_string = angka.replace(/[^,\d]/g, '').toString(),
+
+                    split = number_string.split(','),
+                    sisa = split[0].length % 3,
+                    rupiah = split[0].substr(0, sisa),
+                    ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+                @this.set('harga_jual', number_string)
+                if (ribuan) {
+                    separator = sisa ? '.' : '';
+                    rupiah += separator + ribuan.join('.');
+                }
+
+                rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+
+
+
+            }
+            /* Fungsi harga_pokok*/
+            function formatharga_pokok(angka, prefix) {
+                var number_string = angka.replace(/[^,\d]/g, '').toString(),
+
+                    split = number_string.split(','),
+                    sisa = split[0].length % 3,
+                    rupiah = split[0].substr(0, sisa),
+                    ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+                console.log(number_string);
+
+                @this.set('harga_pokok', number_string)
+                if (ribuan) {
+                    separator = sisa ? '.' : '';
+                    rupiah += separator + ribuan.join('.');
+                }
+
+                rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+
+
+
+            }
+        </script>
     </dialog>
     <livewire:administrator.ukuran.create>
         <livewire:administrator.warna.create>
             <livewire:administrator.kategori.create>
 
-                <script>
-                    /* Dengan Rupiah */
-                    var harga_jual = document.getElementById('harga_jual');
-                    harga_jual.addEventListener('keyup', function(e) {
-                        harga_jual.value = formatharga_jual(this.value, 'Rp. ');
-                    });
-                    /* Dengan Rupiah */
-                    var harga_pokok = document.getElementById('harga_pokok');
-                    harga_pokok.addEventListener('keyup', function(e) {
-                        harga_pokok.value = formatharga_pokok(this.value, 'Rp. ');
-                    });
 
-                    /* Fungsi harga_jual*/
-                    function formatharga_jual(angka, prefix) {
-                        var number_string = angka.replace(/[^,\d]/g, '').toString(),
-
-                            split = number_string.split(','),
-                            sisa = split[0].length % 3,
-                            rupiah = split[0].substr(0, sisa),
-                            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-                        @this.set('harga_jual', number_string)
-                        if (ribuan) {
-                            separator = sisa ? '.' : '';
-                            rupiah += separator + ribuan.join('.');
-                        }
-
-                        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-                        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-
-
-
-                    }
-                    /* Fungsi harga_pokok*/
-                    function formatharga_pokok(angka, prefix) {
-                        var number_string = angka.replace(/[^,\d]/g, '').toString(),
-
-                            split = number_string.split(','),
-                            sisa = split[0].length % 3,
-                            rupiah = split[0].substr(0, sisa),
-                            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-                        console.log(number_string);
-
-                        @this.set('harga_pokok', number_string)
-                        if (ribuan) {
-                            separator = sisa ? '.' : '';
-                            rupiah += separator + ribuan.join('.');
-                        }
-
-                        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
-                        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
-
-
-
-                    }
-                </script>
 </div>
