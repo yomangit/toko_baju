@@ -1,7 +1,7 @@
 <div class="z-20 drawer-side lg:hidden">
     <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
     <div class="min-h-full shadow-md bg-base-200">
-        <header class="shadow-md  align-items-center bg-base-100 h-[56px] sticky top-0 shadow-primary z-30">
+        <header class="shadow-md  align-items-center bg-base-100 h-[54px] sticky top-0 shadow-primary z-30">
             <div id="avatar" class="absolute inset-0 flex items-center gap-2 px-2 py-1 avatar">
                 <div class="rounded size-12 ">
                     <img src="{{ url('assets/img/toko_baju.webp') }}" alt="logo">
@@ -14,7 +14,7 @@
             </div>
 
         </header>
-        <ul class="p-4 overflow-y-auto  menu text-base-content w-60">
+        <ul class="p-4 overflow-y-auto menu text-base-content w-60">
             <!-- Sidebar content here -->
             @include('layouts.menu')
         </ul>
