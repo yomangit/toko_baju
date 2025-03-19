@@ -127,18 +127,18 @@
                 <legend class="fieldset-legend">Keranjang {{ $transaksi_id }}</legend>
                 <div
                     class="overflow-x-auto overflow-y-auto border rounded-sm  h-[40vh] rounded-box border-base-content/5">
-                    <table class="table text-center table-xs table-pin-rows">
+                    <table class="table text-center capitalize table-xs table-pin-rows">
                         <thead>
-                            <tr>
-                                <th> <x-label>{{ __('No.') }} </x-label> </th>
-                                <th> <x-label>{{ __('Name Pakaian') }} </x-label> </th>
-                                <th> <x-label>{{ __('Harga Satuan') }} </x-label> </th>
-                                <th> <x-label>{{ __('size') }} </x-label> </th>
-                                <th> <x-label>{{ __('Quantity') }} </x-label> </th>
-                                <th> <x-label>{{ __('Total Harga') }} </x-label> </th>
-                                <th> <x-label>{{ __('Foto') }} </x-label> </th>
-                                <th> <x-label>{{ __('Status') }} </x-label> </th>
-                                <th> <x-label>{{ __('#') }} </x-label> </th>
+                            <tr class="text-center">
+                                <th> {{ __('No.') }} </th>
+                                <th> {{ __('Name Pakaian') }} </th>
+                                <th> {{ __('Harga Satuan') }} </th>
+                                <th> {{ __('size') }} </th>
+                                <th> {{ __('Quantity') }} </th>
+                                <th> {{ __('Total Harga') }} </th>
+                                <th> {{ __('Foto') }} </th>
+                                <th> {{ __('Status') }} </th>
+                                <th> {{ __('#') }} </th>
                             </tr>
                         </thead>
                         <tbody>
