@@ -1,5 +1,5 @@
 <div class="fixed inset-y-0 sidebar hidden lg:block bg-base-200 shadow-md  w-[18%] z-10">
-    <header class="shadow-lg relative align-items-center bg-base-100 h-[54px] ">
+    <header class="shadow-lg relative align-items-center bg-base-100 h-[53px] ">
         <div id="avatar" class="absolute inset-0 flex items-center gap-2 px-2 py-1 avatar">
             <div class="rounded size-12 ">
                 <img src="{{ url('assets/img/toko_baju.webp') }}" alt="logo">
