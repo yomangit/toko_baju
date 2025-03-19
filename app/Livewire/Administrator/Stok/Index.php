@@ -11,6 +11,7 @@ use Livewire\WithPagination;
 
 class Index extends Component
 {
+    public $Pencarian = '';
     use WithPagination;
     #[On('updateStok')]
     public function render()
