@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @source "../views";
-
+@plugin "daisyui";
 @plugin "daisyui/theme" {
     name: "deepcat";
     default: true;
