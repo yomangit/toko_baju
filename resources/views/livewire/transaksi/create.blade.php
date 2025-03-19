@@ -63,7 +63,7 @@
                     </div>
                 </fieldset>
                 <form wire:submit.prevent='store'>
-                    <fieldset class="pb-0.5 fieldset ">
+                    <fieldset class="pb-0.5 fieldset capitalize">
                         <x-lable-req>{{ __('nama pakaian') }} </x-lable-req>
                         <x-text-input wire:model.live='nama_pakaian' :error="$errors->get('nama_pakaian')" type="text"
                             placeholder="Nama Pakaian" />
