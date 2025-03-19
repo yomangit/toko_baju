@@ -202,7 +202,7 @@
                             <fieldset
                                 class="flex flex-row h-20 px-4 border fieldset bg-base-100 border-base-300 rounded-b-xs">
                                 <legend class="fieldset-legend">Metode Pembayaran</legend>
-                                <label class="fieldset-label border-accent">
+                                <label class="rounded-md fieldset-label border-accent">
                                     <input type="radio" name="radio_pay" value="Cash"
                                         wire:model.live='pay_method' class="radio radio-xs" />
                                     Cash
