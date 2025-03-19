@@ -200,7 +200,7 @@
                                 </fieldset>
                             </fieldset>
                             <fieldset
-                                class="flex flex-row h-12 px-4 border fieldset bg-base-100 border-base-300 rounded-b-md">
+                                class="flex flex-row h-12 px-4 border rounded-md fieldset bg-base-100 border-base-300">
                                 <legend class="fieldset-legend">Metode Pembayaran</legend>
                                 <label class="rounded-md fieldset-label border-accent">
                                     <input type="radio" name="radio_pay" value="Cash"
