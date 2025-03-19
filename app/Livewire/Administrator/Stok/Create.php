@@ -27,7 +27,7 @@ class Create extends ModalComponent
     public $kategori_pakaian;
     #[Validate('nullable', message: 'kolom Warna pakaian tidak boleh kosong!!!')]
     public $warna_id;
-    #[Validate('required', message: 'kolom harga jual tidak boleh kosong!!!')]
+    #[Validate('required', message: 'kolom harga satuan tidak boleh kosong!!!')]
     public $harga_jual_rp;
     #[Validate('required', message: 'kolom harga pokok tidak boleh kosong!!!')]
     public $harga_pokok_rp;
