@@ -33,7 +33,7 @@
                 <legend class="fieldset-legend">Ukuran</legend>
                 <x-icon-btn-add class="tooltip-right" data-tip="Tambah Ukuran"
                     wire:click="$dispatch('tambah-ukuran')" />
-                <div class="flex flex-row bg-red-200 divide-x divide-dashed">
+                <div class="flex flex-row divide-x divide-dashed">
                     @foreach ($Ukuran as $index => $size)
                         <label class="px-1 fieldset-label">
                             <input type="checkbox" wire:model.live="ukuran_id" value="{{ $size->id }}"
@@ -56,12 +56,13 @@
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Harga Satuan') }}</x-lable-req>
-                <x-text-input wire:model.live='harga_jual' :error="$errors->get('harga_jual')" type="number" placeholder="Harga Jual" />
+                <x-text-input wire:model.live='harga_jual' :error="$errors->get('harga_jual')" id="harga_jual" type="text"
+                    placeholder="Harga Jual" />
                 <x-input-error :messages="$errors->get('harga_jual')" />
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Harga Pokok') }}</x-lable-req>
-                <x-text-input wire:model.live='harga_pokok' :error="$errors->get('harga_pokok')" type="number"
+                <x-text-input wire:model.live='harga_pokok' :error="$errors->get('harga_pokok')" id="harga_pokok" type="text"
                     placeholder="Harga Pokok" />
                 <x-input-error :messages="$errors->get('harga_pokok')" />
             </fieldset>
@@ -125,4 +126,60 @@
     <livewire:administrator.ukuran.create>
         <livewire:administrator.warna.create>
             <livewire:administrator.kategori.create>
+
+                <script>
+                    /* Dengan Rupiah */
+                    var dengan_rupiah = document.getElementById('harga_jual');
+                    dengan_rupiah.addEventListener('keyup', function(e) {
+                        dengan_rupiah.value = formatharga_jual(this.value, 'Rp. ');
+                    });
+                    /* Dengan Rupiah */
+                    var dengan_rupiah = document.getElementById('harga_pokok');
+                    dengan_rupiah.addEventListener('keyup', function(e) {
+                        dengan_rupiah.value = formatharga_pokok(this.value, 'Rp. ');
+                    });
+
+                    /* Fungsi harga_jual*/
+                    function formatharga_jual(angka, prefix) {
+                        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+
+                            split = number_string.split(','),
+                            sisa = split[0].length % 3,
+                            rupiah = split[0].substr(0, sisa),
+                            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+                        @this.set('harga_jual', number_string)
+                        if (ribuan) {
+                            separator = sisa ? '.' : '';
+                            rupiah += separator + ribuan.join('.');
+                        }
+
+                        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+
+
+
+                    }
+                    /* Fungsi harga_pokok*/
+                    function formatharga_pokok(angka, prefix) {
+                        var number_string = angka.replace(/[^,\d]/g, '').toString(),
+
+                            split = number_string.split(','),
+                            sisa = split[0].length % 3,
+                            rupiah = split[0].substr(0, sisa),
+                            ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+                        @this.set('harga_pokok', number_string)
+                        if (ribuan) {
+                            separator = sisa ? '.' : '';
+                            rupiah += separator + ribuan.join('.');
+                        }
+
+                        rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+                        return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
+
+
+
+                    }
+                </script>
 </div>
