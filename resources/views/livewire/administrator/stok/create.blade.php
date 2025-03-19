@@ -56,13 +56,15 @@
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Harga Satuan') }}</x-lable-req>
-                <x-text-input :error="$errors->get('harga_jual')" id="harga_jual" type="text" placeholder="Harga Jual" />
-                <x-input-error :messages="$errors->get('harga_jual')" />
+                <x-text-input wire:model.live='harga_jual_rp' :error="$errors->get('harga_jual_rp')" id="harga_jual_rp" type="text"
+                    placeholder="Harga Jual" />
+                <x-input-error :messages="$errors->get('harga_jual_rp')" />
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-lable-req>{{ __('Harga Pokok') }}</x-lable-req>
-                <x-text-input :error="$errors->get('harga_pokok')" id="harga_pokok" type="text" placeholder="Harga Pokok" />
-                <x-input-error :messages="$errors->get('harga_pokok')" />
+                <x-text-input wire:model.live='harga_pokok_rp' :error="$errors->get('harga_pokok_rp')" id="harga_pokok_rp" type="text"
+                    placeholder="Harga Pokok" />
+                <x-input-error :messages="$errors->get('harga_pokok_rp')" />
             </fieldset>
             <fieldset class="pb-0.5 fieldset ">
                 <x-label>Foto Pakaian</x-label>
