@@ -127,14 +127,14 @@
 
                 <script>
                     /* Dengan Rupiah */
-                    var dengan_rupiah = document.getElementById('harga_jual');
-                    dengan_rupiah.addEventListener('keyup', function(e) {
-                        dengan_rupiah.value = formatharga_jual(this.value, 'Rp. ');
+                    var harga_jual = document.getElementById('harga_jual');
+                    harga_jual.addEventListener('keyup', function(e) {
+                        harga_jual.value = formatharga_jual(this.value, 'Rp. ');
                     });
                     /* Dengan Rupiah */
-                    var dengan_rupiah = document.getElementById('harga_pokok');
-                    dengan_rupiah.addEventListener('keyup', function(e) {
-                        dengan_rupiah.value = formatharga_pokok(this.value, 'Rp. ');
+                    var harga_pokok = document.getElementById('harga_pokok');
+                    harga_pokok.addEventListener('keyup', function(e) {
+                        harga_pokok.value = formatharga_pokok(this.value, 'Rp. ');
                     });
 
                     /* Fungsi harga_jual*/
