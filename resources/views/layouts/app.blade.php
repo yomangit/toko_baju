@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="deepcat" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html data-theme="sunnyunicorn" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
