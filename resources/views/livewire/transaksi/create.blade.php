@@ -199,9 +199,10 @@
                                         :error="$errors->get('harga_satuan')" readonlytype="number" placeholder="0" />
                                 </fieldset>
                             </fieldset>
-                            <fieldset class="h-20 px-4 border fieldset bg-base-100 border-base-300 rounded-b-xs">
+                            <fieldset
+                                class="flex flex-row h-20 px-4 border fieldset bg-base-100 border-base-300 rounded-b-xs">
                                 <legend class="fieldset-legend">Metode Pembayaran</legend>
-                                <label class="fieldset-label">
+                                <label class="fieldset-label border-accent">
                                     <input type="radio" name="radio_pay" value="Cash"
                                         wire:model.live='pay_method' class="radio radio-xs" />
                                     Cash
