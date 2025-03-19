@@ -4,7 +4,7 @@
         <div class="justify-self-center md:justify-self-start">
             <fieldset class="items-stretch px-4 border shadow-md card w-xs bg-base-200 border-base-300 rounded-box">
                 <legend class="fieldset-legend">Data Pakaian</legend>
-                <fieldset class="pb-0.5 fieldset ">
+                <fieldset class="pb-0.5 fieldset capitalize">
                     <div class="dropdown dropdown-center">
                         <div class="relative flex items-center">
                             <input id="11" wire:model.live='customer_name' type="text" tabindex="0"
@@ -31,7 +31,7 @@
                         </ul>
                     </div>
                 </fieldset>
-                <fieldset class="pb-0.5 fieldset ">
+                <fieldset class="pb-0.5 fieldset capitalize">
                     <div class="dropdown dropdown-center">
                         <div class="relative flex items-center">
                             <input id="11" wire:model.live='search' type="text" tabindex="0" role="button"
@@ -79,7 +79,7 @@
                             placeholder="Harga Satuan" />
                         <x-input-error :messages="$errors->get('harga_satuan')" />
                     </fieldset>
-                    <div class="flex gap-4">
+                    <div class="flex gap-4 capitalize">
                         <fieldset class=" fieldset">
                             <x-lable-req>{{ __('Jumlah') }}</x-lable-req>
                             <div class="flex gap-1">
